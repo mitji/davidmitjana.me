@@ -13,7 +13,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "prettier-watch": "onchange \"**/*.{js,jsx,ts,tsx,json,md,mdx}\" -- prettier --write {{changed}}"
+    "prettier-watch": "onchange \"**/*.{js,jsx,ts,tsx,json,md,mdx}\" -- prettier --write {{changed}}",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js"
   },
   "license": "0BSD",
   "dependencies": {
@@ -25,7 +27,15 @@
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
     "onchange": "^7.1.0",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "typescript": "^4.1.2"
   }
 }
