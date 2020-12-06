@@ -1,9 +1,9 @@
 {
-  "name": "blog",
+  "name": "davidmitjana.me",
   "version": "1.0.0",
   "private": true,
-  "description": "My Gatsby site",
-  "author": "mitji",
+  "description": "Web Developer. My little corner of the internet",
+  "author": "David Mitjana <contact@davidmitjana.me>",
   "keywords": [
     "gatsby"
   ],
@@ -12,12 +12,26 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prettier-watch": "onchange \"**/*.{js,jsx,ts,tsx,json,md,mdx}\" -- prettier --write {{changed}}"
   },
   "license": "0BSD",
   "dependencies": {
     "gatsby": "^2.26.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "onchange": "^7.1.0",
+    "prettier": "2.2.1"
   }
 }
