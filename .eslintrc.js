@@ -26,6 +26,7 @@ module.exports = {
     'eol-last': 'error',
     '@typescript-eslint/quotes': ['error', 'single'],
     indent: ['error', 2, { SwitchCase: 1 }],
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.tsx'] }],
     // '@typescript-eslint/naming-convention': [
     //   'error',
     //   {
