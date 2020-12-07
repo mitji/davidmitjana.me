@@ -21,16 +21,17 @@ module.exports = {
   },
   rules: {
     'jsx-quotes': ['error', 'prefer-double'],
+    'import/prefer-default-export': 'off',
     quotes: 'off',
     'eol-last': 'error',
     '@typescript-eslint/quotes': ['error', 'single'],
     indent: ['error', 2, { SwitchCase: 1 }],
-    '@typescript-eslint/naming-convention': [
-      'error',
-      {
-        'selector': 'variable',
-        'format': ['camelCase']
-      }
-    ]
+    // '@typescript-eslint/naming-convention': [
+    //   'error',
+    //   {
+    //     'selector': 'variable',
+    //     'format': ['camelCase']
+    //   }
+    // ]
   },
 }
