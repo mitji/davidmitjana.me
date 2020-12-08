@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*", "gatsby-config.js", "gatsby-browser.js", "gatsby-ssr.js", ".eslintrc.js"],
+  "include": ["src/**/*", "gatsby-config.js", "gatsby-browser.js", "gatsby-ssr.js", "gatsby-node.js", ".eslintrc.js"],
   "compilerOptions": {
     "target": "esnext",
     "lib": [
