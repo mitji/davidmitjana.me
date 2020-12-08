@@ -1,0 +1,63 @@
+import React from 'react';
+import {Link} from 'gatsby';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  padding: 1rem;
+  margin-top: 2rem;
+  border: 1px solid #e1e1e1;
+  /* transition: 0.3s; */
+  h2 {
+    color: #000000;
+  }
+  p {
+    color: #7e7e7e;
+  }
+  .post {
+    &__info {
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+    }
+    &__excerpt {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+  }
+  &:hover {
+    border: 1px solid #7c7c7c;
+  }
+`
+
+type PostPrevieProps = {
+  date: string,
+  excerpt: string,
+  timeToRead: number,
+  title: string,
+  to: string,
+  tags?: Array<string>
+}
+
+export function PostPreview(props: PostPrevieProps) {
+  const { date, excerpt, tags, timeToRead, title, to} = props;
+  return (
+    <Link to={to}>
+      <Wrapper>
+        <p className="post__info">
+          {date}
+          {' '}
+          · 
+          {' '}
+          {timeToRead}
+          {' '}
+          min read
+        </p>
+        <h2>{title}</h2>
+       
+        <p className="post__excerpt">{excerpt}</p>
+      </Wrapper>
+    </Link>
+  )
+}
+
+

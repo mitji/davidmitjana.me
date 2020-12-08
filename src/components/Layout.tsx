@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const SLayout = styled.div`
   max-width: 750px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+  margin: 4rem auto;
+  padding: 0 1.25rem;
 `
 
-export function Layout(props: { children: JSX.Element }) {
+export function Layout(props: { children: React.ReactNode }) {
   const { children } = props;
   return (
     <SLayout>
