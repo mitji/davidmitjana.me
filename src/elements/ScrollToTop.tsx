@@ -17,6 +17,7 @@ const ToTopButton = styled.button<{show: boolean}>`
   cursor: pointer;
   opacity: ${props => props.show ? '1' : '0'};
   transition: all 0.3s;
+  border-radius: 100%;
   &:hover {
     background-color: #e1e1e1;
   }
