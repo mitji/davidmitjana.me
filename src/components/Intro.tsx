@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, RefObject } from 'react';
 import styled from 'styled-components';
-import { SH1, NavLink } from '../elements';
+import { SH1, InnerLink } from '../elements';
 import { media } from '../utils';
 import { useMousePosition, useWindowDimensions } from '../hooks';
 
@@ -15,6 +15,9 @@ const IntroWrapper = styled.div`
       z-index: 1;
       margin-bottom: 0;
     }
+    ${media.lessThan(445)} {
+      max-height: 180px;
+    }
   }
 `
 
@@ -25,10 +28,11 @@ const Circle = styled.div`
   width: 160px;
   height: 160px;
   transform: translate3d(-45%,-20%,0);
-  ${media.lessThan(560)} {
+  ${media.lessThan(618)} {
     transform: translate3d(0,0,0);
     position: absolute;
     right: 35%;
+    z-index: -1;
   }
 `
 
@@ -132,9 +136,9 @@ export function Intro() {
       <SIntroInfo>
         <p>Web Developer</p>
         <p>A/V Systems Engineer</p>
-        <NavLink to="about">
+        <InnerLink to="about">
           More about me
-        </NavLink>
+        </InnerLink>
       </SIntroInfo>
     </IntroWrapper>
   )

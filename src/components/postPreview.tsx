@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   padding: 1rem;
-  margin-top: 2rem;
-  border: 1px solid #e1e1e1;
-  /* transition: 0.3s; */
+  margin-bottom: 1.5rem;
+  box-shadow: 2px 2px 9px 0px #e1e1e1;
+  transition: 0.3s;
+  border-radius: 3px;
   h2 {
     color: #000000;
   }
@@ -25,7 +26,7 @@ const Wrapper = styled.div`
     }
   }
   &:hover {
-    border: 1px solid #7c7c7c;
+    box-shadow: 2px 2px 9px 0px #bbbbbb;
   }
 `
 

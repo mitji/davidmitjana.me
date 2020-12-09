@@ -16,9 +16,6 @@ const SNavWrapper = styled.nav<NavWrapperProps>`
   transform: ${props => props.showNav ? 'translate3d(0,0,0)' : 'translate3d(0,-100%,0);'};
   transition: all 0.5s;
   transition-delay: 0.2s;
-  ${media.lessThan(560)} {
-    padding: 1rem 1.25rem;
-  }
 `
 
 const SNav = styled.div`

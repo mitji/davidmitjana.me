@@ -23,7 +23,7 @@ export const SimpleCTA = styled.a`
     }
   }
 `
-export const NavLink = styled(Link)`
+export const InnerLink = styled(Link)`
   position: relative;
   cursor: pointer;
   color: #009BF9;
@@ -42,6 +42,8 @@ export const NavLink = styled(Link)`
     padding-left: 8px;
     padding-right: 25px;
     background: #e7e7e7;
+    /* box-shadow: 2px 2px 9px 0px #cccccc; */
+
     &:after {
       opacity: 1;
       transform: translate3d(-7px,-50%,0);
@@ -50,4 +52,11 @@ export const NavLink = styled(Link)`
   &:active {
     transform: scale(0.97);
   }
+`
+
+export const OuterLink = styled.a`
+  cursor: pointer;
+  color: #009BF9;
+  text-decoration: underline;
+  text-decoration-style: dotted;
 `

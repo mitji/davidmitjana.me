@@ -31,6 +31,7 @@ export default function BlogPost(props: { data: any }) {
           ·
           {' '}
           {post.timeToRead}
+          {' '}
           min read
         </span>
         <br />

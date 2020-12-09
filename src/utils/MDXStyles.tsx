@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react'
-import { SText } from '../elements';
+import { OuterLink, SText } from '../elements';
 
 export function MDXStyles(props: {children: React.ReactNode}) {
   const { children } = props;
@@ -8,7 +8,8 @@ export function MDXStyles(props: {children: React.ReactNode}) {
   return (
     <MDXProvider
       components={{
-        p: (props) => <SText {...props} />
+        p: (props) => <SText {...props} />,
+        OuterLink
       }}
     >
       {children}
