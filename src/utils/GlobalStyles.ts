@@ -47,7 +47,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     /* Track */
     &::-webkit-scrollbar-track {
-      border: 1px solid #81A1C1;
+      border: 1px solid #64a1f6;
     }
     
     /* Handle */
@@ -57,7 +57,7 @@ export const GlobalStyles = createGlobalStyle`
     
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-      background: #5FBAD6;
+      background: #64a1f6;
     }
   }
 `

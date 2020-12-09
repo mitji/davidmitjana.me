@@ -23,15 +23,15 @@ const SName = styled.h3`
     background: transparent;
     transition: 0.4s;
     span {
-      background: #81A1C1;
+      background: #64a1f6;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }
   .long-surname {
     position: absolute;
-    color: #81A1C1;
-    font-size: 0.95rem;
+    color: #64a1f6;
+    font-size: 0.92rem;
     letter-spacing: 0.75px;
     transition: 0.7s;
     transform: translate3d(0, -50%, 0);

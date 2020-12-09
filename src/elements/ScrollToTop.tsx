@@ -10,7 +10,6 @@ const ToTopButton = styled.button<{show: boolean}>`
   outline: none;
   padding: 0.75rem;
   background-color: #e1e1e1a3;
-  color: #4a4a4a;
   position: fixed;
   bottom: 2vw;
   right: 2vw;
@@ -25,7 +24,7 @@ const ToTopButton = styled.button<{show: boolean}>`
     width: 18px;
     transform: rotate(180deg);
     polygon {
-      fill: #4a4a4a !important;
+      fill: #6a727a !important;
     }
   }
 `
