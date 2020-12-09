@@ -21,7 +21,7 @@ exports.createPages = async({ graphql, actions}) => {
   // create page for each blogpost
   result.data.allMdx.edges.forEach((edge) => {
     createPage({
-      path: edge.node.frontmatter.slug,
+      path: `/${edge.node.frontmatter.slug}`,
       component: path.resolve('./src/templates/blogPost.tsx'),
       context: {id: edge.node.id}
     })
