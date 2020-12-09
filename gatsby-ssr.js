@@ -1,29 +1,18 @@
-const path = require('path');
+import React from 'react';
+import { GlobalStyles, MDXStyles } from './src/utils';
+import { Footer, Navbar } from './src/components';
+import { ScrollToTop } from './src/elements';
 
-exports.createPages = async({ graphql, actions}) => {
-  const { createPage } = actions;
-  // get all posts
-  const result = await graphql(`
-    query {
-      allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-        edges {
-          node {
-            id
-            frontmatter {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  // create page for each blogpost
-  result.data.allMdx.edges.forEach((edge) => {
-    createPage({
-      path: edge.node.frontmatter.slug,
-      component: path.resolve('./src/templates/blogPost.tsx'),
-      context: {id: edge.node.id}
-    })
-  })
+export function wrapRootElement({element}) {
+  return (
+    <>
+      <GlobalStyles />
+      <Navbar />
+      <MDXStyles>
+        {element}
+      </MDXStyles>
+      <ScrollToTop />
+      <Footer />
+    </>
+  )
 }
