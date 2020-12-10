@@ -43,10 +43,9 @@ export function ScrollToTop() {
     const content = document.getElementById('___gatsby'); 
     if (content && viewportWidth) {
       const scrollPerc = Math.abs(document.body.getBoundingClientRect().top) * 100 / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-      console.log(scrollPerc);
       if (
         document.body.getBoundingClientRect().top < -200 &&
-        ((viewportWidth < 560 && scrollPerc < 92) || scrollPerc < 85)
+        ((viewportWidth < 560 && scrollPerc < 88) || scrollPerc < 85)
       ) {
         setShow(true);
         // check for each small breakpoint in which scroll percentage hide scrollBar

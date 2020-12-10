@@ -7,7 +7,7 @@ const SLayout = styled.div`
   margin: 4rem auto;
   padding: 0 1.25rem;
   ${media.lessThan(560)} {
-    margin: 0.5rem auto;
+    margin: 2rem auto;
   }
 `
 

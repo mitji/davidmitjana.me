@@ -29,6 +29,7 @@ const SNav = styled.div`
   ${media.lessThan(560)} {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1.25rem 20px;
   }
 `
 
@@ -54,13 +55,13 @@ const SNavLinksWrapper = styled.ul`
       letter-spacing: 1px;
       display: flex;
       align-items: center;
-      &:hover {
-        /* color: #81A1C1; */
+      ${media.lessThan(560)} {
+        padding: 0.75rem 1.5rem;
       }
     }
   }
   ${media.lessThan(560)} {
-    margin-top: 5px;
+    margin-top: 0.75rem;
     width: 100%;
     justify-content: space-between;
   }

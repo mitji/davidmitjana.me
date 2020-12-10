@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { media } from '../utils/MediaQueries';
 
 export const SimpleCTA = styled.a`
   position: relative;
@@ -37,6 +38,9 @@ export const InnerLink = styled(Link)`
     opacity: 0;
     transform: translate3d(15px,-50%,0);
     transition: 0.5s;
+    ${media.lessThan(560)} {
+      opacity: 1;
+    }
   }
   &:hover {
     padding-left: 8px;

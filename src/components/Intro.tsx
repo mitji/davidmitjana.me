@@ -31,7 +31,7 @@ const Circle = styled.div`
   ${media.lessThan(618)} {
     transform: translate3d(0,0,0);
     position: absolute;
-    right: 35%;
+    right: 15%;
     z-index: -1;
   }
 `
