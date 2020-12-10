@@ -41,7 +41,7 @@ export const InnerLink = styled(Link)`
   &:hover {
     padding-left: 8px;
     padding-right: 25px;
-    background: #e7e7e7;
+    background: #ececec;
     /* box-shadow: 2px 2px 9px 0px #cccccc; */
 
     &:after {

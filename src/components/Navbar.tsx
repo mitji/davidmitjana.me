@@ -36,33 +36,26 @@ const SNavLinksWrapper = styled.ul`
   display: flex;
   list-style: none;
   li {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.3s;
     &:last-of-type {
       margin-right: 0;
     }
+    &:hover {
+      background: #f0f0f0;
+    }
     a {
+      padding: 0.5rem 0.75rem;
       font-size: 1.13rem;
-      color: #000000;
+      color: #333333;
       font-weight: 300;
       letter-spacing: 1px;
-      &:after {
-        display: block;
-        position: relative;
-        margin-top: 2px;
-        background-color: #876D9C;
-        content: "";
-        height: 2px;
-        width: 0px;
-        opacity: 0;
-        transition: width 300ms, opacity 400ms;
-      }
+      display: flex;
+      align-items: center;
       &:hover {
-        color: #81A1C1;
-        &:after {
-          height: 2px;
-          opacity: 1;
-          width: 100%; 
-        }
+        /* color: #81A1C1; */
       }
     }
   }
