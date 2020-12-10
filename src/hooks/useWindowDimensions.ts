@@ -8,12 +8,15 @@ function getWindowDimensions() {
       height
     };
   } else {
-    return null
+    return {
+      width: null,
+      height: null
+    }
   }
 }
 
 export function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState<{width: number, height: number} | null>(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState<{width: number | null, height: number | null}>(getWindowDimensions());
 
   useEffect(() => {
     function handleResize() {
