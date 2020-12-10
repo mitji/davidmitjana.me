@@ -38,11 +38,12 @@ const SFooter = styled.div`
             fill: #81A1C1;
           }
         }
+        ${media.lessThan(560)} {
+          width: 28px;
+          height: 28px;
+        }
       }
     }
-  }
-  ${media.lessThan(560)} {
-    /* justify-content: center; */
   }
 `
 
@@ -55,7 +56,7 @@ export function Footer() {
   }, []);
 
   return (
-    <FooterWrapper>
+    <FooterWrapper id="footer">
       <SFooter>
         <div>
           <p>
