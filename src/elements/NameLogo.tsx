@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const SName = styled.h3`
   font-size: 1.75rem;
   position: relative;
-  color: #000000;
+  color: #333333;
   .hidden-name {
     opacity: 0;
     display: inline-block;
@@ -42,7 +42,7 @@ const SName = styled.h3`
   }
   :hover {
     .hidden-name {
-      color: #000000;
+      color: #333333;
       opacity: 1;
       transition-delay: 0s;
     }

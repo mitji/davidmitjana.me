@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   transition: 0.3s;
   border-radius: 3px;
   h2 {
-    color: #000000;
+    color: #333333;
   }
   p {
     color: #7e7e7e;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
       margin-bottom: 1.25rem;
     }
     &__excerpt {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       margin-top: 0.5rem;
       font-weight: 300;
     }
