@@ -15,6 +15,7 @@ const ToTopButton = styled.button<{show: boolean}>`
   bottom: 2rem;
   right: 2rem;
   cursor: pointer;
+  visibility: ${props => props.show ? 'visible' : 'hidden'};
   opacity: ${props => props.show ? '1' : '0'};
   transition: all 0.3s;
   border-radius: 100%;
