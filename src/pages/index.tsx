@@ -1,35 +1,50 @@
 import React from 'react';
+import { graphql, useStaticQuery} from 'gatsby';
 import { SH4 } from '../elements';
 import { Intro, Layout, PostPreview } from '../components';
 
 export default function Home() {
   // query last three posts
+  const data = useStaticQuery(graphql`
+    query {
+      allMdx ( limit: 3, sort: {fields: frontmatter___date, order: DESC} ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              slug
+              excerpt
+              date(formatString: "DD MMM YYYY")
+            }
+            id
+            timeToRead
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <>
       <Layout>
         <Intro />
         <SH4 border>Latest Posts</SH4>
-        <PostPreview
-          date="15 Sep 2020"
-          excerpt="This is the description of the post"
-          timeToRead={2}
-          title="Hello World"
-          to="blog/hello-world"
-        />
-        <PostPreview
-          date="15 Sep 2020"
-          excerpt="This is the description of the post"
-          timeToRead={2}
-          title="Hello World"
-          to="blog/hello-world"
-        />
-        <PostPreview
-          date="15 Sep 2020"
-          excerpt="This is the description of the post"
-          timeToRead={2}
-          title="Hello World"
-          to="blog/hello-world"
-        />
+        {data && (
+          // TO DO: define post type
+          data.allMdx.edges.map((edge: any) => {
+            const postData = edge.node.frontmatter;
+            return (
+              <PostPreview 
+                date={postData.date}
+                excerpt={postData.excerpt}
+                timeToRead={edge.node.timeToRead}
+                title={postData.title}
+                to={`blog/${postData.slug}`}
+                key={edge.node.id}
+              />
+            )
+          })
+        )}
         <SH4 border>Projects</SH4>
       </Layout>
     </>

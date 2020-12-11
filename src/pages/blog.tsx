@@ -9,7 +9,7 @@ export default function Blog() {
 
   const data = useStaticQuery(graphql`
     query {
-      allMdx {
+      allMdx ( sort: {fields: frontmatter___date, order: DESC} ) {
         edges {
           node {
             frontmatter {
@@ -19,6 +19,7 @@ export default function Blog() {
               date(formatString: "DD MMM YYYY")
             }
             id
+            timeToRead
           }
         }
       }
@@ -33,14 +34,14 @@ export default function Blog() {
     <Layout>
       <SH1>Blog</SH1>
       {posts && (
-        // define post type
-        posts.map((edge: any, i) => {
+        // TO DO: define post type
+        posts.map((edge: any) => {
           const postData = edge.node.frontmatter;
           return (
             <PostPreview 
               date={postData.date}
               excerpt={postData.excerpt}
-              timeToRead={2}
+              timeToRead={edge.node.timeToRead}
               title={postData.title}
               to={postData.slug}
               key={edge.node.id}
