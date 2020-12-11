@@ -48,7 +48,6 @@ export function ScrollToTop() {
         ((viewportWidth < 560 && scrollPerc < 88) || scrollPerc < 85)
       ) {
         setShow(true);
-        // check for each small breakpoint in which scroll percentage hide scrollBar
       } else {
         setShow(false);
       }

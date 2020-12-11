@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { NameLogo } from '../elements';
 import { media } from '../utils';
 
-type NavWrapperProps = { showNav: boolean }
-const SNavWrapper = styled.nav<NavWrapperProps>`
+const SNavWrapper = styled.nav<{ showNav: boolean }>`
   width: 100%;
   position: sticky;
   top: 0;
@@ -56,8 +55,12 @@ const SNavLinksWrapper = styled.ul`
       display: flex;
       align-items: center;
       ${media.lessThan(560)} {
-        padding: 0.75rem 1.5rem;
+        padding: 0.75rem 0;
+        justify-content: center;
       }
+    }
+    ${media.lessThan(560)} {
+      width: 33.3%;
     }
   }
   ${media.lessThan(560)} {

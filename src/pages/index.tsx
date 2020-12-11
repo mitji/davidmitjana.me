@@ -3,6 +3,7 @@ import { SH4 } from '../elements';
 import { Intro, Layout, PostPreview } from '../components';
 
 export default function Home() {
+  // query last three posts
   return (
     <>
       <Layout>
@@ -13,21 +14,21 @@ export default function Home() {
           excerpt="This is the description of the post"
           timeToRead={2}
           title="Hello World"
-          to="/hello-world"
+          to="blog/hello-world"
         />
         <PostPreview
           date="15 Sep 2020"
           excerpt="This is the description of the post"
           timeToRead={2}
           title="Hello World"
-          to="/hello-world"
+          to="blog/hello-world"
         />
         <PostPreview
           date="15 Sep 2020"
           excerpt="This is the description of the post"
           timeToRead={2}
           title="Hello World"
-          to="/hello-world"
+          to="blog/hello-world"
         />
         <SH4 border>Projects</SH4>
       </Layout>
