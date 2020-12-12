@@ -21,7 +21,6 @@ module.exports = {
         path: `${__dirname}/src/assets`
       }
     },
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
@@ -59,6 +58,7 @@ module.exports = {
           include: /assets/
         }
       }
-    }
+    },
+    'gatsby-plugin-styled-components'
   ],
 };

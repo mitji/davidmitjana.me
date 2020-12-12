@@ -11,12 +11,14 @@ const IntroWrapper = styled.div`
     flex-wrap: wrap;
     max-height: 125px;
     h1 {
-      font-size: 3rem;
       z-index: 1;
       margin-bottom: 0;
     }
     ${media.lessThan(445)} {
       max-height: 180px;
+    }
+    ${media.lessThan(618)} {
+      position: relative;
     }
   }
 `
@@ -31,7 +33,8 @@ const Circle = styled.div`
   ${media.lessThan(618)} {
     transform: translate3d(0,0,0);
     position: absolute;
-    right: 15%;
+    right: 0;
+    top: -4vh;
     z-index: -1;
   }
 `
@@ -42,6 +45,9 @@ const SIntroInfo = styled.div`
     font-size: 1.25rem;
     font-weight: 300;
     letter-spacing: 1px;
+    ${media.lessThan(560)} {
+      font-size: 1.125rem;
+    }
   }
   a {
     display: inline-block;

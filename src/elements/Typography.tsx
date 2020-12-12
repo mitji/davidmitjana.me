@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../utils/MediaQueries';
 
 export const SText = styled.p`
   font-size: 1.25rem;
@@ -9,6 +10,9 @@ export const SText = styled.p`
   strong {
     font-weight: 600;
   }
+  ${media.lessThan(560)} {
+    font-size: 1rem;
+  }
 `
 
 export const SH1 = styled.h1`
@@ -18,6 +22,10 @@ export const SH1 = styled.h1`
   font-weight: 900;
   /* font-family: 'Montserrat', Arial Black, Arial, Helvetica, sans-serif; */
   margin-bottom: 2rem;
+  word-break: break-word;
+  ${media.lessThan(560)} {
+    font-size: 2.25rem;
+  }
 `
 
 type H4Props = {
