@@ -1,18 +1,17 @@
-import React from 'react';
-import { GlobalStyles, MDXStyles } from './src/utils';
-import { Footer, Navbar } from './src/components';
-import { ScrollToTop } from './src/elements';
+const React = require('react');
+const { GlobalStyles, MDXStyles } = require('./src/utils');
+const { Footer, Navbar } = require('./src/components');
+const { ScrollToTop } = require('./src/elements')
 
-export function wrapRootElement({element}) {
-  return (
-    <>
-      <GlobalStyles />
-      <Navbar />
-      <MDXStyles>
-        {element}
-      </MDXStyles>
-      <ScrollToTop />
-      <Footer />
-    </>
-  )
-}
+// eslint-disable-next-line react/prop-types
+exports.wrapRootElement = ({element}) => (
+  <>
+    <GlobalStyles />
+    <Navbar />
+    <MDXStyles>
+      {element}
+    </MDXStyles>
+    <ScrollToTop />
+    <Footer />
+  </>
+)

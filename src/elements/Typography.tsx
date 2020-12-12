@@ -10,9 +10,9 @@ export const SText = styled.p`
   strong {
     font-weight: 600;
   }
-  /* ${media.lessThan(560)} {
-    font-size: 1rem;
-  } */
+  ${media.lessThan(560)} {
+    font-size: 1.125rem;
+  }
 `
 
 export const SH1 = styled.h1`
