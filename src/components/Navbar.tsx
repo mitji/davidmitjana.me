@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { NameLogo } from '../elements';
+import { NameLogo, ThemeToggler } from '../elements';
 import { media } from '../utils';
 
 const SNavWrapper = styled.nav<{ showNav: boolean }>`
@@ -15,6 +15,14 @@ const SNavWrapper = styled.nav<{ showNav: boolean }>`
   transform: ${props => props.showNav ? 'translate3d(0,0,0)' : 'translate3d(0,-100%,0);'};
   transition: all 0.5s;
   transition-delay: 0.2s;
+  .theme-toggler {
+    margin-left: 20px;
+    ${media.lessThan(560)} {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+    }
+  }
 `
 
 const SNav = styled.div`
@@ -29,6 +37,13 @@ const SNav = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding: 1.25rem 20px;
+  }
+  .nav-utils {
+    display: flex;
+    align-items: center;
+    ${media.lessThan(560)} {
+      width: 100%;
+    }
   }
 `
 
@@ -104,11 +119,14 @@ export function Navbar() {
     <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
       <SNav>
         <NameLogo />
-        <SNavLinksWrapper>
-          <NavLink to="/blog" text="Blog" />
-          <NavLink to="/about" text="About" />
-          <NavLink to="/contact" text="Contact" />
-        </SNavLinksWrapper>
+        <div className="nav-utils">
+          <SNavLinksWrapper>
+            <NavLink to="/blog" text="Blog" />
+            <NavLink to="/about" text="About" />
+            <NavLink to="/contact" text="Contact" />
+          </SNavLinksWrapper>
+          <ThemeToggler />
+        </div>
       </SNav>
     </SNavWrapper>
   )
