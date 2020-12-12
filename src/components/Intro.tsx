@@ -4,7 +4,6 @@ import { SH1, InnerLink } from '../elements';
 import { media } from '../utils';
 import { useMousePosition, useWindowDimensions } from '../hooks';
 
-
 const IntroWrapper = styled.div`
   .title {
     display: flex;

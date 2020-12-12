@@ -28,30 +28,26 @@ export default function Home() {
   `);
 
   return (
-    <>
-    {hasMounted ? (
-      <Layout>
-        <Intro />
-        <SH4 border>Latest Posts</SH4>
-        {data && (
-          // TO DO: define post type
-          data.allMdx.edges.map((edge: any) => {
-            const postData = edge.node.frontmatter;
-            return (
-              <PostPreview 
-                date={postData.date}
-                excerpt={postData.excerpt}
-                timeToRead={edge.node.timeToRead}
-                title={postData.title}
-                to={`blog/${postData.slug}`}
-                key={edge.node.id}
-              />
-            )
-          })
-        )}
-        <SH4 border>Projects</SH4>
-      </Layout>
-    ) : null}
-    </>
+    <Layout>
+      <Intro />
+      <SH4 border>Latest Posts</SH4>
+      {data && (
+        // TO DO: define post type
+        data.allMdx.edges.map((edge: any) => {
+          const postData = edge.node.frontmatter;
+          return (
+            <PostPreview 
+              date={postData.date}
+              excerpt={postData.excerpt}
+              timeToRead={edge.node.timeToRead}
+              title={postData.title}
+              to={`blog/${postData.slug}`}
+              key={edge.node.id}
+            />
+          )
+        })
+      )}
+      <SH4 border>Projects</SH4>
+    </Layout>
   )
 }
