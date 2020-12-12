@@ -1,9 +1,12 @@
 import React from 'react';
 import { graphql, useStaticQuery} from 'gatsby';
 import { SH4 } from '../elements';
+import { useHasMounted } from '../hooks';
 import { Intro, Layout, PostPreview } from '../components';
 
 export default function Home() {
+  const hasMounted = useHasMounted();
+
   // query last three posts
   const data = useStaticQuery(graphql`
     query {
@@ -26,6 +29,7 @@ export default function Home() {
 
   return (
     <>
+    {hasMounted ? (
       <Layout>
         <Intro />
         <SH4 border>Latest Posts</SH4>
@@ -47,6 +51,7 @@ export default function Home() {
         )}
         <SH4 border>Projects</SH4>
       </Layout>
+    ) : null}
     </>
   )
 }

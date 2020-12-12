@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-// TODO: define types for *.svg
 import Github from '../assets/github.svg';
 import Linkedin from '../assets/linkedin.svg';
 import Email from '../assets/email.svg';
+import { useHasMounted } from '../hooks';
 import { media } from '../utils';
 
 const FooterWrapper = styled.footer`
@@ -49,37 +49,41 @@ const SFooter = styled.div`
 
 export function Footer() {
   const [year, setYear] = useState<number | null>(null);
-
+  const hasMounted = useHasMounted()
   useEffect(() => {
     const date = new Date();
     setYear(date.getFullYear());
   }, []);
 
   return (
-    <FooterWrapper id="footer">
-      <SFooter>
-        <div>
-          <p>
-            &copy;
+    <>
+    {hasMounted ? (
+      <FooterWrapper id="footer">
+        <SFooter>
+          <div>
+            <p>
+              &copy;
+              {' '}
+              {year || ''}
+              {' '}
+              by mitji
+            </p>
+          </div>
+          <div className="contact">
+            <a href="https://github.com/mitji" target="_blank" rel="noreferrer">
+              <Github />
+            </a>
             {' '}
-            {year || ''}
-            {' '}
-            by mitji
-          </p>
-        </div>
-        <div className="contact">
-          <a href="https://github.com/mitji" target="_blank" rel="noreferrer">
-            <Github />
-          </a>
-          {' '}
-          <a href="https://www.linkedin.com/in/david-mitjana-castro" target="_blank" rel="noreferrer">
-            <Linkedin />
-          </a>
-          <a href="mailto:contact@davidmitjana.me">
-            <Email />
-          </a>
-        </div>
-      </SFooter>
-    </FooterWrapper>
+            <a href="https://www.linkedin.com/in/david-mitjana-castro" target="_blank" rel="noreferrer">
+              <Linkedin />
+            </a>
+            <a href="mailto:contact@davidmitjana.me">
+              <Email />
+            </a>
+          </div>
+        </SFooter>
+      </FooterWrapper>
+    ) : null}
+    </>
   )
 }

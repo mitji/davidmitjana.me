@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Label = styled.label`
@@ -67,8 +67,8 @@ export function ThemeToggler() {
 
   const [theme, setTheme] = useState<string>('light');
 
-  function darkThemeHandler() {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+  function darkThemeHandler(e: SyntheticEvent) {
+    setTheme(e.target.checked ? 'dark' : 'light');
   }
 
   useEffect(() => {
