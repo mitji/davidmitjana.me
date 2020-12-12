@@ -18,7 +18,7 @@ export function Layout(props: { children: React.ReactNode }) {
   return (
     <SLayout>
       {hasMounted ? (
-        {children}
+        children
       ) : null}
     </SLayout>
   )
