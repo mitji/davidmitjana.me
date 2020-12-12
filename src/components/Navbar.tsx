@@ -53,19 +53,16 @@ const SNavLinksWrapper = styled.ul`
   list-style: none;
   li {
     margin-right: 0.5rem;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: 0.3s;
     &:last-of-type {
       margin-right: 0;
     }
-    &:hover {
-      background: #f0f0f0;
-    }
     a {
       padding: 0.5rem 0.75rem;
-      font-size: 1.13rem;
-      color: #333333;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: 0.3s;
+      font-size: 1.125rem;
+      color: #4a4a4a;
       font-weight: 300;
       letter-spacing: 1px;
       display: flex;
@@ -73,6 +70,15 @@ const SNavLinksWrapper = styled.ul`
       ${media.lessThan(560)} {
         padding: 0.75rem 0;
         justify-content: center;
+      }
+      &:hover {
+        background: #F0F0F0;
+      }
+      &.active {
+        background: #F5F5F5;
+        &:hover {
+          background: #F0F0F0;
+        }
       }
     }
     ${media.lessThan(560)} {
@@ -86,11 +92,11 @@ const SNavLinksWrapper = styled.ul`
   }
 `
 
-const NavLink = ( props: { to: string, text: string } ) => {
-  const { to, text } = props;
+const NavLink = ( props: { to: string, text: string, activeClassName: string } ) => {
+  const { to, text, activeClassName } = props;
   return (
     <li>
-      <Link to={to}>{text}</Link>
+      <Link to={to} activeClassName={activeClassName}>{text}</Link>
     </li>
   )
 }
@@ -124,9 +130,9 @@ export function Navbar() {
           <NameLogo />
           <div className="nav-utils">
             <SNavLinksWrapper>
-              <NavLink to="/blog" text="Blog" />
-              <NavLink to="/about" text="About" />
-              <NavLink to="/contact" text="Contact" />
+              <NavLink to="/blog" text="Blog" activeClassName="active" />
+              <NavLink to="/about" text="About" activeClassName="active" />
+              <NavLink to="/contact" text="Contact" activeClassName="active" />
             </SNavLinksWrapper>
             <ThemeToggler />
           </div>
