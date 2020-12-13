@@ -26,7 +26,7 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
 
       window.localStorage.setItem('theme', newTheme);
 
-      Object.entries(COLORS).forEach(([name, colorCodes]) => {
+      Object.entries(COLORS).forEach(([name, colorCodes]: any) => {
         const cssVar = `--color-${name}`;
         root.style.setProperty(cssVar, colorCodes[newTheme]);
       })

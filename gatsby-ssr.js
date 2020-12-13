@@ -6,25 +6,22 @@ import { COLORS } from './src/constants';
 
 // Reference for this dark mode implementation: https://www.joshwcomeau.com/react/dark-mode/
 
-function getInitialTheme() {
-  // if user has already chosen the tlight or dark theme
-  const localStorageTheme = window.localStorage.getItem('theme');
-  if (typeof localStorageTheme === 'string') {
-    return localStorageTheme;
-  }
-
+function setColorsFromTheme() {
+  // default theme to 'light'
+  let theme = 'light';
   // if not, check OS color scheme with media query
   const osTheme = window.matchMedia('(prefers-color-scheme: dark)');
-  if (typeof osTheme.matches === 'boolean') {
-    return osTheme.matches ? 'dark' : 'light';
+  // if user has already chosen the tlight or dark theme
+  const localStorageTheme = localStorage.getItem('theme');
+
+  const hasUsedToggle = typeof localStorageTheme === 'string';
+
+  if (hasUsedToggle) {
+    theme = localStorageTheme;
+  } else {
+    theme = osTheme.matches ? 'dark' : 'light';
   }
 
-  // if no theme preference detected, default to 'light'
-  return 'light'
-}
-
-function setColorsFromTheme() {
-  const theme = getInitialTheme();
   const root = document.documentElement;
   root.style.setProperty('--initial-theme', theme);
 
@@ -38,9 +35,14 @@ function setColorsFromTheme() {
 
 const ThemeScripTag = () => {
   // we need to insert the script as a string that will be executed later as a function
-  const functionString = String(setColorsFromTheme).replace('\'🌈\'', JSON.stringify(COLORS));
+  const functionString = String(setColorsFromTheme)
+    .replace('\'🌈\'', JSON.stringify(COLORS))
+    .replace('\'⚡️\'', '--initial-theme');
+
+  const calledFunction = `(${functionString})()`;
+
   // eslint-disable-next-line react/no-danger
-  return <script dangerouslySetInnerHTML={{ __html: functionString }} />;
+  return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
 };
 
 // If the user has JS disabled, insert <style> tag  
@@ -58,6 +60,11 @@ const FallbackStyles = () => {
   return <style>{wrappedInSelector}</style>;
 }
 
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
+  setHeadComponents(<FallbackStyles />);
+  setPreBodyComponents(<ThemeScripTag />);
+};
+
 // eslint-disable-next-line react/prop-types
 export const wrapRootElement = ({element}) => (
   <ThemeProvider>
@@ -70,8 +77,3 @@ export const wrapRootElement = ({element}) => (
     <Footer />
   </ThemeProvider>
 )
-
-export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
-  setHeadComponents(<FallbackStyles />);
-  setPreBodyComponents(<ThemeScripTag />);
-};

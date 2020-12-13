@@ -1,6 +1,5 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import React, { SyntheticEvent, useContext } from 'react';
 import styled from 'styled-components';
-import { isNull } from 'util';
 import { ThemeContext } from '../utils';
 
 const Label = styled.label`
