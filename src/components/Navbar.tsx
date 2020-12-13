@@ -10,7 +10,7 @@ const SNavWrapper = styled.nav<{ showNav: boolean }>`
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--color-navbg);
+  background: var(--color-backgroundNav);
   backdrop-filter: blur(8px);
   /* show/hide nav */
   transform: ${props => props.showNav ? 'translate3d(0,0,0)' : 'translate3d(0,-100%,0);'};

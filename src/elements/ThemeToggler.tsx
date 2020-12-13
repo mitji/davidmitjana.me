@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { isNull } from 'util';
 import { ThemeContext } from '../utils';
 
 const Label = styled.label`
@@ -67,6 +68,10 @@ const Label = styled.label`
 export function ThemeToggler() {
   const { theme, updateTheme } = useContext(ThemeContext);
 
+  // if (!theme) {
+  //   return null
+  // }
+  
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <Label className="switch theme-toggler">

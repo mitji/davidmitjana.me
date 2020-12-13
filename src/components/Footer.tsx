@@ -8,7 +8,7 @@ import { media } from '../utils';
 
 const FooterWrapper = styled.footer`
   width: 100%;
-  background: var(--color-footerbg);
+  background: var(--color-backgroundFooter);
 `
 
 const SFooter = styled.div`

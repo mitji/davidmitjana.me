@@ -1,3 +1,5 @@
+// Reference for this dark mode implementation: https://www.joshwcomeau.com/react/dark-mode/
+
 import React, { createContext, useEffect, useMemo, useState, } from 'react';
 import { COLORS } from '../constants';
 
@@ -12,70 +14,34 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
   const { children } = props;
   const [theme, setTheme] = useState<string | undefined>(undefined);
 
-  function updateTheme(val: string) {
-    const root = window.document.documentElement;
-
-    // 1. Update theme
-    setTheme(val);
-
-    // 2. Save user preference to localStorage
-    window.localStorage.setItem('theme', val);
-    // 3. Update css variables
-    root.style.setProperty(
-      '--color-background',
-      val === 'light' ? COLORS.background.light : COLORS.background.dark
-    );
-
-    root.style.setProperty(
-      '--color-navbg',
-      theme === 'light' ? COLORS.navbg.light : COLORS.navbg.dark
-    );
-
-    root.style.setProperty(
-      '--color-footerbg',
-      theme === 'light' ? COLORS.footerbg.light : COLORS.footerbg.dark
-    );
-
-    root.style.setProperty(
-      '--color-title',
-      val === 'light' ? COLORS.title.light : COLORS.title.dark
-    );
-
-    root.style.setProperty(
-      '--color-text',
-      val === 'light' ? COLORS.text.light : COLORS.text.dark
-    );
-
-    root.style.setProperty(
-      '--color-boxShadow',
-      val === 'light' ? COLORS.boxShadow.light : COLORS.boxShadow.dark
-    );
-
-    root.style.setProperty(
-      '--color-gray1',
-      theme === 'light' ? COLORS.gray1.light : COLORS.gray1.dark
-    );
-
-    root.style.setProperty(
-      '--color-gray2',
-      theme === 'light' ? COLORS.gray2.light : COLORS.gray2.dark
-    );
-
-    root.style.setProperty(
-      '--color-gray3',
-      theme === 'light' ? COLORS.gray3.light : COLORS.gray3.dark
-    );
-
-  }
-
   useEffect(() => {
     const root = window.document.documentElement;
     const initialTheme = root.style.getPropertyValue('--initial-theme');
     setTheme(initialTheme);
   }, []);
 
+  const contextValue = useMemo(() => {
+    function updateTheme(newTheme: string) {
+      const root = window.document.documentElement;
+
+      window.localStorage.setItem('theme', newTheme);
+
+      Object.entries(COLORS).forEach(([name, colorCodes]) => {
+        const cssVar = `--color-${name}`;
+        root.style.setProperty(cssVar, colorCodes[newTheme]);
+      })
+
+      setTheme(newTheme);
+    }
+
+    return {
+      theme,
+      updateTheme
+    }
+  }, [theme, setTheme]);
+
   return (
-    <ThemeContext.Provider value={{ theme, updateTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   )

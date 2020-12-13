@@ -123,7 +123,7 @@ export function Intro() {
     <IntroWrapper>
       <div className="title">
         <SH1>
-          Hi!
+          Hola!
           <br />
           I'm David Mitjana
         </SH1>

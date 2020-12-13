@@ -1,14 +1,14 @@
 export const COLORS = {
   // general styles
-  background: {
+  backgroundBody: {
     light: '#ffffff', // white
     dark: '#031828', // navy navy blue
   },
-  navbg: {
+  backgroundNav: {
     light: '#ffffffe6',
     dark: '#031828e6'
   },
-  footerbg: {
+  backgroundFooter: {
     light: '#fafafa',
     dark: '#fafafa0d'
   },
@@ -31,7 +31,7 @@ export const COLORS = {
   },
   gray2: {
     light: '#f5f5f5',
-    dark: '#f5f5f51f',
+    dark: '#f5f5f514',
   },
   gray3: {
     light: '#fafafa',
