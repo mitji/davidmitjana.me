@@ -20,6 +20,10 @@ export const COLORS = {
     light: '#2c2c2c', // white
     dark: '#f5f5f5', // near-black
   },
+  textGray: {
+    light: '#7e7e7e', // white
+    dark: '#c9c9c9', // near-black
+  },
   textSecondary: {
     light: 'hsl(250deg, 100%, 50%)', // Purplish-blue
     dark: 'hsl(190deg, 100%, 40%)', // Cyan
@@ -41,6 +45,11 @@ export const COLORS = {
   boxShadow: {
     light: '#e1e1e1',
     dark: '#050505'
+  },
+  // post preview bg
+  postPrevBg: {
+    light: 'transparent',
+    dark: '#00233e'
   }
 };
 

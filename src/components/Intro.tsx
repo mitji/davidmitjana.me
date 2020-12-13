@@ -41,7 +41,7 @@ const Circle = styled.div`
 `
 
 const SIntroInfo = styled.div`
-  color: #7e7e7e;
+  color: var(--color-textGray);
   p {
     font-size: 1.25rem;
     font-weight: 300;
