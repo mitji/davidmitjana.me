@@ -4,6 +4,14 @@ export const COLORS = {
     light: '#ffffff', // white
     dark: '#031828', // navy navy blue
   },
+  navbg: {
+    light: '#ffffffe6',
+    dark: '#031828e6'
+  },
+  footerbg: {
+    light: '#fafafa',
+    dark: '#fafafa0d'
+  },
   title: {
     light: '#333333', // Pinkish-red
     dark: '#fafafa', // Yellow
@@ -15,16 +23,6 @@ export const COLORS = {
   textSecondary: {
     light: 'hsl(250deg, 100%, 50%)', // Purplish-blue
     dark: 'hsl(190deg, 100%, 40%)', // Cyan
-  },
-  // navbar bg
-  navBg: {
-    light: '#ffffffe6',
-    dark: '#031828e6'
-  },
-  // footer bg
-  footerBg: {
-    light: '#fafafa',
-    dark: '#fafafa0d'
   },
   // Grays, scaling from least-noticeable to most-noticeable
   gray1: {
@@ -39,6 +37,11 @@ export const COLORS = {
     light: '#fafafa',
     dark: '#fafafa0d',
   },
+  // box shadows
+  boxShadow: {
+    light: '#e1e1e1',
+    dark: '#050505'
+  }
 };
 
 export const THEME_KEY = 'theme';

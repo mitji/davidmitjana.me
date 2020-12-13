@@ -47,6 +47,16 @@ const MagicScriptTag = () => {
     );
 
     root.style.setProperty(
+      '--color-navbg',
+      theme === 'light' ? '${COLORS.navbg.light}' : '${COLORS.navbg.dark}'
+    );
+
+    root.style.setProperty(
+      '--color-footerbg',
+      theme === 'light' ? '${COLORS.footerbg.light}' : '${COLORS.footerbg.dark}'
+    );
+
+    root.style.setProperty(
       '--color-title',
       theme == 'light' ? '${COLORS.title.light}' : '${COLORS.title.dark}'
     );
@@ -69,16 +79,6 @@ const MagicScriptTag = () => {
     root.style.setProperty(
       '--color-gray3',
       theme == 'light' ? '${COLORS.gray3.light}' : '${COLORS.gray3.dark}'
-    );
-
-    root.style.setProperty(
-      '--color-navBg',
-      theme === 'light' ? '${COLORS.navBg.light}' : '${COLORS.navBg.dark}'
-    );
-
-    root.style.setProperty(
-      '--color-footerBg',
-      theme === 'light' ? '${COLORS.footerBg.light}' : '${COLORS.footerBg.dark}'
     );
 
     root.style.setProperty('--initial-theme', theme);

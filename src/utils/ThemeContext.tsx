@@ -27,6 +27,16 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
     );
 
     root.style.setProperty(
+      '--color-navbg',
+      theme === 'light' ? COLORS.navbg.light : COLORS.navbg.dark
+    );
+
+    root.style.setProperty(
+      '--color-footerbg',
+      theme === 'light' ? COLORS.footerbg.light : COLORS.footerbg.dark
+    );
+
+    root.style.setProperty(
       '--color-title',
       val === 'light' ? COLORS.title.light : COLORS.title.dark
     );
@@ -34,6 +44,11 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
     root.style.setProperty(
       '--color-text',
       val === 'light' ? COLORS.text.light : COLORS.text.dark
+    );
+
+    root.style.setProperty(
+      '--color-boxShadow',
+      val === 'light' ? COLORS.boxShadow.light : COLORS.boxShadow.dark
     );
 
     root.style.setProperty(
@@ -51,15 +66,6 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
       theme === 'light' ? COLORS.gray3.light : COLORS.gray3.dark
     );
 
-    root.style.setProperty(
-      '--color-navBg',
-      theme === 'light' ? COLORS.navBg.light : COLORS.navBg.dark
-    );
-
-    root.style.setProperty(
-      '--color-footerBg',
-      theme === 'light' ? COLORS.footerBg.light : COLORS.footerBg.dark
-    );
   }
 
   useEffect(() => {

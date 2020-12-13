@@ -8,7 +8,7 @@ import { media } from '../utils';
 
 const FooterWrapper = styled.footer`
   width: 100%;
-  background: var(--color-footerBg);
+  background: var(--color-footerbg);
 `
 
 const SFooter = styled.div`
@@ -56,34 +56,31 @@ export function Footer() {
   }, []);
 
   return (
-    <>
-      {hasMounted ? (
-        <FooterWrapper id="footer">
-          <SFooter>
-            <div>
-              <p>
-                &copy;
-                {' '}
-                {year || ''}
-                {' '}
-                by mitji
-              </p>
-            </div>
-            <div className="contact">
-              <a href="https://github.com/mitji" target="_blank" rel="noreferrer">
-                <Github />
-              </a>
-              {' '}
-              <a href="https://www.linkedin.com/in/david-mitjana-castro" target="_blank" rel="noreferrer">
-                <Linkedin />
-              </a>
-              <a href="mailto:contact@davidmitjana.me">
-                <Email />
-              </a>
-            </div>
-          </SFooter>
-        </FooterWrapper>
-      ) : null}
-    </>
+    <FooterWrapper id="footer">
+      <SFooter>
+        <div>
+          <p>
+            &copy;
+            {' '}
+            {year || ''}
+            {' '}
+            by mitji
+          </p>
+        </div>
+        <div className="contact">
+          <a href="https://github.com/mitji" target="_blank" rel="noreferrer">
+            <Github />
+          </a>
+          {' '}
+          <a href="https://www.linkedin.com/in/david-mitjana-castro" target="_blank" rel="noreferrer">
+            <Linkedin />
+          </a>
+          <a href="mailto:contact@davidmitjana.me">
+            <Email />
+          </a>
+        </div>
+      </SFooter>
+    </FooterWrapper>
+
   )
 }

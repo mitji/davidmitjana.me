@@ -10,7 +10,7 @@ const SNavWrapper = styled.nav<{ showNav: boolean }>`
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--color-navBg);
+  background: var(--color-navbg);
   backdrop-filter: blur(8px);
   /* show/hide nav */
   transform: ${props => props.showNav ? 'translate3d(0,0,0)' : 'translate3d(0,-100%,0);'};
@@ -62,7 +62,7 @@ const SNavLinksWrapper = styled.ul`
       border-radius: 3px;
       transition: 0.3s;
       font-size: 1.125rem;
-      color: #4a4a4a;
+      color: var(--color-text);
       font-weight: 300;
       letter-spacing: 1px;
       display: flex;
@@ -72,12 +72,12 @@ const SNavLinksWrapper = styled.ul`
         justify-content: center;
       }
       &:hover {
-        background: var(--color-gray1);;
+        background: var(--color-gray1);
       }
       &.active {
-        background: var(--color-gray2);;
+        background: var(--color-gray2);
         &:hover {
-          background:var(--color-gray1);;
+          background:var(--color-gray1);
         }
       }
     }
@@ -123,22 +123,18 @@ export function Navbar() {
   }, []);
 
   return (
-    <>
-      {hasMounted ? (
-        <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
-          <SNav>
-            <NameLogo />
-            <div className="nav-utils">
-              <SNavLinksWrapper>
-                <NavLink to="/blog" text="Blog" activeClassName="active" />
-                <NavLink to="/about" text="About" activeClassName="active" />
-                <NavLink to="/contact" text="Contact" activeClassName="active" />
-              </SNavLinksWrapper>
-              <ThemeToggler />
-            </div>
-          </SNav>
-        </SNavWrapper>
-      ) : null}
-    </>
+    <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
+      <SNav>
+        <NameLogo />
+        <div className="nav-utils">
+          <SNavLinksWrapper>
+            <NavLink to="/blog" text="Blog" activeClassName="active" />
+            <NavLink to="/about" text="About" activeClassName="active" />
+            <NavLink to="/contact" text="Contact" activeClassName="active" />
+          </SNavLinksWrapper>
+          <ThemeToggler />
+        </div>
+      </SNav>
+    </SNavWrapper>
   )
 }

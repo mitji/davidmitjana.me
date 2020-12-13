@@ -18,6 +18,8 @@ export const GlobalStyles = createGlobalStyle`
     font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica Neue', 'Helvetica', 'Arial';
     font-weight: normal;
     background: var(--color-background);
+  }
+  body, footer, nav {
     transition: background 0.3s ease;
   }
   title, p, a {
