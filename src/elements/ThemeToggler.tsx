@@ -39,7 +39,7 @@ const Label = styled.label`
   }
 
   input:checked + .slider {
-    background-color: #2e4252;
+    /* background-color: #2e4252; */
   }
 
   input:checked + .slider:before {
@@ -72,7 +72,7 @@ export function ThemeToggler() {
     <Label className="switch theme-toggler">
       <input
         type="checkbox"
-        onChange={(e:SyntheticEvent) => {
+        onChange={(e: SyntheticEvent) => {
           updateTheme(e.target.checked ? 'dark' : 'light');
         }}
         value={theme}

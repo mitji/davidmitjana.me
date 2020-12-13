@@ -47,8 +47,38 @@ const MagicScriptTag = () => {
     );
 
     root.style.setProperty(
+      '--color-title',
+      theme == 'light' ? '${COLORS.title.light}' : '${COLORS.title.dark}'
+    );
+
+    root.style.setProperty(
       '--color-text',
       theme == 'light' ? '${COLORS.text.light}' : '${COLORS.text.dark}'
+    );
+
+    root.style.setProperty(
+      '--color-gray1',
+      theme == 'light' ? '${COLORS.gray1.light}' : '${COLORS.gray1.dark}'
+    );
+
+    root.style.setProperty(
+      '--color-gray2',
+      theme == 'light' ? '${COLORS.gray2.light}' : '${COLORS.gray2.dark}'
+    );
+
+    root.style.setProperty(
+      '--color-gray3',
+      theme == 'light' ? '${COLORS.gray3.light}' : '${COLORS.gray3.dark}'
+    );
+
+    root.style.setProperty(
+      '--color-navBg',
+      theme === 'light' ? '${COLORS.navBg.light}' : '${COLORS.navBg.dark}'
+    );
+
+    root.style.setProperty(
+      '--color-footerBg',
+      theme === 'light' ? '${COLORS.footerBg.light}' : '${COLORS.footerBg.dark}'
     );
 
     root.style.setProperty('--initial-theme', theme);

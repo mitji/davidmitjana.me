@@ -10,7 +10,7 @@ const SNavWrapper = styled.nav<{ showNav: boolean }>`
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255,255,255,.9);
+  background: var(--color-navBg);
   backdrop-filter: blur(8px);
   /* show/hide nav */
   transform: ${props => props.showNav ? 'translate3d(0,0,0)' : 'translate3d(0,-100%,0);'};
@@ -72,12 +72,12 @@ const SNavLinksWrapper = styled.ul`
         justify-content: center;
       }
       &:hover {
-        background: #F0F0F0;
+        background: var(--color-gray1);;
       }
       &.active {
-        background: #F5F5F5;
+        background: var(--color-gray2);;
         &:hover {
-          background: #F0F0F0;
+          background:var(--color-gray1);;
         }
       }
     }
@@ -124,21 +124,21 @@ export function Navbar() {
 
   return (
     <>
-    {hasMounted ? (
-      <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
-        <SNav>
-          <NameLogo />
-          <div className="nav-utils">
-            <SNavLinksWrapper>
-              <NavLink to="/blog" text="Blog" activeClassName="active" />
-              <NavLink to="/about" text="About" activeClassName="active" />
-              <NavLink to="/contact" text="Contact" activeClassName="active" />
-            </SNavLinksWrapper>
-            <ThemeToggler />
-          </div>
-        </SNav>
-      </SNavWrapper>
-    ) : null}
+      {hasMounted ? (
+        <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
+          <SNav>
+            <NameLogo />
+            <div className="nav-utils">
+              <SNavLinksWrapper>
+                <NavLink to="/blog" text="Blog" activeClassName="active" />
+                <NavLink to="/about" text="About" activeClassName="active" />
+                <NavLink to="/contact" text="Contact" activeClassName="active" />
+              </SNavLinksWrapper>
+              <ThemeToggler />
+            </div>
+          </SNav>
+        </SNavWrapper>
+      ) : null}
     </>
   )
 }
