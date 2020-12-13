@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     scrollbar-width: thin;
     font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica Neue', 'Helvetica', 'Arial';
     font-weight: normal;
+    background: var(--color-background);
   }
   a {
     text-decoration: none;

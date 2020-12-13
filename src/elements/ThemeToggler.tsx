@@ -1,5 +1,6 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react';
+import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { ThemeContext } from '../utils';
 
 const Label = styled.label`
   position: relative;
@@ -64,21 +65,19 @@ const Label = styled.label`
 `
 
 export function ThemeToggler() {
-
-  const [theme, setTheme] = useState<string>('light');
-
-  function darkThemeHandler(e: SyntheticEvent) {
-    setTheme(e.target.checked ? 'dark' : 'light');
-  }
-
-  useEffect(() => {
-    console.log(theme);
-  }, [theme]);
+  const { theme, updateTheme } = useContext(ThemeContext);
 
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <Label className="switch theme-toggler">
-      <input type="checkbox" onChange={darkThemeHandler} value={theme} />
+      <input
+        type="checkbox"
+        onChange={(e:SyntheticEvent) => {
+          updateTheme(e.target.checked ? 'dark' : 'light');
+        }}
+        value={theme}
+        checked={theme === 'dark'}
+      />
       <span className="slider round" />
     </Label>
   )

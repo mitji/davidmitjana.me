@@ -5,7 +5,7 @@ export const SText = styled.p`
   font-size: 1.25rem;
   line-height: 1.55;
   font-weight: 400;
-  color: #2c2c2c;
+  color: var(--color-text);
   margin-bottom: 1.25rem;
   strong {
     font-weight: 600;
