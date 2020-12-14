@@ -20,10 +20,10 @@ export const GlobalStyles = createGlobalStyle`
     background: var(--color-backgroundBody);
   }
   body, footer, nav {
-    transition: background 0.3s ease;
+    transition: background 0.5s ease;
   }
   title, p, a {
-    transition: color 0.4s ease;
+    transition: color 0.4s ease 0.5;
   }
   a {
     text-decoration: none;

@@ -29,14 +29,14 @@ export const InnerLink = styled(Link)`
   cursor: pointer;
   color: #009BF9;
   transition: 0.5s;
-  padding: 3px 0;
+  padding: 0.3rem 0;
   &:after {
     content: '>';
     position: absolute;
     right: 0;
     top: 50%;
     opacity: 0;
-    transform: translate3d(15px,-50%,0);
+    transform: translate3d(1rem,-50%,0);
     transition: 0.5s;
     ${media.lessThan(560)} {
       opacity: 1;
@@ -44,13 +44,13 @@ export const InnerLink = styled(Link)`
   }
   &:hover {
     padding-left: 8px;
-    padding-right: 25px;
+    padding-right: 30px;
     background: #ececec;
     /* box-shadow: 2px 2px 9px 0px #cccccc; */
 
     &:after {
       opacity: 1;
-      transform: translate3d(-7px,-50%,0);
+      transform: translate3d(-0.85rem,-50%,0);
     }
   }
   &:active {

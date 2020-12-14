@@ -2,11 +2,12 @@ export const COLORS = {
   // general styles
   backgroundBody: {
     light: '#ffffff', // white
-    dark: '#031828', // navy navy blue
+    dark: '#0e2639', // navy navy blue
+    // previous: #031828
   },
   backgroundNav: {
     light: '#ffffffe6',
-    dark: '#031828e6'
+    dark: '#0e2639e6'
   },
   backgroundFooter: {
     light: '#fafafa',
@@ -44,7 +45,7 @@ export const COLORS = {
   // box shadows
   boxShadow: {
     light: '#e1e1e1',
-    dark: '#050505'
+    dark: '#0b161e'
   },
   // post preview bg
   postPrevBg: {

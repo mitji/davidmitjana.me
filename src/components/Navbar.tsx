@@ -14,8 +14,7 @@ const SNavWrapper = styled.nav<{ showNav: boolean }>`
   backdrop-filter: blur(8px);
   /* show/hide nav */
   transform: ${props => props.showNav ? 'translate3d(0,0,0)' : 'translate3d(0,-100%,0);'};
-  transition: all 0.5s;
-  transition-delay: 0.2s;
+  transition: transform 0.5s ease 0.2s;
   .theme-toggler {
     margin-left: 20px;
     ${media.lessThan(560)} {
