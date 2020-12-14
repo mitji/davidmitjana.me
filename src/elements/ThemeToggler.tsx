@@ -47,14 +47,11 @@ const Label = styled.label<{url: string,}>`
 
   input:checked + .slider:before {
     background-color: #869aac;
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px #c0faf7;
-  }
-
-  input:checked + .slider:before {
     transform: translate3d(97%,0,0);
+  }
+
+  input:focus + .slider:before {
+    box-shadow: 0px 0px 4px 3px #64a1f6;
   }
 
   /* Rounded sliders */
