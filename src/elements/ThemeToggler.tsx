@@ -1,8 +1,10 @@
-import React, { SyntheticEvent, useContext } from 'react';
+import React, { useEffect, useState, useContext, SyntheticEvent } from 'react';
 import styled from 'styled-components';
+import { graphql, useStaticQuery, } from 'gatsby';
 import { ThemeContext } from '../utils';
+// import light from '../assets/light.png';
 
-const Label = styled.label`
+const Label = styled.label<{url: string,}>`
   position: relative;
   display: inline-block;
   width: 55px;
@@ -33,9 +35,10 @@ const Label = styled.label`
     width: 24px;
     left: 4px;
     bottom: 3px;
-    background-color: #f6ea31;
-    -webkit-transition: .4s;
-    transition: .4s;
+    background-color: #ffce71;
+    background-image: url(${props => props.url ? props.url : 'unset'});
+    background-size: 100% 100%;
+    transition: 0.6s;
   }
 
   input:checked + .slider {
@@ -51,7 +54,7 @@ const Label = styled.label`
   }
 
   input:checked + .slider:before {
-    transform: translate3D(97%,0,0);
+    transform: translate3d(97%,0,0);
   }
 
   /* Rounded sliders */
@@ -66,14 +69,39 @@ const Label = styled.label`
 
 export function ThemeToggler() {
   const { theme, updateTheme } = useContext(ThemeContext);
-
+  const [lightSrc, setLightSrc] = useState<string>('');
+  const [darkSrc, setDarkSrc] = useState<string>('');
   // if (!theme) {
   //   return null
   // }
+  const data = useStaticQuery(graphql`
+    query {    
+      light: file(relativePath: {eq: "light.png"}) {
+        childImageSharp {
+          fluid {
+            src
+          }
+        }
+      }
+      dark: file(relativePath: {eq: "dark.png"}) {
+        childImageSharp {
+          fluid {
+            src
+          }
+        }
+      },
+    }
+  `)
+
+  useEffect(() => {
+    setLightSrc(data.light.childImageSharp.fluid.src);
+    setDarkSrc(data.dark.childImageSharp.fluid.src);
+  }, [data]);
+
   
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
-    <Label className="switch theme-toggler">
+    <Label className="switch theme-toggler" url={theme === 'light' ? lightSrc : darkSrc}>
       <input
         type="checkbox"
         onChange={(e: SyntheticEvent) => {
@@ -83,6 +111,7 @@ export function ThemeToggler() {
         checked={theme === 'dark'}
       />
       <span className="slider round" />
+      {/* <img src={data.file.childImageSharp.fluid.src} alt="Sun" /> */}
     </Label>
   )
 }

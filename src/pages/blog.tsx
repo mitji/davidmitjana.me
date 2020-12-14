@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Layout, PostPreview } from '../components';
-import { SH1, SText } from '../elements';
+import { SH1 } from '../elements';
 
 export default function Blog() {
 

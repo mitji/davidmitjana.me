@@ -7,10 +7,10 @@ import { media } from '../utils';
 
 const arrowKeyframe = keyframes`
   from {
-    transform: translate3d(-0.85rem,-53%,0);
+    transform: translate3d(-0.85rem,-51%,0);
   }
   to {
-    transform: translate3d(-0.5rem,-53%,0);
+    transform: translate3d(-0.5rem,-51%,0);
   }
 `
 
@@ -36,14 +36,14 @@ const SiteSettingsBanner = styled.div`
     border-radius: 5px;
     transition: 0.3s;
     position: relative;
-    box-shadow: 4px 4px 2px 1px #e1e1e1;
+    box-shadow: 4px 4px 0px 1px #e1e1e1;
     &:after {
       content: '>';
       position: absolute;
       right: 0;
       top: 50%;
       opacity: 1;
-      transform: translate3d(-0.85rem,-53%,0);
+      transform: translate3d(-0.85rem,-51%,0);
       transition: 0.5s;
     }
     &:hover {
