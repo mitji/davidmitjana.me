@@ -61,10 +61,12 @@ const SiteSettingsBanner = styled.div`
     }
   }
   ${media.lessThan(680)} {
+    border-radius: 0px;
     flex-direction: column;
     width: calc(100% + 2.5rem);
     transform: translate3d(-1.25rem, 0, 0);
     align-items: flex-start;
+    padding: 2.5rem 1.25rem;
   }
 `
 
