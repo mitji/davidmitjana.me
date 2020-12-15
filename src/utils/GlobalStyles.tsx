@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   html, body {
     font-family: -apple-system, Roboto, sans-serif, serif;
-    font-size: 16px;
+    font-size: var(--font-size);
     height: 100%;
   }
   body {

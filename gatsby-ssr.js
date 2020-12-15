@@ -4,8 +4,35 @@ import { Footer, Navbar } from './src/components';
 import { ScrollToTop } from './src/elements';
 import { COLORS } from './src/constants';
 
-// Reference for this dark mode implementation: https://www.joshwcomeau.com/react/dark-mode/
+function setSiteSettings() {
+  // default settings
+  let fontSize;
+  let titleFont;
+  let textFont;
 
+  // font-size
+  const localStorageFontSize = localStorage.getItem('font-size');
+  if (typeof localStorageFontSize === 'string') {
+    fontSize = localStorageFontSize;
+  } else {
+    fontSize = '16px'; // default value
+  }
+
+  const root = document.documentElement;
+  root.style.setProperty('--font-size', fontSize);
+}
+
+const SiteSettingsTag = () => {
+  // we need to insert the script as a string that will be executed later as a function
+  const functionString = String(setSiteSettings);
+
+  const calledFunction = `(${functionString})()`;
+
+  // eslint-disable-next-line react/no-danger
+  return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
+}
+
+// Reference for this dark mode implementation: https://www.joshwcomeau.com/react/dark-mode/
 function setColorsFromTheme() {
   // default theme to 'light'
   let theme = 'light';
@@ -30,7 +57,6 @@ function setColorsFromTheme() {
     const cssVar = `--color-${name}`;
     root.style.setProperty(cssVar, colorCodes[theme]);
   })
-
 }
 
 const ThemeScripTag = () => {
@@ -61,7 +87,7 @@ const FallbackStyles = () => {
 }
 
 export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
-  setHeadComponents(<FallbackStyles />);
+  setHeadComponents([<FallbackStyles />, <SiteSettingsTag />]);
   setPreBodyComponents(<ThemeScripTag />);
 };
 
