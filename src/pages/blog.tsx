@@ -32,7 +32,7 @@ export default function Blog() {
 
   return (
     <Layout>
-      <SH1>Blog</SH1>
+      <SH1>Posts</SH1>
       {posts && (
         // TO DO: define post type
         posts.map((edge: any) => {

@@ -5,9 +5,9 @@ import { OuterLink, SH1, SText } from '../elements';
 export default function Contact() {
   return (
     <Layout>
-      <SH1>Contact</SH1>
+      <SH1>Something to say?</SH1>
       <SText>
-        I'd love to talk! Email me at
+        Email me at
         {' '}
         <OuterLink href="mailto:contact@davidmitjana.me">contact@davidmitjana.me</OuterLink>
       </SText>
