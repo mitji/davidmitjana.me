@@ -1,23 +1,30 @@
 import React, { useEffect, useRef, useState, RefObject } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { SH1, InnerLink } from '../elements';
 import { media } from '../utils';
 import { useMousePosition, useWindowDimensions } from '../hooks';
 
 const IntroWrapper = styled.div`
-  .title {
-    display: flex;
-    flex-wrap: wrap;
-    max-height: 125px;
-    h1 {
-      z-index: 1;
-      margin-bottom: 0;
+  position: relative;
+  .intro {
+    &__header {
+      display: flex;
+      flex-wrap: wrap;
+      max-height: 125px;
+      ${media.lessThan(445)} {
+        max-height: 180px;
+      }
+      ${media.lessThan(618)} {
+        position: relative;
+      } 
     }
-    ${media.lessThan(445)} {
-      max-height: 180px;
-    }
-    ${media.lessThan(618)} {
-      position: relative;
+    &__title {
+      height: max-content;
+      h1 {
+        margin-bottom: 0;
+      }
     }
   }
 `
@@ -29,6 +36,7 @@ const Circle = styled.div`
   width: 160px;
   height: 160px;
   transform: translate3d(-45%,-20%,0);
+  z-index: -1;
   ${media.lessThan(618)} {
     width: 140px;
     height: 140px;
@@ -36,19 +44,20 @@ const Circle = styled.div`
     position: absolute;
     right: 0;
     top: -4vh;
-    z-index: -1;
   }
 `
 
 const SIntroInfo = styled.div`
   color: var(--color-textGray);
+  margin-top: 0.5rem;
+  .info__content {
+    display: flex;
+    align-items: center;
+  }
   p {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 300;
     letter-spacing: 1px;
-    ${media.lessThan(560)} {
-      font-size: 1.125rem;
-    }
   }
   a {
     display: inline-block;
@@ -56,7 +65,32 @@ const SIntroInfo = styled.div`
   }
 `
 
+const MyImgWrapper = styled.div`
+  width: 55px;
+  height: 55px;
+  /* border: 1px solid #c6c6c6; */
+  border-radius: 100%;
+  background-color: #f9f6c5;
+  margin-right: 0.75rem;
+  padding: 1px;
+  img {
+    margin-top: -5px;
+    width: 95%;
+  }
+`
+
 export function Intro() {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "davidmitji.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   const { x, y } = useMousePosition();
   const { width } = useWindowDimensions();
   const [circlePos, setCirclePos] = useState<{x: number, y: number} | null>(null);
@@ -121,18 +155,17 @@ export function Intro() {
 
   return (
     <IntroWrapper>
-      <div className="title">
-        <SH1>
-          Hola!
-          <br />
-          I'm David Mitjana
-        </SH1>
+      <div className="intro__header">
+        <div className="intro__title">
+          <SH1>Hola!</SH1>
+          <SH1>I'm David Mitjana</SH1>
+        </div>
+        {/* reference: https://codepen.io/bramus/pen/eBZgPB
+        for recurrent style updates, use inline styles instead of styled components
+        gradient inspiration: https://cssgradient.io/ */}
         <Circle
           ref={circleRef}
           onClick={handleCircleClick}
-          /* reference: https://codepen.io/bramus/pen/eBZgPB */ 
-          // for recurrent style updates, use inline styles instead of styled components
-          // gradient inspiration: https://cssgradient.io/
           style={
             fixedPerc ? 
               {background: `transparent radial-gradient(at ${fixedPerc.perc1}% ${fixedPerc.perc2}% , #009BF9 0%, #d4a9f2 100%) no-repeat 0 0`}
@@ -141,8 +174,15 @@ export function Intro() {
         />
       </div>
       <SIntroInfo>
-        <p>Web Developer</p>
-        <p>A/V Systems Engineer</p>
+        <div className="info__content">
+          <MyImgWrapper>
+            <Img fluid={data.file.childImageSharp.fluid} alt="Gatsby logo" />
+          </MyImgWrapper>
+          <div>
+            <p>Web Developer</p>
+            <p>A/V Systems Engineer</p>
+          </div>
+        </div>
         <InnerLink to="about">
           More about me
         </InnerLink>

@@ -1,6 +1,18 @@
 module.exports = {
   plugins: [
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'David Mitjana Castro | Frontend Developer',
+        short_name: 'davidmitjana.me',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#64a1f6',
+        display: 'standalone',
+        icon: 'src/assets/favicon.png'
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
@@ -35,7 +47,13 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        icon: `${__dirname}/src/assets/favicon.ico`
+      }
+    },
+
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-mdx',

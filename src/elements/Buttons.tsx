@@ -63,4 +63,8 @@ export const OuterLink = styled.a`
   color: #009BF9;
   text-decoration: underline;
   text-decoration-style: dotted;
+  transition: 0.3s;
+  &:hover {
+    background-color: #c7e6ffbd;
+  }
 `

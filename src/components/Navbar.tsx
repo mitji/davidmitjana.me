@@ -28,7 +28,7 @@ const SNavWrapper = styled.nav<{ showNav: boolean }>`
 const SNav = styled.div`
   width: 100%;
   max-width: 850px;
-  padding: 2.25rem 20px;
+  padding: 2.25rem 1.25rem;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@ const SNav = styled.div`
   ${media.lessThan(560)} {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.25rem 20px;
+    padding: 1rem 1.25rem;
   }
   .nav-utils {
     display: flex;
