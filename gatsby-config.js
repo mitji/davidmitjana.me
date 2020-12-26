@@ -1,3 +1,5 @@
+require('dotenv').config({path: '.env',});
+
 module.exports = {
   plugins: [
     {
@@ -77,6 +79,14 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-styled-components'
+    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [
+          process.env.GA_TRACKING_ID,
+        ],
+      },
+    },
   ],
 };
