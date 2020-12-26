@@ -55,6 +55,7 @@ export const InnerLink = styled(Link)`
   }
   &:active {
     transform: scale(0.97);
+    background: #dfdfdf;
   }
 `
 
@@ -65,6 +66,6 @@ export const OuterLink = styled.a`
   text-decoration-style: dotted;
   transition: 0.3s;
   &:hover {
-    background-color: #c7e6ffbd;
+    background-color: #d1eaff;
   }
 `

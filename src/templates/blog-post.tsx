@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { SH1 } from '../elements';
@@ -18,6 +19,10 @@ export const query = graphql`
   }
 `
 
+const PostInfo = styled.span`
+  color: var(--color-text);
+`
+
 export default function BlogPost(props: { data: any }) {
   const { data } = props;
   const post = data.mdx;
@@ -25,7 +30,7 @@ export default function BlogPost(props: { data: any }) {
     <Layout>
       <div>
         <SH1>{post.frontmatter.title}</SH1>
-        <span>
+        <PostInfo>
           {post.frontmatter.date}
           {' '}
           ·
@@ -33,7 +38,7 @@ export default function BlogPost(props: { data: any }) {
           {post.timeToRead}
           {' '}
           min read
-        </span>
+        </PostInfo>
         <br />
         <br />
         <MDXRenderer>

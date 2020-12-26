@@ -72,10 +72,13 @@ const MyImgWrapper = styled.div`
   border-radius: 100%;
   background-color: #f9f6c5;
   margin-right: 0.75rem;
-  padding: 1px;
+  overflow: hidden;
+  /* padding-top: 10px; */
   img {
-    margin-top: -5px;
-    width: 95%;
+    width: auto !important;
+    height: 159% !important;
+    transform: translate3d(-18px, -1px, 0px);
+
   }
 `
 
