@@ -46,8 +46,7 @@ export const InnerLink = styled(Link)`
     padding-left: 8px;
     padding-right: 30px;
     background: #ececec;
-    /* box-shadow: 2px 2px 9px 0px #cccccc; */
-
+    color: #009BF9;
     &:after {
       opacity: 1;
       transform: translate3d(-0.85rem,-50%,0);
@@ -59,12 +58,13 @@ export const InnerLink = styled(Link)`
   }
 `
 
-export const OuterLink = styled.a`
+export const OuterLink = styled.a<{underline?: boolean}>`
   cursor: pointer;
   color: #009BF9;
-  text-decoration: underline;
+  text-decoration: ${props => props.underline ? 'underline' : 'none'};
   text-decoration-style: dotted;
   transition: 0.3s;
+  height: max-content;
   &:hover {
     background-color: #d1eaff;
   }

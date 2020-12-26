@@ -1,9 +1,29 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
-import { SH4 } from '../elements';
-import { Intro, Layout, PostPreview } from '../components';
+import { InnerLink, SH4 } from '../elements';
+import { Intro, Layout, PostCard, ProjectCard } from '../components';
 import { media } from '../utils';
+
+const SectionHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  margin: 3rem 0 2rem;
+  padding-bottom: 1rem;
+  align-items: flex-end;
+  a {
+    color: var(--color-text);
+    :after {
+      opacity: 0 !important;
+    }
+    &:hover {
+      &:after {
+        opacity: 1 !important;
+      }
+    }
+  }
+`
 
 const arrowKeyframe = keyframes`
   from {
@@ -94,13 +114,19 @@ export default function Home() {
   return (
     <Layout>
       <Intro />
-      <SH4 border>Latest Posts</SH4>
+      <SectionHeader>
+        <SH4 margin="0">Latest Posts</SH4>
+        <InnerLink to="blog">
+          View all
+        </InnerLink>
+      </SectionHeader>
+      {/* <SH4 border>Latest Posts</SH4> */}
       {data && (
         // TO DO: define post type
         data.allMdx.edges.map((edge: any) => {
           const postData = edge.node.frontmatter;
           return (
-            <PostPreview 
+            <PostCard 
               date={postData.date}
               excerpt={postData.excerpt}
               timeToRead={edge.node.timeToRead}
@@ -111,7 +137,39 @@ export default function Home() {
           )
         })
       )}
-      <SH4 border>Projects</SH4>
+      <SectionHeader>
+        <SH4 margin="0">Projects</SH4>
+        <InnerLink to="blog">
+          View all
+        </InnerLink>
+      </SectionHeader>
+      <ProjectCard
+        date="2020"
+        title="A Peu de Pista"
+        description="Page for the candidacy of J.C. Mitjana for the Catalan Basketball Federation presidential elections."
+        tech="react, styled-components, typescript"
+        to="about"
+        projectUrl="https://pre.apeudepista.cat"
+        imgUrl="projects/apeudepista.jpeg"
+      />
+      <ProjectCard
+        date="2020"
+        title="Sentiment Analysis on BBC Proms tweets"
+        description="Bacehlor's degree final project on Natural Language Processing"
+        to="about"
+        projectUrl="https://drive.google.com/file/d/11RC-__M7ppkxZsYe-eeT5xpp9TzoPzaZ/view"
+        tech="python, scikit-learn, pytorch"
+        imgUrl="projects/bbc-proms.jpg"
+      />
+      <ProjectCard
+        date="2019"
+        title="TE App"
+        description="A cross-sport platform for sport coaches to prepare their training sessions easily."
+        tech="react, scss, node.js, express.js, mongodb"
+        to="about"
+        projectUrl="https://te-app.herokuapp.com/"
+        imgUrl="projects/te-app.png"
+      />
 
       <SiteSettingsBanner>
         <p>This site has customizable settings.</p>

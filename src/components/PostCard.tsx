@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   }
 `
 
-type PostPrevieProps = {
+type PostCardProps = {
   date: string,
   excerpt: string,
   timeToRead: number,
@@ -39,7 +39,7 @@ type PostPrevieProps = {
   tags?: Array<string>
 }
 
-export function PostPreview(props: PostPrevieProps) {
+export function PostCard(props: PostCardProps) {
   const { date, excerpt, tags, timeToRead, title, to} = props;
   return (
     <Link to={to}>

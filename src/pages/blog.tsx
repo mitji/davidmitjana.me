@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Layout, PostPreview } from '../components';
+import { Layout, PostCard } from '../components';
 import { SH1 } from '../elements';
 
 export default function Blog() {
@@ -38,7 +38,7 @@ export default function Blog() {
         posts.map((edge: any) => {
           const postData = edge.node.frontmatter;
           return (
-            <PostPreview 
+            <PostCard 
               date={postData.date}
               excerpt={postData.excerpt}
               timeToRead={edge.node.timeToRead}
