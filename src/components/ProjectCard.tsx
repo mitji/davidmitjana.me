@@ -79,11 +79,11 @@ type PostCardProps = {
   tech?: string,
   to: string,
   projectUrl: string,
-  imgUrl?: string
+  logoUrl?: string
 }
 
 export function ProjectCard(props: PostCardProps) {
-  const { date, description, title, tech, to, projectUrl, imgUrl } = props;
+  const { date, description, title, tech, to, projectUrl, logoUrl } = props;
 
   return (
     <Wrapper>
@@ -92,7 +92,7 @@ export function ProjectCard(props: PostCardProps) {
           <StaticQuery
             query={graphql`
               query {
-                images: allFile(filter: {relativeDirectory: { eq:"projects"}}) {
+                images: allFile(filter: {relativeDirectory: { eq: "portfolio"}}) {
                   edges {
                     node {
                       relativeDirectory
@@ -108,7 +108,7 @@ export function ProjectCard(props: PostCardProps) {
               }
             `}
             render={({images}) => {
-              const image = images.edges.find((img:any) => img.node.relativePath === imgUrl);
+              const image = images.edges.find((img:any) => img.node.relativePath === logoUrl);
               return <Img fluid={image.node.childImageSharp.fluid} alt="Gatsby logo" />
             }}
           />
@@ -132,7 +132,7 @@ export function ProjectCard(props: PostCardProps) {
       </Link>
 
       <OuterLink href={projectUrl} target="_blank" rel="noreferrer" id="project_link">
-        View&nbsp;
+        Visit&nbsp;
         <Openlink />
       </OuterLink>
     </Wrapper>

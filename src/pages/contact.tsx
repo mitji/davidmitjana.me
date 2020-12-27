@@ -10,6 +10,7 @@ export default function Contact() {
         Email me at
         {' '}
         <OuterLink href="mailto:contact@davidmitjana.me" underline>contact@davidmitjana.me</OuterLink>
+        .
       </SText>
     </Layout>
   )

@@ -94,7 +94,10 @@ export default function Home() {
   // query last three posts
   const data = useStaticQuery(graphql`
     query {
-      allMdx ( limit: 3, sort: {fields: frontmatter___date, order: DESC} ) {
+      blog: allMdx (
+        filter: { fields: { type: { eq: "blog" } } }
+        limit: 3, sort: {fields: frontmatter___date, order: DESC}
+      ) {
         edges {
           node {
             frontmatter {
@@ -105,6 +108,25 @@ export default function Home() {
             }
             id
             timeToRead
+          }
+        }
+      }
+      portfolio: allMdx (
+        filter: { fields: { type: { eq: "portfolio" } } }
+        limit: 3, sort: {fields: frontmatter___date, order: DESC}
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              tech
+              slug
+              excerpt
+              date(formatString: "DD MMM YYYY")
+              projectUrl
+              logoUrl
+            }
+            id
           }
         }
       }
@@ -123,7 +145,7 @@ export default function Home() {
       {/* <SH4 border>Latest Posts</SH4> */}
       {data && (
         // TO DO: define post type
-        data.allMdx.edges.map((edge: any) => {
+        data.blog.edges.map((edge: any) => {
           const postData = edge.node.frontmatter;
           return (
             <PostCard 
@@ -143,33 +165,24 @@ export default function Home() {
           View all
         </InnerLink>
       </SectionHeader>
-      <ProjectCard
-        date="2020"
-        title="A Peu de Pista"
-        description="Page for the candidacy of J.C. Mitjana for the Catalan Basketball Federation presidential elections."
-        tech="react, styled-components, typescript"
-        to="about"
-        projectUrl="https://pre.apeudepista.cat"
-        imgUrl="projects/apeudepista.jpeg"
-      />
-      <ProjectCard
-        date="2020"
-        title="Sentiment Analysis on BBC Proms tweets"
-        description="Bacehlor's degree final project on Natural Language Processing"
-        to="about"
-        projectUrl="https://drive.google.com/file/d/11RC-__M7ppkxZsYe-eeT5xpp9TzoPzaZ/view"
-        tech="python, scikit-learn, pytorch"
-        imgUrl="projects/bbc-proms.jpg"
-      />
-      <ProjectCard
-        date="2019"
-        title="TE App"
-        description="A cross-sport platform for sport coaches to prepare their training sessions easily."
-        tech="react, scss, node.js, express.js, mongodb"
-        to="about"
-        projectUrl="https://te-app.herokuapp.com/"
-        imgUrl="projects/te-app.png"
-      />
+      {data && (
+        // TO DO: define post type
+        data.portfolio.edges.map((edge: any) => {
+          const postData = edge.node.frontmatter;
+          return (
+            <ProjectCard 
+              date={postData.date.split(' ')[2]}
+              description={postData.excerpt}
+              title={postData.title}
+              tech={postData.tech}
+              to={`portfolio/${postData.slug}`}
+              key={edge.node.id}
+              projectUrl={postData.projectUrl}
+              logoUrl={postData.logoUrl}
+            />
+          )
+        })
+      )}
 
       <SiteSettingsBanner>
         <p>This site has customizable settings.</p>

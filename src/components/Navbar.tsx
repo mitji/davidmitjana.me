@@ -60,7 +60,7 @@ const SNavLinksWrapper = styled.ul`
       cursor: pointer;
       border-radius: 3px;
       transition: 0.3s;
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: var(--color-text);
       font-weight: 300;
       letter-spacing: 1px;
@@ -130,6 +130,7 @@ export function Navbar() {
             <div className="nav-utils">
               <SNavLinksWrapper>
                 <NavLink to="/blog" text="Blog" activeClassName="active" />
+                <NavLink to="/portfolio" text="Portfolio" activeClassName="active" />
                 <NavLink to="/about" text="About" activeClassName="active" />
                 <NavLink to="/contact" text="Contact" activeClassName="active" />
               </SNavLinksWrapper>
