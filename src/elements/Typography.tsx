@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { media } from '../utils/MediaQueries';
 
-export const SText = styled.p`
+export const SText = styled.p<{color?: string}>`
   font-size: 1.25rem;
   line-height: 1.55;
   font-weight: 400;
-  color: var(--color-text);
+  color: ${props => props.color ? props.color : 'var(--color-text)'};
   margin-bottom: 1.25rem;
   strong {
     font-weight: 600;
@@ -17,7 +17,7 @@ export const SText = styled.p`
 
 export const SH1 = styled.h1`
   color: var(--color-title);
-  font-size: 3rem;
+  font-size: 2.75rem;
   line-height: 1.2;
   font-weight: 900;
   /* font-family: 'Montserrat', Arial Black, Arial, Helvetica, sans-serif; */

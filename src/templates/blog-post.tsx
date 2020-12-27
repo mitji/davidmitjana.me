@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { SH1 } from '../elements';
+import { BackBtn, SH1 } from '../elements';
 import { Layout } from '../components';
 
 export const query = graphql`
@@ -29,7 +29,8 @@ export default function BlogPost(props: { data: any }) {
   return (
     <Layout>
       <div>
-        <SH1>{post.frontmatter.title}</SH1>
+        <BackBtn to="/blog">Back to blog</BackBtn>
+        <SH1 style={{marginTop: '2rem'}}>{post.frontmatter.title}</SH1>
         <PostInfo>
           {post.frontmatter.date}
           {' '}

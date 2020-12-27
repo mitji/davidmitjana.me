@@ -1,12 +1,10 @@
 const path = require('path');
 
-// add post type
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   // Ensures we are processing only markdown files
   if (['MarkdownRemark', 'Mdx'].includes(node.internal.type)) {
-    // Creates new query'able field with name of 'slug'
     if (node.fileAbsolutePath.includes('posts')) {
       createNodeField({
         node,
@@ -27,7 +25,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async({ graphql, actions}) => {
   const { createPage } = actions;
-  // get all posts
+  // get all posts (blog + portfolio)
   const result = await graphql(`
     query {
       blog: allMdx(
@@ -59,8 +57,6 @@ exports.createPages = async({ graphql, actions}) => {
     }
   `);
 
-  console.log(result.data)
-
   // create page for each blogpost
   result.data.blog.edges.forEach((edge) => {
     createPage({
@@ -74,7 +70,7 @@ exports.createPages = async({ graphql, actions}) => {
   result.data.portfolio.edges.forEach((edge) => {
     createPage({
       path: `portfolio/${edge.node.frontmatter.slug}`,
-      component: path.resolve('./src/templates/blog-post.tsx'),
+      component: path.resolve('./src/templates/portfolio-post.tsx'),
       context: {id: edge.node.id}
     })
   })

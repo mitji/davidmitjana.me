@@ -8,7 +8,10 @@ export function MDXStyles(props: {children: React.ReactNode}) {
   return (
     <MDXProvider
       components={{
+        // eslint-disable-next-line react/jsx-props-no-spreading
         p: (props) => <SText {...props} />,
+        // eslint-disable-next-line jsx-a11y/heading-has-content,react/jsx-props-no-spreading
+        h2: (props) => <h2 {...props} style={{ color: 'var(--color-title)'}} />,
         OuterLink
       }}
     >

@@ -58,6 +58,36 @@ export const InnerLink = styled(Link)`
   }
 `
 
+export const BackBtn = styled(Link)`
+  position: relative;
+  cursor: pointer;
+  color: #009BF9;
+  transition: 0.5s;
+  padding: 0.3rem 0 0.3rem 1rem;
+  &:after {
+    content: '<';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+    transition: 0.5s;
+  }
+  &:hover {
+    background: #ececec;
+    padding-right: 0.75rem;
+    padding-left: 1.75rem;
+    color: #009BF9;
+    &:after {
+      opacity: 1;
+      transform: translate3d(0.5rem,-50%,0);
+    }
+  }
+  &:active {
+    transform: scale(0.97);
+    background: #dfdfdf;
+  }
+`
+
 export const OuterLink = styled.a<{underline?: boolean}>`
   cursor: pointer;
   color: #009BF9;
@@ -66,6 +96,6 @@ export const OuterLink = styled.a<{underline?: boolean}>`
   transition: 0.3s;
   height: max-content;
   &:hover {
-    background-color: #d1eaff;
+    background-color: #c6e5ff;
   }
 `

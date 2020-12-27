@@ -109,7 +109,7 @@ export function ProjectCard(props: PostCardProps) {
             `}
             render={({images}) => {
               const image = images.edges.find((img:any) => img.node.relativePath === logoUrl);
-              return <Img fluid={image.node.childImageSharp.fluid} alt="Gatsby logo" />
+              return <Img fluid={image.node.childImageSharp.fluid} alt="Project logo" />
             }}
           />
         </div>
