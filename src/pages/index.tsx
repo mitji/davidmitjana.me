@@ -161,7 +161,7 @@ export default function Home() {
       )}
       <SectionHeader>
         <SH4 margin="0">Projects</SH4>
-        <InnerLink to="blog">
+        <InnerLink to="portfolio">
           View all
         </InnerLink>
       </SectionHeader>
