@@ -4,7 +4,7 @@ import { media } from '../utils/MediaQueries';
 export const List = styled.ul`
   margin-left: 2rem;
   margin-bottom: 1.25rem;
-  color: var(--color-text)
+  color: var(--color-text);
   li {
     font-size: 1.25rem;
     ${media.lessThan(560)} {
