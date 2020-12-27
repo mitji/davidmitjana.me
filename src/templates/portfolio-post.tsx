@@ -63,9 +63,9 @@ const PostHeader = styled.div`
         display: flex;
         margin-top: auto;
         a {
-          border-radius: 3px;
+          border-radius: 5px;
           padding: 0.5rem 1rem;
-          background: #c6e5ff;
+          background: #eaebec;
           color: #0e2639;
           font-weight: bold;
           transition: 0.3s;
@@ -73,7 +73,7 @@ const PostHeader = styled.div`
             margin-right: 0.75rem;
           }
           &:hover {
-            filter: brightness(0.7);
+            background: #c6e5ff;
           }
         }
       }
