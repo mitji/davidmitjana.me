@@ -51,6 +51,11 @@ export const COLORS = {
   postPrevBg: {
     light: 'transparent',
     dark: '#00233e'
+  },
+  // innerLik bg
+  innerLinkBg: {
+    light: '#ececec',
+    dark: '#00ffd336'
   }
 };
 

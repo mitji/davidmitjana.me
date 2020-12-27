@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
 import { SH1, SText, BackBtn } from '../elements';

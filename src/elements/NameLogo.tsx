@@ -18,7 +18,7 @@ const SName = styled.h3`
   }
   .short-surname {
     display: inline-block;
-    padding-right: 13px;
+    padding-right: 0.9375rem;
     transform: translate3d(-100%, 0, 0);
     background: transparent;
     transition: 0.4s;

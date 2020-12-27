@@ -45,7 +45,7 @@ export const InnerLink = styled(Link)`
   &:hover {
     padding-left: 8px;
     padding-right: 30px;
-    background: #ececec;
+    background: var(--color-innerLinkBg);
     color: #009BF9;
     &:after {
       opacity: 1;
@@ -54,7 +54,7 @@ export const InnerLink = styled(Link)`
   }
   &:active {
     transform: scale(0.97);
-    background: #dfdfdf;
+    background: var(--color-innerLinkBg);;
   }
 `
 
@@ -73,7 +73,7 @@ export const BackBtn = styled(Link)`
     transition: 0.5s;
   }
   &:hover {
-    background: #ececec;
+    background: var(--color-innerLinkBg);;
     padding-right: 0.75rem;
     padding-left: 1.75rem;
     color: #009BF9;
@@ -84,7 +84,7 @@ export const BackBtn = styled(Link)`
   }
   &:active {
     transform: scale(0.97);
-    background: #dfdfdf;
+    background: var(--color-innerLinkBg);;
   }
 `
 
