@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
-import { SH1, SText, BackBtn } from '../elements';
+import { BackBtn, SH1, SText, Tech, TechWrapper } from '../elements';
 import { Layout } from '../components';
 import { media } from '../utils';
 
@@ -38,10 +38,12 @@ export const query = graphql`
 `
 
 const PostHeader = styled.div`
-  display: flex;
   margin: 1.5rem 0 2rem;
-  ${media.lessThan(560)} {
-    flex-wrap: wrap;
+  .header-top {
+    display: flex;
+    ${media.lessThan(560)} {
+      flex-wrap: wrap;
+    }
   }
   .project {
     &__year {
@@ -78,6 +80,9 @@ const PostHeader = styled.div`
         }
       }
     }
+    &__tech {
+      margin-top: 0.5rem;
+    }
   }
 `
 
@@ -90,32 +95,37 @@ export default function PortfolioPost(props: { data: any }) {
       <div>
         <BackBtn to="/portfolio">Back to portfolio</BackBtn>
         <PostHeader>
-          <div className="project__img">
-            {images && (
-              images.edges.map((img:any) => {
-                if (img.node.relativePath === post.frontmatter.logoUrl) {
-                  return <Img fluid={img.node.childImageSharp.fluid} alt="Project logo" />
-                }
-                return null
-              })
-            )}
-          </div>
-          <div className="project__info">
-            <span className="project__year"> 
-              {' '}
-              {post.frontmatter.date.split(' ')[2]}
-            </span>
-            <SH1>{post.frontmatter.title}</SH1>
-            <div className="links">
-              <a href={post.frontmatter.githubUrl} target="_blank" rel="noreferrer">Github</a>
-              <a href={post.frontmatter.projectUrl} target="_blank" rel="noreferrer">Visit</a>
+          <div className="header-top">
+            <div className="project__img">
+              {images && (
+                images.edges.map((img:any) => {
+                  if (img.node.relativePath === post.frontmatter.logoUrl) {
+                    return <Img fluid={img.node.childImageSharp.fluid} alt="Project logo" />
+                  }
+                  return null
+                })
+              )}
+            </div>
+            <div className="project__info">
+              <span className="project__year"> 
+                {' '}
+                {post.frontmatter.date.split(' ')[2]}
+              </span>
+              <SH1>{post.frontmatter.title}</SH1>
+              <div className="links">
+                <a href={post.frontmatter.githubUrl} target="_blank" rel="noreferrer">Github</a>
+                <a href={post.frontmatter.projectUrl} target="_blank" rel="noreferrer">Visit</a>
+              </div>
             </div>
           </div>
+          {post.frontmatter.tech && (
+            <div className="project__tech">
+              <TechWrapper>
+                {post.frontmatter.tech.map((el:string) => <Tech>{el}</Tech>)}
+              </TechWrapper>
+            </div>
+          )}
         </PostHeader>
-        <SText>
-          <b>Tech: </b>
-          {post.frontmatter.tech}
-        </SText>
         <SText color="var(--color-textGray)">{post.frontmatter.excerpt}</SText>
         <MDXRenderer>
           {post.body}

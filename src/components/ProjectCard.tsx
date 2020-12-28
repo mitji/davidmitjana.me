@@ -2,8 +2,7 @@ import React from 'react';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import Openlink from '../assets/openlink.svg';
-import { OuterLink } from '../elements';
+import { Tech, TechWrapper } from '../elements';
 import { media } from '../utils';
 
 const Wrapper = styled.div`
@@ -49,10 +48,12 @@ const Wrapper = styled.div`
       .description {
         font-size: 1.125rem;
         font-weight: 300;
-        margin: 0.25rem 0 0;
+        margin: 0.5rem 0 0;
       }
       .tech {
         /* font-weight: bold; */
+        display: flex;
+        flex-wrap: wrap;
         margin: auto 0 0;
         ${media.lessThan(650)} {
           margin-top: 0.875rem;
@@ -91,7 +92,7 @@ type PostCardProps = {
   date: string,
   description: string,
   title: string,
-  tech?: string,
+  tech?: Array<string>,
   to: string,
   projectUrl: string,
   logoUrl?: string
@@ -136,13 +137,13 @@ export function ProjectCard(props: PostCardProps) {
           <p className="description">
             {description}
           </p>
-          { tech ? (
-            <p className="tech">
-              <b>Tech:</b>
-              {' '}
-              {tech}
-            </p>
-          ) : null}
+          { tech && (
+            <div className="tech">
+              <TechWrapper>
+                {tech.map((el:string) => <Tech>{el}</Tech>)}
+              </TechWrapper>
+            </div>
+          )}
         </div>
       </Link>
 
