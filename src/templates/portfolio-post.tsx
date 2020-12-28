@@ -64,7 +64,7 @@ const PostHeader = styled.div`
         margin-top: auto;
         a {
           border-radius: 5px;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 0.75rem;
           background: #eaebec;
           color: #0e2639;
           font-weight: bold;

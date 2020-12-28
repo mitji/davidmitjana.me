@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 14px;
     right: 14px;
-    padding: 2px 2px 0 0;
+    /* padding: 2px 2px 0 0; */
   }
   h2 {
     color: var(--color-text);
@@ -69,6 +69,21 @@ const Wrapper = styled.div`
   }
   &:hover {
     box-shadow: 2px 6px 15px 2px var(--color-boxShadow);
+  }
+`
+
+const Url = styled.a`
+  border-radius: 5px;
+  padding: 0.4rem 0.75rem;
+  background: #eaebec;
+  color: #0e2639;
+  font-weight: bold;
+  transition: 0.3s;
+  &:first-of-type {
+    margin-right: 0.75rem;
+  }
+  &:hover {
+    background: #c6e5ff;
   }
 `
 
@@ -131,10 +146,10 @@ export function ProjectCard(props: PostCardProps) {
         </div>
       </Link>
 
-      <OuterLink href={projectUrl} target="_blank" rel="noreferrer" id="project_link">
+      <Url href={projectUrl} target="_blank" rel="noreferrer" id="project_link">
         Visit&nbsp;
-        <Openlink />
-      </OuterLink>
+        {/* <Openlink /> */}
+      </Url>
     </Wrapper>
   )
 }
