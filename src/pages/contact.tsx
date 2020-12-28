@@ -9,7 +9,7 @@ export default function Contact() {
       <SText>
         Email me at
         {' '}
-        <OuterLink href="mailto:contact@davidmitjana.me" underline>contact@davidmitjana.me</OuterLink>
+        <OuterLink href="mailto:contact@davidmitjana.me" inline underline>contact@davidmitjana.me</OuterLink>
         .
       </SText>
     </Layout>

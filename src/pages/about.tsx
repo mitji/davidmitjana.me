@@ -14,10 +14,10 @@ export default function About() {
       <SText>
         I have experience as a frontend developer intern in a Spanish fintech called
         {' '}
-        <OuterLink href="https://www.verse.me/en" target="_blank" rel="noreferrer" underline>Verse</OuterLink>
+        <OuterLink href="https://www.verse.me/en" target="_blank" rel="noreferrer" inline>Verse</OuterLink>
         , and I currently work as a full-stack developer at
         {' '}
-        <OuterLink href="https://www.ddb.es" target="_blank" rel="noreferrer" underline>DDB Spain</OuterLink>
+        <OuterLink href="https://www.ddb.es" target="_blank" rel="noreferrer" inline>DDB Spain</OuterLink>
         , which is part of one of the most important advertisement companies in the world.
       </SText>
       <SH4 margin="2rem 0 1rem">What can I do</SH4>

@@ -13,7 +13,7 @@ export function MDXStyles(props: {children: React.ReactNode}) {
         // eslint-disable-next-line react/jsx-props-no-spreading
         ul: (props) => <List {...props} />,
         // eslint-disable-next-line react/jsx-props-no-spreading
-        a: (props) => <OuterLink {...props} underline />,
+        a: (props) => <OuterLink {...props} inline />,
         // eslint-disable-next-line react/jsx-props-no-spreading
         h4: (props) => <SH4 {...props} margin="2rem 0 1rem" />,
         OuterLink,
