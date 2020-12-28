@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   transition: 0.3s;
   border-radius: 3px;
   h2 {
-    color: var(--color-text);
+    color: var(--color-title);
   }
   p {
     color: var(--color-textGray);

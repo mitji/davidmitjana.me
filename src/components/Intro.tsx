@@ -43,7 +43,7 @@ const Circle = styled.div`
     transform: translate3d(0,0,0);
     position: absolute;
     right: 0;
-    top: -4vh;
+    top: -25%;
   }
 `
 

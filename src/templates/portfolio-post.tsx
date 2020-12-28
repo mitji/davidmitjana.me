@@ -65,8 +65,8 @@ const PostHeader = styled.div`
         a {
           border-radius: 5px;
           padding: 0.5rem 0.75rem;
-          background: #eaebec;
-          color: #0e2639;
+          background: var(--color-innerCTAbg);
+          color: var(--color-innerCTAtext);
           font-weight: bold;
           transition: 0.3s;
           &:first-of-type {

@@ -14,20 +14,20 @@ export const COLORS = {
     dark: '#fafafa0d'
   },
   title: {
-    light: '#333333', // Pinkish-red
-    dark: '#fafafa', // Yellow
+    light: '#333333',
+    dark: '#fafafa',
   },
   text: {
-    light: '#2c2c2c', // white
-    dark: '#f5f5f5', // near-black
+    light: '#2c2c2c',
+    dark: '#D1D5D8',
   },
   textGray: {
-    light: '#7e7e7e', // white
-    dark: '#c9c9c9', // near-black
+    light: '#7e7e7e',
+    dark: '#c9c9c9',
   },
   textSecondary: {
-    light: 'hsl(250deg, 100%, 50%)', // Purplish-blue
-    dark: 'hsl(190deg, 100%, 40%)', // Cyan
+    light: 'hsl(250deg, 100%, 50%)',
+    dark: 'hsl(190deg, 100%, 40%)',
   },
   // Grays, scaling from least-noticeable to most-noticeable
   gray1: {
@@ -54,9 +54,19 @@ export const COLORS = {
   },
   // innerLik bg
   innerLinkBg: {
-    light: '#ececec',
-    dark: '#00ffd336'
-  }
+    light: '#eaebec',
+    dark: '#eaebec1f'
+  },
+  // innerCTA text
+  innerCTAtext: {
+    light: '#0e2639',
+    dark: '#0499f6'
+  },
+  // innerCTA bg
+  innerCTAbg: {
+    light: '#eaebec',
+    dark: '#eaebec1f'
+  },
 };
 
 export const THEME_KEY = 'theme';

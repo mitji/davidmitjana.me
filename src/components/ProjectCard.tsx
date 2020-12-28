@@ -24,7 +24,7 @@ const Wrapper = styled.div`
     /* padding: 2px 2px 0 0; */
   }
   h2 {
-    color: var(--color-text);
+    color: var(--color-title);
   }
   p {
     color: var(--color-textGray);
@@ -75,8 +75,8 @@ const Wrapper = styled.div`
 const Url = styled.a`
   border-radius: 5px;
   padding: 0.4rem 0.75rem;
-  background: #eaebec;
-  color: #0e2639;
+  background: var(--color-innerCTAbg);
+  color: var(--color-innerCTAtext);
   font-weight: bold;
   transition: 0.3s;
   &:first-of-type {
