@@ -47,7 +47,7 @@ export default function Settings() {
         <br />
         Feel free to reach me at
         {' '}
-        <OuterLink href="mailto:contact@davidmitjana.me" underline>contact@davidmitjana.me</OuterLink>
+        <OuterLink href="mailto:contact@davidmitjana.me" inline>contact@davidmitjana.me</OuterLink>
         {' '}
         if you feel something is missing!
       </SText>
