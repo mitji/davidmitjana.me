@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -91,34 +91,29 @@ const PostHeader = styled.div`
 `
 
 export default function PortfolioPost(props: { data: any }) {
+  const [headerImg, setHeaderImg] = useState<any>(null);
   const { data } = props;
   const post = data.content;
   const {images} = data;
+
+  useEffect(() => {
+    const image = images.edges.filter((img:any) => img.node.relativePath === post.frontmatter.logoUrl);
+    setHeaderImg(image[0].node.childImageSharp);
+  }, [images]);
+
   return (
     <Layout>
       <SEO
         title={post.frontmatter.title}
-        description={post.excerpt}
-        image={images.edges.map((img:any) => {
-          if (img.node.relativePath === post.frontmatter.logoUrl) {
-            return <Img fluid={img.node.childImageSharp.fluid} alt="Project logo" />
-          }
-          return null
-        })}
+        description={post.frontmatter.excerpt}
+        image={headerImg ? headerImg.fluid.src : null}
       />
       <div>
         <BackBtn to="/portfolio">Back to portfolio</BackBtn>
         <PostHeader>
           <div className="header-top">
             <div className="project__img">
-              {images && (
-                images.edges.map((img:any) => {
-                  if (img.node.relativePath === post.frontmatter.logoUrl) {
-                    return <Img fluid={img.node.childImageSharp.fluid} alt="Project logo" />
-                  }
-                  return null
-                })
-              )}
+              {headerImg && <Img fluid={headerImg.fluid} alt="Project logo" />}
             </div>
             <div className="project__info">
               <span className="project__year"> 
@@ -135,7 +130,7 @@ export default function PortfolioPost(props: { data: any }) {
           {post.frontmatter.tech && (
             <div className="project__tech">
               <TechWrapper>
-                {post.frontmatter.tech.map((el:string) => <Tech>{el}</Tech>)}
+                {post.frontmatter.tech.map((el:string, i: number) => <Tech key={i}>{el}</Tech>)}
               </TechWrapper>
             </div>
           )}

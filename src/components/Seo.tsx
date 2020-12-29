@@ -41,7 +41,7 @@ export function SEO({
 
   const metaDescription = description || site.siteMetadata.description;
   const ogImage = image
-    ? `${site.siteMetadata.siteUrl}${image.src}`
+    ? `${site.siteMetadata.siteUrl}${image}`
     : `${site.siteMetadata.siteUrl}${ogImageSharp.childImageSharp.fluid.src}`
 
   return (
