@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState, RefObject } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 import styled from 'styled-components';
-import { SH1, InnerLink } from '../elements';
+import { Avatar, SH1, InnerLink } from '../elements';
 import { media } from '../utils';
 import { useMousePosition, useWindowDimensions } from '../hooks';
 
@@ -68,12 +66,10 @@ const SIntroInfo = styled.div`
 const MyImgWrapper = styled.div`
   width: 55px;
   height: 55px;
-  /* border: 1px solid #c6c6c6; */
   border-radius: 100%;
   background-color: #f9f6c5;
   margin-right: 0.75rem;
   overflow: hidden;
-  /* padding-top: 10px; */
   img {
     width: auto !important;
     height: 159% !important;
@@ -83,17 +79,6 @@ const MyImgWrapper = styled.div`
 `
 
 export function Intro() {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "davidmitji.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
   const { x, y } = useMousePosition();
   const { width } = useWindowDimensions();
   const [circlePos, setCirclePos] = useState<{x: number, y: number} | null>(null);
@@ -179,7 +164,7 @@ export function Intro() {
       <SIntroInfo>
         <div className="info__content">
           <MyImgWrapper>
-            <Img fluid={data.file.childImageSharp.fluid} alt="Gatsby logo" />
+            <Avatar />
           </MyImgWrapper>
           <div>
             <p>Web Developer</p>

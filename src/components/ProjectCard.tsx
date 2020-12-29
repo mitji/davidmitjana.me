@@ -140,7 +140,7 @@ export function ProjectCard(props: PostCardProps) {
           { tech && (
             <div className="tech">
               <TechWrapper>
-                {tech.map((el:string) => <Tech>{el}</Tech>)}
+                {tech.map((el:string, i:number) => <Tech key={i}>{el}</Tech>)}
               </TechWrapper>
             </div>
           )}
