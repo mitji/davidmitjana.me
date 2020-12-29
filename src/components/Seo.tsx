@@ -43,7 +43,7 @@ export function SEO({
   const ogImage = image
     ? `${site.siteMetadata.siteUrl}${image.src}`
     : `${site.siteMetadata.siteUrl}${ogImageSharp.childImageSharp.fluid.src}`
-  console.log(ogImage);
+
   return (
     <Helmet
       htmlAttributes={{
