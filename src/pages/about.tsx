@@ -42,7 +42,8 @@ export default function About() {
         I have experience as a frontend developer intern in a Spanish fintech called
         {' '}
         <OuterLink href="https://www.verse.me/en" target="_blank" rel="noreferrer" inline>Verse</OuterLink>
-        , and I currently work as a full-stack developer at
+        {' '}
+        and I currently work as a full-stack developer at
         {' '}
         <OuterLink href="https://www.ddb.es" target="_blank" rel="noreferrer" inline>DDB Spain</OuterLink>
         , which is part of one of the most important advertisement companies in the world.
@@ -50,7 +51,7 @@ export default function About() {
       <SH4 margin="2rem 0 1rem">What can I do</SH4>
       <SText>
         I'm mainly focused in frontend development with React and some of the frameworks built 
-        around React (Gatsby, Next), but I can also code full-stack apps with Node.js, Express.js and MongoDB. I also know how to code modern 
+        around React (Gatsby, Next), but I can also code full-stack apps with Node.js, Express.js, and MongoDB. I also know how to code modern 
         HTML email templates that work on the most common email clients.
       </SText>
     </Layout>
