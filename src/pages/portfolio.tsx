@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Layout, ProjectCard } from '../components';
+import { Layout, ProjectCard, SEO } from '../components';
 import { SH1 } from '../elements';
 
 export default function Portfolio() {
@@ -37,6 +37,7 @@ export default function Portfolio() {
 
   return (
     <Layout>
+      <SEO title="Portfolio" />
       <SH1>Projects I've built</SH1>
       {posts && (
         posts.map((edge: any) => {

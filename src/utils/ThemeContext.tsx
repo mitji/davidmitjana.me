@@ -21,7 +21,6 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
     const root = window.document.documentElement;
     const initialTheme = root.style.getPropertyValue('--initial-theme');
     const initialFontSize = root.style.getPropertyValue('--font-size');
-    console.log(initialFontSize);
     setTheme(initialTheme);
     setFontSize(initialFontSize);
   }, []);

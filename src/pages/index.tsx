@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { InnerLink, SH4 } from '../elements';
-import { Intro, Layout, PostCard, ProjectCard } from '../components';
+import { Intro, Layout, PostCard, ProjectCard, SEO } from '../components';
 import { media } from '../utils';
 
 const SectionHeader = styled.div`
@@ -135,6 +135,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO title="Home" />
       <Intro />
       <SectionHeader>
         <SH4 margin="0">Latest Posts</SH4>

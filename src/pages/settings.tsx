@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { Layout } from '../components';
+import { Layout, SEO } from '../components';
 import { OuterLink, SH1, SH4, SText, ThemeToggler } from '../elements';
 import { ThemeContext } from '../utils';
 
@@ -34,13 +34,12 @@ const SettingSelector = styled.button<{isSelected: boolean}>`
 `
 
 export default function Settings() {
-
-  const [size, setSize] = useState<string>('16px');
   const [titleFont, setTitleFont] = useState<string>('sans-serif');
   const [textFont, setTextFont] = useState<string>('sans-serif');
   const { fontSize, updateFontSize } = useContext(ThemeContext);
   return (
     <Layout>
+      <SEO title="Site Settings" />
       <SH1>Customize your experience in this site</SH1>
       <SText>
         Below you'll find all the settings you can customize in this site.

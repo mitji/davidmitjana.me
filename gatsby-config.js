@@ -1,6 +1,12 @@
 require('dotenv').config({path: '.env',});
 
 module.exports = {
+  siteMetadata: {
+    title: 'David Mitjana Castro',
+    description: 'I&apos;m an Audiovisual Systems Engineer with a passion for web technologies.',
+    author: 'David Mitjana Castro',
+    siteUrl: 'https://davidmitjana.me',
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-manifest',
@@ -14,6 +20,8 @@ module.exports = {
         icon: 'src/assets/favicon.png'
       },
     },
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Layout } from '../components';
+import { Layout, SEO } from '../components';
 import { OuterLink, SH1, SText } from '../elements';
 
 export default function Contact() {
   return (
     <Layout>
+      <SEO title="Contact" />
       <SH1>Something to say?</SH1>
       <SText>
         Email me at

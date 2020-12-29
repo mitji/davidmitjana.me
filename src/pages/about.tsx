@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Layout } from '../components';
+import { Layout, SEO } from '../components';
 import { Avatar, OuterLink, SH1, SH4, SText } from '../elements';
 
 const Header = styled.div`
@@ -26,6 +26,7 @@ const MyImgWrapper = styled.div`
 export default function About() {
   return (
     <Layout>
+      <SEO title="About" />
       <Header>
         <SH1>Hello visitor</SH1>
         <MyImgWrapper>

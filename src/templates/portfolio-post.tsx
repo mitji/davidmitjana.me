@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
 import { BackBtn, List, SH1, SText, Tech, TechWrapper } from '../elements';
-import { Layout } from '../components';
+import { Layout, SEO } from '../components';
 import { media } from '../utils';
 
 export const query = graphql`
@@ -96,6 +96,7 @@ export default function PortfolioPost(props: { data: any }) {
   const {images} = data;
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <div>
         <BackBtn to="/portfolio">Back to portfolio</BackBtn>
         <PostHeader>
@@ -131,12 +132,14 @@ export default function PortfolioPost(props: { data: any }) {
           )}
         </PostHeader>
         <SText color="var(--color-textGray)">{post.frontmatter.excerpt}</SText>
-        <SText>Demo user:</SText>
         {post.frontmatter.demoUser && (
-          <List>
-            <li>{post.frontmatter.demoUser.user}</li>
-            <li>{post.frontmatter.demoUser.pswd}</li>
-          </List>
+          <>
+            <SText>Demo user:</SText>
+            <List>
+              <li>{post.frontmatter.demoUser.user}</li>
+              <li>{post.frontmatter.demoUser.pswd}</li>
+            </List>
+          </>
         )}
         <MDXRenderer>
           {post.body}

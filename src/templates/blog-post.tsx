@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
 import { BackBtn, SH1, SText } from '../elements';
-import { Layout } from '../components';
+import { Layout, SEO } from '../components';
 
 export const query = graphql`
   query($id: String!, $dir: String!) {
@@ -43,11 +43,11 @@ const PostInfo = styled.p`
 
 export default function BlogPost(props: { data: any }) {
   const { data } = props;
-  console.log(data)
   const post = data.content;
   const {image} = data;
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <div>
         <BackBtn to="/blog">Back to blog</BackBtn>
         <SH1 style={{margin: '2rem 0 0'}}>{post.frontmatter.title}</SH1>

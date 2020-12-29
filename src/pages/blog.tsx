@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Layout, PostCard } from '../components';
+import { Layout, PostCard, SEO } from '../components';
 import { SH1 } from '../elements';
 
 export default function Blog() {
@@ -35,6 +35,7 @@ export default function Blog() {
 
   return (
     <Layout>
+      <SEO title="Blog" />
       <SH1>Posts</SH1>
       {posts && (
         // TO DO: define post type
