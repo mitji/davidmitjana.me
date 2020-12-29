@@ -10,7 +10,7 @@ const IntroWrapper = styled.div`
     &__header {
       display: flex;
       flex-wrap: wrap;
-      max-height: 125px;
+      max-height: 115px;
       ${media.lessThan(445)} {
         max-height: 180px;
       }
