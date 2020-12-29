@@ -15,5 +15,5 @@ export function Avatar() {
     }
   `);
   
-  return <Img fluid={data.file.childImageSharp.fluid} alt="Gatsby logo" />
+  return <Img fluid={data.file.childImageSharp.fluid} alt="Avatar Drawing" />
 }

@@ -47,7 +47,11 @@ export default function BlogPost(props: { data: any }) {
   const {image} = data;
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.excerpt}
+        image={image.edges[0].node.childImageSharp.fluid}
+      />
       <div>
         <BackBtn to="/blog">Back to blog</BackBtn>
         <SH1 style={{margin: '2rem 0 0'}}>{post.frontmatter.title}</SH1>

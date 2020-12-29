@@ -96,7 +96,16 @@ export default function PortfolioPost(props: { data: any }) {
   const {images} = data;
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.excerpt}
+        image={images.edges.map((img:any) => {
+          if (img.node.relativePath === post.frontmatter.logoUrl) {
+            return <Img fluid={img.node.childImageSharp.fluid} alt="Project logo" />
+          }
+          return null
+        })}
+      />
       <div>
         <BackBtn to="/portfolio">Back to portfolio</BackBtn>
         <PostHeader>

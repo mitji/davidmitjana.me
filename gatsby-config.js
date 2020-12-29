@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'David Mitjana Castro | Frontend Developer',
+        name: 'David Mitjana Castro | Web Developer',
         short_name: 'davidmitjana.me',
         start_url: '/',
         background_color: '#ffffff',
