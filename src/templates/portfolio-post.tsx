@@ -145,8 +145,14 @@ export default function PortfolioPost(props: { data: any }) {
           <>
             <SText>Demo user:</SText>
             <List>
-              <li>{post.frontmatter.demoUser.user}</li>
-              <li>{post.frontmatter.demoUser.pswd}</li>
+              <li>
+                <b>user: </b>
+                {post.frontmatter.demoUser.user}
+              </li>
+              <li>
+                <b>password: </b>
+                {post.frontmatter.demoUser.pswd}
+              </li>
             </List>
           </>
         )}
