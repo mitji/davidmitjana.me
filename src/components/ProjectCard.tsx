@@ -47,7 +47,6 @@ const Wrapper = styled.div`
       }
       .description {
         font-size: 1.125rem;
-        font-weight: 300;
         margin: 0.5rem 0 0;
       }
       .tech {

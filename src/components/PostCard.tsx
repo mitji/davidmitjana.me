@@ -22,7 +22,6 @@ const Wrapper = styled.div`
     &__excerpt {
       font-size: 1.125rem;
       margin-top: 0.5rem;
-      font-weight: 300;
     }
   }
   &:hover {
