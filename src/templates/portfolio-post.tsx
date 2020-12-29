@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
-import { BackBtn, SH1, SText, Tech, TechWrapper } from '../elements';
+import { BackBtn, List, SH1, SText, Tech, TechWrapper } from '../elements';
 import { Layout } from '../components';
 import { media } from '../utils';
 
@@ -19,6 +19,10 @@ export const query = graphql`
         logoUrl
         projectUrl
         githubUrl
+        demoUser {
+          user
+          pswd
+        }
       }
     }
     images: allFile(filter: {relativeDirectory: { eq: "portfolio"}}) {
@@ -127,6 +131,13 @@ export default function PortfolioPost(props: { data: any }) {
           )}
         </PostHeader>
         <SText color="var(--color-textGray)">{post.frontmatter.excerpt}</SText>
+        <SText>Demo user:</SText>
+        {post.frontmatter.demoUser && (
+          <List>
+            <li>{post.frontmatter.demoUser.user}</li>
+            <li>{post.frontmatter.demoUser.pswd}</li>
+          </List>
+        )}
         <MDXRenderer>
           {post.body}
         </MDXRenderer>
