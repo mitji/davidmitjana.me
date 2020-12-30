@@ -31,7 +31,7 @@ function setSiteSettings() {
     titleFont = localStorageTitleFont;
   } else {
     // eslint-disable-next-line @typescript-eslint/quotes
-    textFont = '-apple-system,"BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue", "Helvetica", "Arial"'; // default value
+    titleFont = '-apple-system,"BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue", "Helvetica", "Arial"'; // default value
   }
 
   const root = document.documentElement;
