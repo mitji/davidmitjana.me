@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Layout, SEO } from '../components';
 import { OuterLink, SH1, SH4, SText, ThemeToggler } from '../elements';
@@ -34,9 +34,10 @@ const SettingSelector = styled.button<{isSelected: boolean}>`
 `
 
 export default function Settings() {
-  const [titleFont, setTitleFont] = useState<string>('sans-serif');
-  const [textFont, setTextFont] = useState<string>('sans-serif');
-  const { fontSize, updateFontSize } = useContext(ThemeContext);
+  const sansSerif = '-apple-system,\'BlinkMacSystemFont\',\'Segoe UI\',\'Roboto\',\'Helvetica Neue\', \'Helvetica\', \'Arial\'';
+  const serif = '\'Lora\', Times New Roman, serif';
+  const { fontSize, updateFontSize, textFont, updateTextFont, titleFont, updateTitleFont } = useContext(ThemeContext);
+
   return (
     <Layout>
       <SEO title="Site Settings" />
@@ -62,14 +63,14 @@ export default function Settings() {
 
       <SH4>Title font</SH4>
       <SlectorsWrapper>
-        <SettingSelector onClick={() => setTitleFont('serif')} isSelected={titleFont === 'serif'}>Serif</SettingSelector>
-        <SettingSelector onClick={() => setTitleFont('sans-serif')} isSelected={titleFont === 'sans-serif'}>Sans-serif</SettingSelector>
+        <SettingSelector onClick={() => updateTitleFont(serif)} isSelected={titleFont === serif}>Serif</SettingSelector>
+        <SettingSelector onClick={() => updateTitleFont(sansSerif)} isSelected={titleFont === sansSerif}>Sans-serif</SettingSelector>
       </SlectorsWrapper>
 
       <SH4>Text font</SH4>
       <SlectorsWrapper>
-        <SettingSelector onClick={() => setTextFont('serif')} isSelected={textFont === 'serif'}>Serif</SettingSelector>
-        <SettingSelector onClick={() => setTextFont('sans-serif')} isSelected={textFont === 'sans-serif'}>Sans-serif</SettingSelector>
+        <SettingSelector onClick={() => updateTextFont(serif)} isSelected={textFont === serif}>Serif</SettingSelector>
+        <SettingSelector onClick={() => updateTextFont(sansSerif)} isSelected={textFont === sansSerif}>Sans-serif</SettingSelector>
       </SlectorsWrapper>
     </Layout>
   )

@@ -7,7 +7,11 @@ type ThemeContextProps = {
   theme: string | undefined,
   updateTheme: (val: string) => void,
   fontSize: string | undefined,
-  updateFontSize: (val: string) => void
+  updateFontSize: (val: string) => void,
+  textFont: string | undefined,
+  updateTextFont: (val: string) => void,
+  titleFont: string | undefined,
+  updateTitleFont: (val: string) => void
 }
 
 export const ThemeContext = createContext<ThemeContextProps>(null);
@@ -16,6 +20,8 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
   const { children } = props;
   const [theme, setTheme] = useState<string | undefined>(undefined);
   const [fontSize, setFontSize] = useState<string | undefined>(undefined);
+  const [textFont, setTextFont] = useState<string | undefined>(undefined);
+  const [titleFont, setTitleFont] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -25,6 +31,7 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
     setFontSize(initialFontSize);
   }, []);
 
+  // theme
   const contextValue = useMemo(() => {
     function updateTheme(newTheme: string) {
       const root = window.document.documentElement;
@@ -45,6 +52,7 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
     }
   }, [theme, setTheme]);
 
+  // font size
   const contextFontSize = useMemo(() => {
     function updateFontSize(size: string) {
       window.localStorage.setItem('font-size', size);
@@ -59,8 +67,38 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
     }
   }, [fontSize, setFontSize]);
 
+  // text font family
+  const contextTextFont = useMemo(() => {
+    function updateTextFont(font: string) {
+      window.localStorage.setItem('text-font', font);
+      const root = window.document.documentElement;
+      root.style.setProperty('--text-font', font);
+      setTextFont(font);
+    }
+
+    return {
+      textFont,
+      updateTextFont
+    }
+  }, [textFont, setTextFont]);
+
+  // text font family
+  const contextTitleFont = useMemo(() => {
+    function updateTitleFont(font: string) {
+      window.localStorage.setItem('title-font', font);
+      const root = window.document.documentElement;
+      root.style.setProperty('--title-font', font);
+      setTitleFont(font);
+    }
+
+    return {
+      titleFont,
+      updateTitleFont
+    }
+  }, [titleFont, setTitleFont]);
+
   return (
-    <ThemeContext.Provider value={{...contextValue, ...contextFontSize}}>
+    <ThemeContext.Provider value={{...contextValue, ...contextFontSize, ...contextTextFont, ...contextTitleFont}}>
       {children}
     </ThemeContext.Provider>
   )

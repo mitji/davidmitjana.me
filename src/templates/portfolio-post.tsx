@@ -120,7 +120,7 @@ export default function PortfolioPost(props: { data: any }) {
                 {' '}
                 {post.frontmatter.date.split(' ')[2]}
               </span>
-              <SH1>{post.frontmatter.title}</SH1>
+              <SH1 className="readable-title">{post.frontmatter.title}</SH1>
               <div className="links">
                 <a href={post.frontmatter.githubUrl} target="_blank" rel="noreferrer">Github</a>
                 <a href={post.frontmatter.projectUrl} target="_blank" rel="noreferrer">Visit</a>
@@ -138,8 +138,8 @@ export default function PortfolioPost(props: { data: any }) {
         <SText color="var(--color-textGray)">{post.frontmatter.excerpt}</SText>
         {post.frontmatter.demoUser && (
           <>
-            <SText>Demo user:</SText>
-            <List>
+            <SText className="readable-text">Demo user:</SText>
+            <List className="readable-text">
               <li>
                 <b>user: </b>
                 {post.frontmatter.demoUser.user}

@@ -7,7 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
   html, body {
-    font-family: -apple-system, Roboto, sans-serif, serif;
     font-size: var(--font-size);
     height: 100%;
   }
@@ -28,6 +27,13 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     cursor: pointer;
+  }
+  /* dynamic text & title fonts */
+  .readable-text {
+    font-family: var(--text-font);
+  }
+  .readable-title {
+    font-family: var(--title-font);
   }
 
   /* Footer always at the bottom */

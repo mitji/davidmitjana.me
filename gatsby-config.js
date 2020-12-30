@@ -54,23 +54,14 @@ module.exports = {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          'Lora:400,500,700',
-          'Source Sans Pro:200,300,400,900',
-          'Open Sans:300,400,800',
+          'Lora:400,500,700,400i,500i,700i',
           'Roboto: 100,300,400,500,900,100i,300i,400i,500i,900i',
-          'Montserrat:900'
         ],
         display: 'swap'
       }
     },
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-sharp',
-      options: {
-        icon: `${__dirname}/src/assets/favicon.ico`
-      }
-    },
-
+    'gatsby-plugin-sharp',
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-mdx',

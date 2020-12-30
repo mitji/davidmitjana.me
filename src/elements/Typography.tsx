@@ -7,6 +7,7 @@ export const SText = styled.p<{color?: string}>`
   font-weight: 400;
   color: ${props => props.color ? props.color : 'var(--color-text)'};
   margin-bottom: 1.25rem;
+  word-break: break-word;
   strong {
     font-weight: 600;
   }
@@ -17,10 +18,10 @@ export const SText = styled.p<{color?: string}>`
 
 export const SH1 = styled.h1`
   color: var(--color-title);
+  font-family: var(--title-font);
   font-size: 2.75rem;
   line-height: 1.2;
   font-weight: 900;
-  /* font-family: 'Montserrat', Arial Black, Arial, Helvetica, sans-serif; */
   margin-bottom: 2rem;
   word-break: break-word;
   ${media.lessThan(560)} {
