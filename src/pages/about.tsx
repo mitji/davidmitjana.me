@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Layout, SEO } from '../components';
-import { Avatar, OuterLink, SH1, SH4, SText } from '../elements';
+import { OuterLink, SH1, SH4, SText } from '../elements';
 
 const Header = styled.div`
   h1 {
@@ -9,18 +9,17 @@ const Header = styled.div`
   }
 `
 
+// TO DO: create component for this (same in intro but different width)
 const MyImgWrapper = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 200PX;
+  height: 200PX;
   border-radius: 100%;
   background-color: #f9f6c5;
-  margin: 0 0.75rem 2rem 0;
+  background-image: url(https://res.cloudinary.com/cyranoapp/image/upload/v1609327373/davidmitjana.me/davidmitji_yi6l6t.png);
+  background-size: 168%;
+  background-position: 53% 7%;
+  margin: 0px 0.75rem 2rem 0px;
   overflow: hidden;
-  img {
-    width: auto !important;
-    height: 176% !important;
-    transform: translate3d(-84px,-22px,0px);
-  }
 `
 
 export default function About() {
@@ -29,9 +28,7 @@ export default function About() {
       <SEO title="About" />
       <Header>
         <SH1>Hello visitor</SH1>
-        <MyImgWrapper>
-          <Avatar />
-        </MyImgWrapper>
+        <MyImgWrapper />
       </Header>
       <SH4 margin="0 0 1rem">Who am I</SH4>
       <SText>

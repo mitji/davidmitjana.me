@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, RefObject } from 'react';
 import styled from 'styled-components';
-import { Avatar, SH1, InnerLink } from '../elements';
+import { SH1, InnerLink } from '../elements';
 import { media } from '../utils';
 import { useMousePosition, useWindowDimensions } from '../hooks';
 
@@ -68,14 +68,11 @@ const MyImgWrapper = styled.div`
   height: 55px;
   border-radius: 100%;
   background-color: #f9f6c5;
+  background-image: url(https://res.cloudinary.com/cyranoapp/image/upload/v1609327373/davidmitjana.me/davidmitji_yi6l6t.png);
+  background-size: 163%;
+  background-position: 53% 7%;
   margin-right: 0.75rem;
   overflow: hidden;
-  img {
-    width: auto !important;
-    height: 159% !important;
-    transform: translate3d(-18px, -1px, 0px);
-
-  }
 `
 
 export function Intro() {
@@ -163,9 +160,7 @@ export function Intro() {
       </div>
       <SIntroInfo>
         <div className="info__content">
-          <MyImgWrapper>
-            <Avatar />
-          </MyImgWrapper>
+          <MyImgWrapper />
           <div>
             <p>Web Developer</p>
             <p>A/V Systems Engineer</p>
