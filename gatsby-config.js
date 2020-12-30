@@ -3,7 +3,7 @@ require('dotenv').config({path: '.env',});
 module.exports = {
   siteMetadata: {
     title: 'David Mitjana Castro',
-    description: 'Hi! I&apos;m David Mitjana, an Audiovisual Systems Engineer with a passion for web technologies. * Personal Website',
+    description: 'Hi! I&apos;m David Mitjana, an Audiovisual Systems Engineer with a passion for web technologies',
     author: 'David Mitjana Castro',
     siteUrl: 'https://davidmitjana.me',
   },
