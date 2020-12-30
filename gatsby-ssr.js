@@ -22,14 +22,16 @@ function setSiteSettings() {
   if (typeof localStorageTextFont === 'string') {
     textFont = localStorageTextFont;
   } else {
-    textFont = '-apple-system,\'BlinkMacSystemFont\',\'Segoe UI\',\'Roboto\',\'Helvetica Neue\', \'Helvetica\', \'Arial\''; // default value
+    // eslint-disable-next-line @typescript-eslint/quotes
+    textFont = '-apple-system,"BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue", "Helvetica", "Arial"'; // default value
   }
   // tilte font
   const localStorageTitleFont = localStorage.getItem('title-font');
   if (typeof localStorageTitleFont === 'string') {
     titleFont = localStorageTitleFont;
   } else {
-    titleFont = '-apple-system,\'BlinkMacSystemFont\',\'Segoe UI\',\'Roboto\',\'Helvetica Neue\', \'Helvetica\', \'Arial\''; // default value
+    // eslint-disable-next-line @typescript-eslint/quotes
+    textFont = '-apple-system,"BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue", "Helvetica", "Arial"'; // default value
   }
 
   const root = document.documentElement;

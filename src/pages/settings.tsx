@@ -34,10 +34,9 @@ const SettingSelector = styled.button<{isSelected: boolean}>`
 `
 
 export default function Settings() {
-  const sansSerif = '-apple-system,\'BlinkMacSystemFont\',\'Segoe UI\',\'Roboto\',\'Helvetica Neue\', \'Helvetica\', \'Arial\'';
-  const serif = '\'Lora\', Times New Roman, serif';
+  const sansSerif = '-apple-system,"BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue", "Helvetica", "Arial"';
+  const serif = '"Lora", Times New Roman, serif';
   const { fontSize, updateFontSize, textFont, updateTextFont, titleFont, updateTitleFont } = useContext(ThemeContext);
-
   return (
     <Layout>
       <SEO title="Site Settings" />

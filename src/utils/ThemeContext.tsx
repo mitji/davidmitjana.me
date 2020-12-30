@@ -23,12 +23,18 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
   const [textFont, setTextFont] = useState<string | undefined>(undefined);
   const [titleFont, setTitleFont] = useState<string | undefined>(undefined);
 
+  // initialize values
   useEffect(() => {
     const root = window.document.documentElement;
     const initialTheme = root.style.getPropertyValue('--initial-theme');
     const initialFontSize = root.style.getPropertyValue('--font-size');
+    const initialTextFont = root.style.getPropertyValue('--text-font');
+    const initialTitleFont = root.style.getPropertyValue('--title-font');
+    console.log(initialTextFont);
     setTheme(initialTheme);
     setFontSize(initialFontSize);
+    setTextFont(initialTextFont);
+    setTitleFont(initialTitleFont);
   }, []);
 
   // theme
