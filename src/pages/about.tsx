@@ -52,7 +52,7 @@ export default function About() {
       </SText>
       <SH4 margin="2rem 0 1rem">What can I do</SH4>
       <SText>
-        I'm mainly focused in frontend development with React, including Gatsby.js and Next.js, but I can also code full-stack apps with Node.js, Express.js, and MongoDB. I also know how to code modern 
+        I'm mainly focused in frontend development with React, but I can also code full-stack apps with Node.js, Express.js, and MongoDB. I also know how to code modern 
         HTML email templates that work on the most common email clients.
       </SText>
     </Layout>
