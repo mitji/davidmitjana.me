@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Layout, SEO } from '../components';
-import { OuterLink, SH1, SH4, SText } from '../elements';
+import { InnerLink, OuterLink, SH1, SH4, SText } from '../elements';
 
 const Header = styled.div`
   h1 {
@@ -44,11 +44,15 @@ export default function About() {
         {' '}
         <OuterLink href="https://www.ddb.es" target="_blank" rel="noreferrer" inline>DDB Spain</OuterLink>
         , which is part of one of the most important advertisement companies in the world.
+        {' '}
+        I also build stuff in my free time, you can check all my side projects 
+        {' '}
+        <InnerLink to="/portfolio" inline>here</InnerLink>
+        .
       </SText>
       <SH4 margin="2rem 0 1rem">What can I do</SH4>
       <SText>
-        I'm mainly focused in frontend development with React and some of the frameworks built 
-        around React (Gatsby, Next), but I can also code full-stack apps with Node.js, Express.js, and MongoDB. I also know how to code modern 
+        I'm mainly focused in frontend development with React, including Gatsby.js and Next.js, but I can also code full-stack apps with Node.js, Express.js, and MongoDB. I also know how to code modern 
         HTML email templates that work on the most common email clients.
       </SText>
     </Layout>
