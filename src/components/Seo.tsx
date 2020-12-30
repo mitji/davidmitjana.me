@@ -11,7 +11,7 @@ type SEOProps = {
 }
 
 export function SEO({
-  description = '',
+  description,
   image,
   lang = 'en',
   meta = [],
