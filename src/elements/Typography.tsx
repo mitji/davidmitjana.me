@@ -36,6 +36,7 @@ type H4Props = {
 
 export const SH4 = styled.h4<H4Props>`
   color: var(--color-title);
+  font-family: var(--title-font);
   font-size: 1.5rem;
   margin: ${props => props.margin ? props.margin: '3rem 0 2rem'};
   padding-bottom: ${props => props.border ? '1rem': '0'};;
