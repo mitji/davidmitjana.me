@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Layout, SEO } from '../components';
-import { InnerLink, OuterLink, SH1, SH4, SText } from '../elements';
+import { InnerLink, OuterLink, SH1, SH4, SText, Tech, TechWrapper } from '../elements';
 
 const Header = styled.div`
   h1 {
@@ -23,6 +23,27 @@ const MyImgWrapper = styled.div`
 `
 
 export default function About() {
+
+  const skills = [
+    'HTML',
+    'CSS',
+    'SCSS',
+    'Javascript',
+    'Typescript',
+    'React.js',
+    'Redux',
+    'Context API',
+    'styled-components',
+    'Gatsby.js',
+    'HTML email templates',
+    'JQuery',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'Python',
+    'Pytorch',
+    'Natural Language Processing'
+  ];
   return (
     <Layout>
       <SEO title="About" />
@@ -55,6 +76,10 @@ export default function About() {
         I'm mainly focused in frontend development with React, but I can also code full-stack apps with Node.js, Express.js, and MongoDB. I also know how to code modern 
         HTML email templates that work on the most common email clients.
       </SText>
+      <SH4 margin="2rem 0 1rem">Skills</SH4>
+      <TechWrapper>
+        {skills && skills.map((el:string, i: number) => <Tech key={i}>{el}</Tech>)}
+      </TechWrapper>
     </Layout>
   )
 }
