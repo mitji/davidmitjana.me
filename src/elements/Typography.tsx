@@ -6,6 +6,7 @@ export const SText = styled.p<{color?: string}>`
   line-height: 1.55;
   font-weight: 400;
   color: ${props => props.color ? props.color : 'var(--color-text)'};
+  font-family: var(--text-font);
   margin-bottom: 1.25rem;
   word-break: break-word;
   strong {
