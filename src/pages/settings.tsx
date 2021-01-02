@@ -41,7 +41,7 @@ export default function Settings() {
     <Layout>
       <SEO title="Site Settings" />
       <SH1>Customize your experience in this site</SH1>
-      <SText>
+      <SText className="readable-text">
         Below you'll find all the settings you can customize in this site.
         <br />
         Feel free to reach me at

@@ -7,7 +7,7 @@ export default function Contact() {
     <Layout>
       <SEO title="Contact" />
       <SH1>Something to say?</SH1>
-      <SText>
+      <SText className="readable-text">
         Email me at
         {' '}
         <OuterLink href="mailto:contact@davidmitjana.me" inline underline>contact@davidmitjana.me</OuterLink>
