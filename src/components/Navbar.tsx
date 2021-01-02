@@ -52,6 +52,9 @@ const SNavLinksWrapper = styled.ul`
   list-style: none;
   li {
     margin-right: 0.5rem;
+    ${media.lessThan(560)} {
+      margin-right: 0.25rem;
+    }
     &:last-of-type {
       margin-right: 0;
     }
@@ -62,8 +65,6 @@ const SNavLinksWrapper = styled.ul`
       transition: 0.3s;
       font-size: 1rem;
       color: var(--color-text);
-      font-weight: 300;
-      letter-spacing: 1px;
       display: flex;
       align-items: center;
       ${media.lessThan(560)} {
