@@ -28,8 +28,8 @@ const SettingSelector = styled.button<{isSelected: boolean}>`
   box-shadow: ${props => props.isSelected ? '0px 0px 0px 1px black;' : 'none'};
   background: ${props => props.isSelected ? 'var(--color-gray1)' : 'transparent'};
   transition: 0.3s;
-  &:active {
-    box-shadow: 0px 0px 0px 1px black;
+  &:hover, &:active {
+    box-shadow: 0px 0px 0px 1px #000000;
   }
 `
 
