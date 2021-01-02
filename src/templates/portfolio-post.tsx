@@ -116,10 +116,12 @@ export default function PortfolioPost(props: { data: any }) {
               {headerImg && <Img fluid={headerImg.fluid} alt="Project logo" />}
             </div>
             <div className="project__info">
-              <span className="project__year"> 
-                {' '}
+              <time
+                dateTime={post.frontmatter.date.split(' ')[2]}
+                className="project__year"
+              > 
                 {post.frontmatter.date.split(' ')[2]}
-              </span>
+              </time>
               <SH1 className="readable-title">{post.frontmatter.title}</SH1>
               <div className="links">
                 <a href={post.frontmatter.githubUrl} target="_blank" rel="noreferrer">Github</a>

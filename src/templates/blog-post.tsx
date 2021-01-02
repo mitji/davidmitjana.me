@@ -14,7 +14,8 @@ export const query = graphql`
       frontmatter {
         title
         excerpt
-        date(formatString: "DD MMM YYYY")
+        rawDate: date
+        date: date(formatString: "DD MMM YYYY")
       }
     }
     image: allFile(
@@ -57,7 +58,7 @@ export default function BlogPost(props: { data: any }) {
         <SH1 style={{margin: '2rem 0 0'}} className="readable-title">{post.frontmatter.title}</SH1>
         <SText color="var(--color-textGray)" style={{margin: '0'}}>{post.frontmatter.excerpt}</SText>
         <PostInfo>
-          {post.frontmatter.date}
+          <time dateTime={post.frontmatter.rawDate}>{post.frontmatter.date}</time>
           {' '}
           ·
           {' '}

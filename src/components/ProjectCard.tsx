@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   h2 {
     color: var(--color-title);
   }
-  p {
+  p, time {
     color: var(--color-textGray);
   }
   .project {
@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     &__info {
       display: flex;
       flex-direction: column;
-      p {
+      .date {
         font-size: 0.875rem;
         margin-bottom: 1.25rem;
       }
@@ -129,9 +129,9 @@ export function ProjectCard(props: PostCardProps) {
           />
         </div>
         <div className="project__info">
-          <p className="date">
+          <time dateTime={date} className="date">
             {date}
-          </p>
+          </time>
           <h2>{title}</h2>
           <p className="description">
             {description}

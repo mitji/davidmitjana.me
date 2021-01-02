@@ -19,7 +19,8 @@ export default function Blog() {
               title
               slug
               excerpt
-              date(formatString: "DD MMM YYYY")
+              rawDate: date
+              date: date(formatString: "DD MMM YYYY")
             }
             id
             timeToRead
@@ -45,6 +46,7 @@ export default function Blog() {
             <PostCard 
               date={postData.date}
               excerpt={postData.excerpt}
+              rawDate={postData.rawDate}
               timeToRead={edge.node.timeToRead}
               title={postData.title}
               to={postData.slug}

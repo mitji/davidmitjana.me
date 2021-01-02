@@ -31,6 +31,7 @@ const Wrapper = styled.div`
 
 type PostCardProps = {
   date: string,
+  rawDate: string,
   excerpt: string,
   timeToRead: number,
   title: string,
@@ -39,12 +40,12 @@ type PostCardProps = {
 }
 
 export function PostCard(props: PostCardProps) {
-  const { date, excerpt, tags, timeToRead, title, to} = props;
+  const { date, excerpt, rawDate, tags, timeToRead, title, to} = props;
   return (
     <Link to={to}>
       <Wrapper>
         <p className="post__info">
-          {date}
+          <time dateTime={rawDate}>{date}</time>
           {' '}
           · 
           {' '}

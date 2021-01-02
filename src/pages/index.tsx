@@ -104,6 +104,7 @@ export default function Home() {
               title
               slug
               excerpt
+              rawDate: date
               date(formatString: "DD MMM YYYY")
             }
             id
@@ -122,7 +123,7 @@ export default function Home() {
               tech
               slug
               excerpt
-              date(formatString: "DD MMM YYYY")
+              date: date(formatString: "DD MMM YYYY")
               projectUrl
               logoUrl
             }
@@ -152,6 +153,7 @@ export default function Home() {
             <PostCard 
               date={postData.date}
               excerpt={postData.excerpt}
+              rawDate={postData.rawDate}
               timeToRead={edge.node.timeToRead}
               title={postData.title}
               to={`blog/${postData.slug}`}
