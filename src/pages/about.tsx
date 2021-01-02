@@ -37,6 +37,7 @@ export default function About() {
     'Gatsby.js',
     'HTML email templates',
     'JQuery',
+    'Git',
     'Node.js',
     'Express.js',
     'MongoDB',
