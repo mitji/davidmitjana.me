@@ -9,6 +9,20 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [
+          process.env.GA_TRACKING_ID,
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+        pluginConfig: {
+          head: false,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'David Mitjana Castro | Web Developer',
@@ -88,13 +102,5 @@ module.exports = {
       }
     },
     'gatsby-plugin-styled-components',
-    {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [
-          process.env.GA_TRACKING_ID,
-        ],
-      },
-    },
   ],
 };
