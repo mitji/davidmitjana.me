@@ -166,7 +166,10 @@ export function Intro() {
             <p>A/V Systems Engineer</p>
           </div>
         </div>
-        <InnerLink to="about">
+        <InnerLink
+          to="about"
+          onClick={() => typeof window !== 'undefined' && window.gtag('event', 'inbound_about', { from: 'intro' })}
+        >
           More about me
         </InnerLink>
       </SIntroInfo>

@@ -140,7 +140,7 @@ export default function Home() {
       <Intro />
       <SectionHeader>
         <SH4 margin="0">Latest Posts</SH4>
-        <InnerLink to="blog">
+        <InnerLink to="blog" onClick={() => typeof window !== 'undefined' && window.gtag('event', 'click', { ...data })}>
           View all
         </InnerLink>
       </SectionHeader>
@@ -189,7 +189,9 @@ export default function Home() {
 
       <SiteSettingsBanner>
         <p>This site has customizable settings.</p>
-        <Link to="settings">Check it out</Link>
+        <Link to="settings" onClick={() => typeof window !== 'undefined' && window.gtag('event', 'inbound_settings_banner', { from: 'banner' })}>
+          Check it out
+        </Link>
       </SiteSettingsBanner>
     </Layout>
   )

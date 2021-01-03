@@ -51,7 +51,6 @@ const SFooter = styled.div`
     }
     &__signature {
       width: 100%;
-      /* text-align: center; */
       margin-top: 0.5rem;
     }
   }
@@ -72,16 +71,38 @@ export function Footer() {
         <FooterWrapper>
           <SFooter>
             <div className="footer__links">
-              <InnerLink to="/settings" inline style={{color: '#afafaf'}}>Site settings</InnerLink>
+              <InnerLink
+                to="/settings"
+                inline
+                style={{color: '#afafaf'}}
+                onClick={() => typeof window !== 'undefined' && window.gtag('event', 'inbound_settings_footer', { from: 'footer' })}
+              >
+                Site settings
+              </InnerLink>
               <div className="contact">
-                <a href="https://github.com/mitji" target="_blank" rel="noreferrer">
+                <a
+                  href="https://github.com/mitji"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => typeof window !== 'undefined' && window.gtag('event', 'outbound_github', { from: 'footer' })}
+                >
                   <Github />
                 </a>
                 {' '}
-                <a href="https://www.linkedin.com/in/david-mitjana-castro" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/david-mitjana-castro"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => typeof window !== 'undefined' && window.gtag('event', 'outbound_linkedin', { from: 'footer' })}
+                >
                   <Linkedin />
                 </a>
-                <a href="mailto:contact@davidmitjana.me">
+                <a
+                  href="mailto:contact@davidmitjana.me"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => typeof window !== 'undefined' && window.gtag('event', 'outbound_contact', { from: 'footer' })}
+                >
                   <Email />
                 </a>
               </div>
