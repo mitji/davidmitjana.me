@@ -18,7 +18,7 @@ module.exports = {
           anonymize_ip: true,
         },
         pluginConfig: {
-          head: false,
+          head: true,
         },
       },
     },
