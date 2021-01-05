@@ -5,6 +5,7 @@ import { media } from '../utils';
 
 const SLayout = styled.div`
   max-width: 750px;
+  width: 100%;
   margin: 4rem auto;
   padding: 0 1.25rem;
   flex-grow: 1;
