@@ -40,7 +40,7 @@ export const InnerLink = styled(Link)<{inline?: boolean}>`
     }
     &:active {
       transform: scale(0.97);
-      background: var(--color-innerLinkBg);;
+      background: var(--color-innerLinkBg);
     }
   `}
 `
@@ -60,7 +60,7 @@ export const BackBtn = styled(Link)`
     transition: 0.5s;
   }
   &:hover {
-    background: var(--color-innerLinkBg);;
+    background: var(--color-innerLinkBg);
     padding-right: 0.75rem;
     padding-left: 1.75rem;
     color: #009BF9;
@@ -71,7 +71,7 @@ export const BackBtn = styled(Link)`
   }
   &:active {
     transform: scale(0.97);
-    background: var(--color-innerLinkBg);;
+    background: var(--color-innerLinkBg);
   }
 `
 // link that makes you leave the site

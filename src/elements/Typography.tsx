@@ -39,6 +39,6 @@ export const SH4 = styled.h4<H4Props>`
   font-family: var(--title-font);
   font-size: 1.5rem;
   margin: ${props => props.margin ? props.margin: '3rem 0 2rem'};
-  padding-bottom: ${props => props.border ? '1rem': '0'};;
+  padding-bottom: ${props => props.border ? '1rem': '0'};
   border-bottom: ${props => props.border ? '1px solid #e1e1e1': 'none'};
 `

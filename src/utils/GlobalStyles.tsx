@@ -65,7 +65,7 @@ export const GlobalStyles = createGlobalStyle`
     
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: #7f91b936
+      background: #7f91b936;
     }
     
     /* Handle on hover */

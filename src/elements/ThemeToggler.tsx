@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useContext, SyntheticEvent } from 'react';
+import React, { useContext, SyntheticEvent } from 'react';
 import styled from 'styled-components';
-import { graphql, useStaticQuery, } from 'gatsby';
 import { ThemeContext } from '../utils';
-// import light from '../assets/light.png';
 
-const Label = styled.label<{url: string,}>`
+const Label = styled.label<{url: string}>`
   position: relative;
   display: inline-block;
   width: 55px;
@@ -69,33 +67,6 @@ export function ThemeToggler() {
 
   const lightSrc = 'https://res.cloudinary.com/cyranoapp/image/upload/v1609246091/davidmitjana.me/light_u1t95n.png';
   const darkSrc = 'https://res.cloudinary.com/cyranoapp/image/upload/v1609246090/davidmitjana.me/dark_itk2rx.png';
-
-  // const [lightSrc, setLightSrc] = useState<string>('');
-  // const [darkSrc, setDarkSrc] = useState<string>('');
-  // const data = useStaticQuery(graphql`
-  //   query {    
-  //     light: file(relativePath: {eq: "light.png"}) {
-  //       childImageSharp {
-  //         fluid {
-  //           src
-  //         }
-  //       }
-  //     }
-  //     dark: file(relativePath: {eq: "dark.png"}) {
-  //       childImageSharp {
-  //         fluid {
-  //           src
-  //         }
-  //       }
-  //     },
-  //   }
-  // `)
-
-  // useEffect(() => {
-  //   setLightSrc(data.light.childImageSharp.fluid.src);
-  //   setDarkSrc(data.dark.childImageSharp.fluid.src);
-  // }, [data]);
-
   
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control

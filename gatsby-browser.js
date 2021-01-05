@@ -5,6 +5,12 @@ import { ScrollToTop } from './src/elements';
 
 export const wrapRootElement = ({element}) => (
   <ThemeProvider>
+    {element}
+  </ThemeProvider>
+)
+
+export const wrapPageElement = ({ element, props }) => (
+  <>
     <GlobalStyles />
     <Navbar />
     <MDXStyles>
@@ -12,5 +18,5 @@ export const wrapRootElement = ({element}) => (
     </MDXStyles>
     <ScrollToTop />
     <Footer />
-  </ThemeProvider>
-)
+  </>
+);
