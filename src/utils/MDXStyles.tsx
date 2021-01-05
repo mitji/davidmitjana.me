@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react'
-import { InnerLink, List, SText, SH4, OuterLink } from '../elements';
+import { InnerLink, Ul, Ol, SText, SH4, OuterLink } from '../elements';
 
 export function MDXStyles(props: {children: React.ReactNode}) {
   const { children } = props;
@@ -11,9 +11,11 @@ export function MDXStyles(props: {children: React.ReactNode}) {
         // eslint-disable-next-line react/jsx-props-no-spreading
         p: (props) => <SText {...props} className="readable-text" />,
         // eslint-disable-next-line react/jsx-props-no-spreading
-        ul: (props) => <List {...props} className="readable-text" />,
+        ul: (props) => <Ul {...props} className="readable-text" />,
         // eslint-disable-next-line react/jsx-props-no-spreading
-        a: (props) => <OuterLink {...props} className="readable-text" inline />,
+        ol: (props) => <Ol {...props} className="readable-text" />,
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        a: (props) => <OuterLink {...props} className="readable-text" target="_blank" rel="noreferrer" inline />,
         // eslint-disable-next-line react/jsx-props-no-spreading
         h4: (props) => <SH4 {...props} margin="2rem 0 1rem" className="readable-title" />,
         OuterLink,
