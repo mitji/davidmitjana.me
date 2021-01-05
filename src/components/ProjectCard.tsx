@@ -24,6 +24,9 @@ const Wrapper = styled.div`
   }
   h2 {
     color: var(--color-title);
+    ${media.lessThan(560)} {
+      max-width: 80%;
+    }
   }
   p, time {
     color: var(--color-textGray);
@@ -74,7 +77,7 @@ const Wrapper = styled.div`
 
 const Url = styled.a`
   border-radius: 5px;
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   background: var(--color-innerCTAbg);
   color: var(--color-innerCTAtext);
   font-weight: bold;

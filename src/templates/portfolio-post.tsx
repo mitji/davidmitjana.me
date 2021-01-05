@@ -75,6 +75,9 @@ const PostHeader = styled.div`
           color: var(--color-innerCTAtext);
           font-weight: bold;
           transition: 0.3s;
+          ${media.lessThan(560)} {
+            padding: 0.75rem 1.125rem;
+          }
           &:first-of-type {
             margin-right: 0.75rem;
           }
