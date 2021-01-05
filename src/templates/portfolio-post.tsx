@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
-import { BackBtn, List, SH1, SText, Tech, TechWrapper } from '../elements';
+import { BackBtn, Ul, SH1, SText, Tech, TechWrapper } from '../elements';
 import { Layout, SEO } from '../components';
 import { media } from '../utils';
 
@@ -140,11 +140,13 @@ export default function PortfolioPost(props: { data: any }) {
             </div>
           )}
         </PostHeader>
-        <SText color="var(--color-textGray)">{post.frontmatter.excerpt}</SText>
+        <SText color="var(--color-textGray)" style={{marginBottom: '0'}}>{post.frontmatter.excerpt}</SText>
+        <br />
+        <br />
         {post.frontmatter.demoUser && (
           <>
             <SText className="readable-text">Demo user:</SText>
-            <List className="readable-text">
+            <Ul className="readable-text">
               <li>
                 <b>user: </b>
                 {post.frontmatter.demoUser.user}
@@ -153,7 +155,7 @@ export default function PortfolioPost(props: { data: any }) {
                 <b>password: </b>
                 {post.frontmatter.demoUser.pswd}
               </li>
-            </List>
+            </Ul>
           </>
         )}
         <MDXRenderer>

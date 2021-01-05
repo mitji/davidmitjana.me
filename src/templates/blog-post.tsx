@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
-import { BackBtn, SH1, SText } from '../elements';
+import { BackBtn, OuterLink, SH1, SText } from '../elements';
 import { Layout, SEO } from '../components';
 
 export const query = graphql`
@@ -72,6 +72,20 @@ export default function BlogPost(props: { data: any }) {
         <MDXRenderer>
           {post.body}
         </MDXRenderer>
+        <SText color="var(--color-textGray)" style={{fontSize: '1rem', margin: '3rem 0 0'}}>
+          <span role="img" aria-label="Megaphone" style={{marginRight: '0.5rem'}}>📣</span>
+          <i>
+            If you've found something missing, something wrong or something that could be improved in this post, please drop a pull request in 
+            the
+            {' '}
+            <OuterLink href="https://github.com/mitji/davidmitjana.me/pulls" target="_blank" rel="noreferrer" inline>site's repo</OuterLink>
+            {' '}
+            or email me at
+            {' '}
+            <OuterLink href="mailto:contact@davidmitjana.me" inline underline>contact@davidmitjana.me</OuterLink>
+            .
+          </i>
+        </SText>
       </div>
       {/* {post.timeToRead > 1 ? <ScrollTop /> : null} */}
     </Layout>
