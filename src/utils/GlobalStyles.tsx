@@ -38,16 +38,16 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Footer always at the bottom */
   #___gatsby {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
   }
   /** 
     Force 'main' content to occupy all remaining space, 
     which forces footer to be at the bottom
   */
   #gatsby-focus-wrapper {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
   }
 
   /**

@@ -7,6 +7,7 @@ const SLayout = styled.div`
   max-width: 750px;
   margin: 4rem auto;
   padding: 0 1.25rem;
+  flex-grow: 1;
   ${media.lessThan(560)} {
     margin: 2rem auto;
   }
