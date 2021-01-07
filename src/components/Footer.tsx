@@ -78,6 +78,7 @@ export function Footer() {
                 onClick={() => typeof window !== 'undefined' && window.gtag('event', 'inbound_settings_footer', { from: 'footer' })}
               >
                 Site settings
+                <span role="img" aria-label="Gear" style={{marginLeft: '0.25rem'}}>⚙️</span>
               </InnerLink>
               <div className="contact">
                 <a
