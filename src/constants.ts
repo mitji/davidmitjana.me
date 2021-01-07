@@ -69,8 +69,8 @@ export const COLORS = {
   },
   // inline <code> bg
   inlineCodeBg: {
-    light: '#eaebec',
-    dark: '#b969c640'
+    light: '#759ae829',
+    dark: '#759ae829'
   },
 };
 
