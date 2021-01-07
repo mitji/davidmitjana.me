@@ -65,7 +65,7 @@ export const COLORS = {
   // innerCTA bg
   innerCTAbg: {
     light: '#eaebec',
-    dark: '#eaebec1f'
+    dark: '#004b83'
   },
   // inline <code> bg
   inlineCodeBg: {
