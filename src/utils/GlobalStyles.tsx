@@ -50,6 +50,24 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100%;
   }
 
+  /* code and codeblocks styles */
+  code {
+    font-size: 1rem;
+    padding: 0 0.25rem 0.1rem 0.25rem;
+    border-radius: 3px;
+    background: var(--color-inlineCodeBg);
+  }
+
+  pre.prism-code, code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  pre.prism-code {
+  border-radius: 3px;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+}
+
   /**
   --- MODIFY SCROLLBAR ---
   **/

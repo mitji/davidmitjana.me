@@ -1,5 +1,6 @@
 export * from './Avatar';
 export * from './Buttons';
+export * from './Code';
 export * from './List';
 export * from './NameLogo';
 export * from './ScrollToTop';

@@ -110,13 +110,13 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
 };
 
 // eslint-disable-next-line react/prop-types
-export const wrapRootElement = ({element}) => (
+export const wrapRootElement = ({ element }) => (
   <ThemeProvider>
     {element}
   </ThemeProvider>
 )
 
-export const wrapPageElement = ({ element, props }) => (
+export const wrapPageElement = ({ element }) => (
   <>
     <GlobalStyles />
     <Navbar />

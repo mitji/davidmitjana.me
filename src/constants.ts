@@ -11,7 +11,7 @@ export const COLORS = {
   },
   backgroundFooter: {
     light: '#fafafa',
-    dark: '#fafafa0d'
+    dark: '#011627'
   },
   title: {
     light: '#333333',
@@ -66,6 +66,11 @@ export const COLORS = {
   innerCTAbg: {
     light: '#eaebec',
     dark: '#eaebec1f'
+  },
+  // inline <code> bg
+  inlineCodeBg: {
+    light: '#eaebec',
+    dark: '#b969c640'
   },
 };
 
