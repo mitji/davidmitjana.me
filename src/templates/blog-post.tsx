@@ -31,6 +31,7 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+          publicURL
         }
       }
     }
@@ -46,12 +47,17 @@ export default function BlogPost(props: { data: any }) {
   const { data } = props;
   const post = data.content;
   const {image} = data;
+
   return (
     <Layout>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.excerpt}
-        image={image.edges[0].node.childImageSharp.fluid.src}
+        image={
+          image.edges[0].node.childImageSharp
+            ? image.edges[0].node.childImageSharp.fluid.src
+            : `localhost:8000${image.edges[0].node.publicURL}`
+        }
       />
       <div>
         <BackBtn to="/blog">Back to blog</BackBtn>
@@ -66,7 +72,11 @@ export default function BlogPost(props: { data: any }) {
           {' '}
           min read
         </PostInfo>
-        <Img fluid={image.edges[0].node.childImageSharp.fluid} alt="Project logo" />
+        {
+          image.edges[0].node.childImageSharp
+            ? <Img fluid={image.edges[0].node.childImageSharp.fluid} alt="Project logo" />
+            : <img alt="Project logo" src={image.edges[0].node.publicURL} />
+        }
         <br />
         <br />
         <MDXRenderer>
