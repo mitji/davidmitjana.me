@@ -71,7 +71,7 @@ const Wrapper = styled.div`
     }
   }
   &:hover {
-    box-shadow: 2px 6px 15px 2px var(--color-boxShadow);
+    box-shadow: 2px 5px 12px 3px var(--color-boxShadow);
   }
 `
 
