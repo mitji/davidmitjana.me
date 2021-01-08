@@ -71,7 +71,7 @@ export default function BlogPost(props: { data: any }) {
       <div>
         <BackBtn to="/blog">Back to blog</BackBtn>
         <SH1 style={{margin: '2rem 0 0'}} className="readable-title">{post.frontmatter.title}</SH1>
-        <SText color="var(--color-textGray)" style={{width: '100%', margin: '0'}}>{post.frontmatter.excerpt}</SText>
+        <SText color="var(--color-textGray)" style={{margin: '0'}}>{post.frontmatter.excerpt}</SText>
         <PostInfo>
           <time dateTime={post.frontmatter.rawDate}>{post.frontmatter.date}</time>
           {' '}
@@ -85,7 +85,7 @@ export default function BlogPost(props: { data: any }) {
           {
             image.edges[0].node.childImageSharp
               ? <Img fluid={image.edges[0].node.childImageSharp.fluid} alt="Project logo" />
-              : <img alt="Project logo" src={image.edges[0].node.publicURL} style={{marginBottom: '15px'}} />
+              : <img alt="Project logo" src={image.edges[0].node.publicURL} style={{width: '100%', marginBottom: '15px'}} />
           }
         </HeaderImgWrapper>
         <br />
