@@ -81,7 +81,7 @@ export const OuterLink = styled.a<{underline?: boolean, inline?: boolean, paddin
     color: #009BF9;
     height: max-content;
     &:hover {
-      background-color: #c6e5ff;
+      background-color: var(--color-outerLinkBg);
     }
   `: css`
     border-radius: 5px;
