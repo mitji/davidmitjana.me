@@ -66,6 +66,7 @@ export const GlobalStyles = createGlobalStyle`
   border-radius: 3px;
   padding: 1.5rem;
   font-size: 0.875rem;
+  overflow-x: auto;
 }
 
   /**

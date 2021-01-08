@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   padding: 1rem;
   margin-bottom: 1.5rem;
-  box-shadow: 2px 2px 9px 0px var(--color-boxShadow);
+  box-shadow: 2px 2px 8px -2px var(--color-boxShadow);
   transition: 0.3s;
   border-radius: 3px;
   h2 {
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
     }
   }
   &:hover {
-    box-shadow: 2px 6px 15px 2px var(--color-boxShadow);
+    box-shadow: 2px 5px 12px 3px var(--color-boxShadow);
   }
 `
 

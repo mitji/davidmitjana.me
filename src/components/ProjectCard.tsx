@@ -8,7 +8,7 @@ import { media } from '../utils';
 const Wrapper = styled.div`
   position: relative;
   margin-bottom: 1.5rem;
-  box-shadow: 2px 2px 9px 0px var(--color-boxShadow);
+  box-shadow: 2px 2px 8px -2px var(--color-boxShadow);
   transition: 0.3s;
   border-radius: 3px;
   #gatsby_link {

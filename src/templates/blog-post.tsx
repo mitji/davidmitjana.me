@@ -56,7 +56,7 @@ export default function BlogPost(props: { data: any }) {
         image={
           image.edges[0].node.childImageSharp
             ? image.edges[0].node.childImageSharp.fluid.src
-            : `localhost:8000${image.edges[0].node.publicURL}`
+            : image.edges[0].node.publicURL
         }
       />
       <div>
@@ -75,7 +75,7 @@ export default function BlogPost(props: { data: any }) {
         {
           image.edges[0].node.childImageSharp
             ? <Img fluid={image.edges[0].node.childImageSharp.fluid} alt="Project logo" />
-            : <img alt="Project logo" src={image.edges[0].node.publicURL} />
+            : <img alt="Project logo" src={image.edges[0].node.publicURL} style={{width: '100%', marginBottom: '15px'}} />
         }
         <br />
         <br />
