@@ -6,33 +6,33 @@ excerpt: How to fix styled-components ssr issues in Gatsby production build.
 date: 2021-01-08
 ---
 <!-- #### My Problem ⚠️ -->
-In the development environment everything worked fine, but after building the Gatsby site, it appeared an annoying flickering effect where styles from styled-components where being applied with delay, like shown in the gif above.
+In the development environment everything was working fine, but after building the Gatsby site, an annoying flickering effect appeared where styles from styled-components where being applied with delay, like shown in the gif above.
 <!-- The problem becomes more annoying if the user has bad internet connection (replicated slowing down network speed in chrome devtools). -->
 
-Although this was my problem, it could also be that your app is ignoring some or all styles from styled-components. 
-We'll see why this happens and multiple solutions for the problem.
+Although that's the problem I personally encountered, it could also happen that your app is ignoring some or all styles from styled-components. 
+We'll see why this happens and how to troubleshoot it.
 
 **&rarr; My initial approach** 👎<br />
 
 My initial thoughts were: *"what the hell is going on!¿?@!$¿¡!"*.
-What a relief was to find out that people had similar issues with Gatsby having different behaviour 
-between development and production builds, and it was related to rehydration (e.g. [[1]](https://github.com/gatsbyjs/gatsby/issues/10706), [[2]](https://github.com/gatsbyjs/gatsby/discussions/17914)).
+Finding out that people had similar issues with Gatsby having different behaviour 
+between development and production builds (e.g. [[1]](https://github.com/gatsbyjs/gatsby/issues/10706), [[2]](https://github.com/gatsbyjs/gatsby/discussions/17914)), and that it was related to rehydration, was a relief.
 
-If you want to know more about hydration, have a look at Gatsby Docs [[3]](https://www.gatsbyjs.com/docs/glossary/hydration/).
+If you want to know more about Gatsby and hydration, you may have a look to it at Gatsby Docs [[3]](https://www.gatsbyjs.com/docs/glossary/hydration/).
 
 Then I discovered an awesome post about rehydration problems server-side-rendering (ssr) React apps like Gatsby 
 [[4]](https://www.joshwcomeau.com/react/the-perils-of-rehydration/) and I thought: *"hmmm... this should work for me"*. And it did!
 It looked like a rehydration problem, so if I waited for the client (React) to be ready, then the styles would be 
 applied when the content is painted on the screen. Nice, problem solved!
 
-However, this approach is cool if we intend to solve small rehydration issues in some specific components, but not for the entire app.
+Though this approach is cool if we intend to solve small rehydration issues in some specific components, it is not for the entire app.
 If you do that, you're taking no advantage of ssr, which very briefly is 1) bad for performance and 2) bad for SEO [[5]](https://medium.com/walmartglobaltech/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8).
 
 So, after quite a bit of debugging, research and gaining more knowledge on Gatsby, I was able to 
-solve the problem in a more elegantly way (in fact, the proper way of solving it) while taking advantage of ssr.
+solve the problem in a more elegant way (in fact, the proper way of solving it) while taking advantage of ssr.
 
 #### Solutions ✅
-Next you'll find different solutions I tried, which seem to be the solutions for the most common issues users have with styled-components and Gatsby.
+Next you'll find different solutions I tried, which seem to be useful for most common issues users have with styled-components and Gatsby.
 
 1. Check you have `gatsby-plugin-styled-components` & `babel-plugin-styled-components` installed. Styled-components will not work without them in ssr [[6]](https://www.gatsbyjs.com/plugins/gatsby-plugin-styled-components/).<br />
 
@@ -40,10 +40,10 @@ Next you'll find different solutions I tried, which seem to be the solutions for
 with double semicolon `;;` [[7]](https://github.com/gatsbyjs/gatsby/issues/16039). 
 
 3. Check your are properly using `wrapRootElement` and `wrapPageElement` APIs.<br />
-The first is *'useful to set up any Provider components that will wrap 
-your application'* and the second one to *'set persistent UI elements around pages'*. See Gatsby docs for more info about those APIs [[8]](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapPageElement).
+The first is *"useful to set up any Provider components that will wrap 
+your application"* and the second one *"set persistent UI elements around pages"*. See Gatsby docs for more info about those APIs [[8]](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/#wrapPageElement).
 
-4. If you use `wrapRootElement` and `wrapPageElement`, don't forget to impelement it both in `gatsby-browser.js` and `gatsby-ssr.js`.<br />
+4. If you use `wrapRootElement` and `wrapPageElement`, don't forget to implement it both in `gatsby-browser.js` and `gatsby-ssr.js`.<br />
 
 In my case, checking solutions 2 and 3 helped me to fix the issue. As an example, my `gatsby-browser.js` and `gatsby-ssr.js` ended up sharing the following code:
 
@@ -69,9 +69,9 @@ export const wrapPageElement = ({ element }) => (
 ```
 
 #### Conclusions
-This seems to be a very common pitfall in the first steps in Gatsby, and it can become difficult and tedious to debug and find the correct solution, so I hope this has has been helpful to you.
+The problem described seems to be a very common pitfall in the first steps in Gatsby, and it can become difficult and tedious to debug and find the right solution. So in case you came here looking for help, I hope this post has been helpful to you.
 
-Finally, facing this type of issues teaches you not to overestimate development environments, because once everything works fine in development, many things can go wrong in production!
+Finally, facing this type of issues teaches how not to overestimate development environments, because even if everything works fine in development, many things can go wrong in production!
 
 #### References
 [1] https://github.com/gatsbyjs/gatsby/issues/10706<br />
