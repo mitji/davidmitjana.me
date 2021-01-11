@@ -46,14 +46,13 @@ const Wrapper = styled.div`
       flex-direction: column;
       .date {
         font-size: 0.875rem;
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
       }
       .description {
         font-size: 1.125rem;
         margin: 0.5rem 0 0;
       }
       .tech {
-        /* font-weight: bold; */
         display: flex;
         flex-wrap: wrap;
         margin: auto 0 0;

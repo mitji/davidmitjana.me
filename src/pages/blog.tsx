@@ -21,6 +21,7 @@ export default function Blog() {
               excerpt
               rawDate: date
               date: date(formatString: "DD MMM YYYY")
+              tags
             }
             id
             timeToRead
@@ -47,6 +48,7 @@ export default function Blog() {
               date={postData.date}
               excerpt={postData.excerpt}
               rawDate={postData.rawDate}
+              tags={postData.tags}
               timeToRead={edge.node.timeToRead}
               title={postData.title}
               to={postData.slug}

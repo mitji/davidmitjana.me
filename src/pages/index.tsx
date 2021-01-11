@@ -106,6 +106,7 @@ export default function Home() {
               excerpt
               rawDate: date
               date(formatString: "DD MMM YYYY")
+              tags
             }
             id
             timeToRead
@@ -154,6 +155,7 @@ export default function Home() {
               date={postData.date}
               excerpt={postData.excerpt}
               rawDate={postData.rawDate}
+              tags={postData.tags}
               timeToRead={edge.node.timeToRead}
               title={postData.title}
               to={`blog/${postData.slug}`}

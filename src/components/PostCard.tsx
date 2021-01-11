@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'gatsby';
 import styled from 'styled-components';
+import { Tech, TechWrapper } from '../elements';
+import { media } from '../utils';
 
 const Wrapper = styled.div`
   padding: 1rem;
@@ -17,10 +19,15 @@ const Wrapper = styled.div`
   .post {
     &__info {
       font-size: 0.875rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
     &__excerpt {
       font-size: 1.125rem;
+      margin-top: 0.5rem;
+    }
+    &__tags {
+      display: flex;
+      flex-wrap: wrap;
       margin-top: 0.5rem;
     }
   }
@@ -34,9 +41,9 @@ type PostCardProps = {
   rawDate: string,
   excerpt: string,
   timeToRead: number,
+  tags?: Array<string>,
   title: string,
   to: string,
-  tags?: Array<string>
 }
 
 export function PostCard(props: PostCardProps) {
@@ -54,8 +61,14 @@ export function PostCard(props: PostCardProps) {
           min read
         </p>
         <h2>{title}</h2>
-       
         <p className="post__excerpt">{excerpt}</p>
+        { tags && (
+          <div className="post__tags">
+            <TechWrapper>
+              {tags.map((el:string, i:number) => <Tech key={i}>{el}</Tech>)}
+            </TechWrapper>
+          </div>
+        )}
       </Wrapper>
     </Link>
   )

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Img from 'gatsby-image';
-import { BackBtn, OuterLink, SH1, SText } from '../elements';
+import { BackBtn, OuterLink, SH1, SText, Tech, TechWrapper } from '../elements';
 import { Layout, SEO } from '../components';
-import { media } from '../utils';
+import { media } from '../utils';
 
 export const query = graphql`
   query($id: String!, $dir: String!) {
@@ -17,6 +17,7 @@ export const query = graphql`
         excerpt
         rawDate: date
         date: date(formatString: "DD MMM YYYY")
+        tags
       }
     }
     image: allFile(
@@ -39,13 +40,34 @@ export const query = graphql`
   }
 `
 
-const PostInfo = styled.p`
-  color: var(--color-text);
-  margin: 0.5rem 0 2rem;
+const PostHeader = styled.p`
+  .header {
+    &__info {
+      color: var(--color-textGray);
+      margin: 2rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      div {
+        margin-top: 0.5rem;
+      }
+    }
+    &__text {
+      margin-bottom: 2rem;
+      .tags {
+        margin-top: 0.5rem;
+        span {
+          margin-top: 0;
+        }
+      }
+    }
+  }
 `
 
 const HeaderImgWrapper = styled.div`
   width: 100%;
+  box-shadow: 1px 1px 12px -3px #bebebe;
   ${media.lessThan(710)} {
     width: calc(100% + 2.5rem);
     margin-left: -1.25rem;
@@ -70,17 +92,28 @@ export default function BlogPost(props: { data: any }) {
       />
       <div>
         <BackBtn to="/blog">Back to blog</BackBtn>
-        <SH1 style={{margin: '2rem 0 0'}} className="readable-title">{post.frontmatter.title}</SH1>
-        <SText color="var(--color-textGray)" style={{margin: '0'}}>{post.frontmatter.excerpt}</SText>
-        <PostInfo>
-          <time dateTime={post.frontmatter.rawDate}>{post.frontmatter.date}</time>
-          {' '}
-          ·
-          {' '}
-          {post.timeToRead}
-          {' '}
-          min read
-        </PostInfo>
+        <PostHeader>
+          <div className="header__info">
+            <div>
+              <time dateTime={post.frontmatter.rawDate}>{post.frontmatter.date}</time>
+              {' '}
+              ·
+              {' '}
+              {post.timeToRead}
+              {' '}
+              min read
+            </div>
+          </div>
+          <div className="header__text">
+            <SH1 style={{margin: '1rem 0 0'}} className="readable-title">{post.frontmatter.title}</SH1>
+            <SText color="var(--color-textGray)" style={{margin: '0'}}>{post.frontmatter.excerpt}</SText>
+            { post.frontmatter.tags && (
+              <TechWrapper className="tags" style={{marginBottom: '0 0 2rem'}}>
+                {post.frontmatter.tags.map((el:string, i:number) => <Tech key={i}>{el}</Tech>)}
+              </TechWrapper>
+            )}
+          </div>
+        </PostHeader>
         <HeaderImgWrapper>
           {
             image.edges[0].node.childImageSharp
