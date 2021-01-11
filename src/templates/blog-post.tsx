@@ -40,18 +40,11 @@ export const query = graphql`
   }
 `
 
-const PostHeader = styled.p`
+const PostHeader = styled.div`
   .header {
     &__info {
       color: var(--color-textGray);
       margin: 2rem 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      div {
-        margin-top: 0.5rem;
-      }
     }
     &__text {
       margin-bottom: 2rem;
@@ -94,15 +87,13 @@ export default function BlogPost(props: { data: any }) {
         <BackBtn to="/blog">Back to blog</BackBtn>
         <PostHeader>
           <div className="header__info">
-            <div>
-              <time dateTime={post.frontmatter.rawDate}>{post.frontmatter.date}</time>
-              {' '}
-              ·
-              {' '}
-              {post.timeToRead}
-              {' '}
-              min read
-            </div>
+            <time dateTime={post.frontmatter.rawDate}>{post.frontmatter.date}</time>
+            {' '}
+            ·
+            {' '}
+            {post.timeToRead}
+            {' '}
+            min read
           </div>
           <div className="header__text">
             <SH1 style={{margin: '1rem 0 0'}} className="readable-title">{post.frontmatter.title}</SH1>
