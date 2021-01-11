@@ -4,10 +4,10 @@ slug: fixing-styled-components-ssr-in-gatsby-build
 featureImg: img.png
 excerpt: How to fix styled-components ssr issues in Gatsby production build.
 date: 2021-01-08
+tags: [gatsby, styled-components, ssr]
 ---
-<!-- #### My Problem ⚠️ -->
+#### My Problem ⚠️
 In the development environment everything was working fine, but after building the Gatsby site, an annoying flickering effect appeared where styles from styled-components where being applied with delay, like shown in the gif above.
-<!-- The problem becomes more annoying if the user has bad internet connection (replicated slowing down network speed in chrome devtools). -->
 
 Although that's the problem I personally encountered, it could also happen that your app is ignoring some or all styles from styled-components. 
 We'll see why this happens and how to troubleshoot it.
