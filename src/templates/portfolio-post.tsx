@@ -51,7 +51,7 @@ const PostHeader = styled.div`
   }
   .project {
     &__year {
-      color: var(--color-text);
+      color: var(--color-textGray);
     } 
     &__img {
       .gatsby-image-wrapper{
