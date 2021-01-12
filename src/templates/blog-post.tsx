@@ -58,9 +58,10 @@ const PostHeader = styled.div`
   }
 `
 
-const HeaderImgWrapper = styled.div`
+const HeaderImgWrapper = styled.div<{isGif: boolean}>`
   width: 100%;
-  box-shadow: 1px 1px 12px -3px #bebebe;
+  padding: ${props => props.isGif ? '16px' : '0'};
+  background: ${props => props.isGif ? '#011627' : 'none'};
   ${media.lessThan(710)} {
     width: calc(100% + 2.5rem);
     margin-left: -1.25rem;
@@ -105,11 +106,11 @@ export default function BlogPost(props: { data: any }) {
             )}
           </div>
         </PostHeader>
-        <HeaderImgWrapper>
+        <HeaderImgWrapper isGif={!image.edges[0].node.childImageSharp}>
           {
             image.edges[0].node.childImageSharp
               ? <Img fluid={image.edges[0].node.childImageSharp.fluid} alt="Project logo" />
-              : <img alt="Project logo" src={image.edges[0].node.publicURL} style={{width: '100%', marginBottom: '15px'}} />
+              : <img alt="Project logo" src={image.edges[0].node.publicURL} style={{width: '100%'}} />
           }
         </HeaderImgWrapper>
         <br />
