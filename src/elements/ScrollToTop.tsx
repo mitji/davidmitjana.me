@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useHasMounted } from '../hooks';
 import Chevron from '../assets/chevron.svg';
-
+import { media } from '../utils/MediaQueries';
 
 const ToTopButton = styled.button<{show: boolean}>`
   display: flex;
@@ -30,10 +30,8 @@ const ToTopButton = styled.button<{show: boolean}>`
       fill: #6a727a !important;
     }
   }
-  @media screen and (max-width: 560px) {
-    padding: 1.25rem;
-    bottom: 1.25rem;
-    right: 1.25rem;
+  ${media.lessThan(560)} {
+    display: none;
   }
 `
 export function ScrollToTop() {
