@@ -3,6 +3,7 @@ export * from './Buttons';
 export * from './Code';
 export * from './List';
 export * from './NameLogo';
+export * from './Separator';
 export * from './ScrollToTop';
 export * from './Tech';
 export * from './ThemeToggler';
