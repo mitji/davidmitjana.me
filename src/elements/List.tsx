@@ -7,6 +7,7 @@ export const Ul = styled.ul`
   color: var(--color-text);
   li {
     font-size: 1.25rem;
+    line-height: 1.55;
     ${media.lessThan(560)} {
       font-size: 1.125rem;
     }
@@ -23,6 +24,7 @@ export const Ol = styled.ol`
   color: var(--color-text);
   li {
     font-size: 1.25rem;
+    line-height: 1.55;
     ${media.lessThan(560)} {
       font-size: 1.125rem;
     }

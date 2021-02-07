@@ -63,11 +63,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   pre.prism-code {
-  border-radius: 3px;
-  padding: 1.5rem;
-  font-size: 0.875rem;
-  overflow-x: auto;
-}
+    border-radius: 3px;
+    padding: 1.5rem;
+    font-size: 1rem;
+    overflow-x: auto;
+    line-height: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
 
   /**
   --- MODIFY SCROLLBAR ---

@@ -80,6 +80,7 @@ export const OuterLink = styled.a<{underline?: boolean, inline?: boolean, paddin
   ${props => props.inline ? css`
     color: #009BF9;
     height: max-content;
+    word-break: break-all;
     &:hover {
       background-color: var(--color-outerLinkBg);
     }
