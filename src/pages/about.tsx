@@ -66,7 +66,7 @@ export default function About() {
         and I currently work as a full-stack developer at
         {' '}
         <OuterLink href="https://www.ddb.es" target="_blank" rel="noreferrer" inline>DDB Spain</OuterLink>
-        , which is part of one of the most important advertisement companies in the world.
+        , which is part of one of the most important advertising companies in the world.
         {' '}
         I also build stuff in my free time, you can check all my side projects 
         {' '}
