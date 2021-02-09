@@ -1,0 +1,105 @@
+---
+title: Media queries in JavaScript
+slug: media-queries-in-javascript
+featureImg: img.png
+excerpt: Learn how to conditionally run javascript code depending on a media query.
+date: 2021-02-08
+tags: [javascript]
+---
+import { StaticExample, DynamicExample } from './example.tsx';
+
+We all know CSS media queries, which allow us to apply different styles depending on a `@media` rule.
+
+But did you know media queries aren't only restricted to css? Sometimes it can be useful to run JavaScript code depending on a media query. 
+I recently faced a situation where I had to run a piece of code only if a spcecific media query was matched, and I found a useful and simple JavaScript method that does the job. 
+Which one? The `window` API method `matchMedia()`.
+
+#### The matchMedia() method
+
+In short, it's a simple and fast way to write media queries in JavaScript. The concept is the same as in CSS: if the condition of the media query is matched, then run some code. We can pass any of the CSS `@media` rules (screen, orientation, min-width, etc) as a string argument to the method, which returns a `MediaQueryList` object with 
+**two properties** and **two methods**.
+
+Properties:
+- `matches`: a boolean which is `true` if the media query is satisfied or `false` otherwise. This is the basic usage and more intuitive property that you will be using in most cases, and is very similar to how we write CSS media queries.
+- `media`: the media query itself.
+
+Methods:
+- `addlistener()` or `addEventListener()`: adds a callback which is called when the media query changes its state.
+- `removeListener()` or `removeEventListener()`: removes the specified callback previously defined in the `addListener()`.
+
+You can dig more on the `matchMedia()` method in [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) and [[2]](https://www.w3.org/TR/cssom-view/#dom-window-matchmedia), 
+and on the `MediaQueryList` object in [[3]](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList).
+
+#### Example
+
+<StaticExample />
+
+```javascript
+const exampleElement = document.getElementById('example-static');
+if (
+  exampleElement && 
+  window.matchMedia('(max-width: 960px)').matches
+) {
+	exampleElement.style.border = '2px solid orange';
+}
+```
+
+<DynamicExample />
+
+```javascript
+const exampleElement = document.getElementById('example-dynamic');
+
+function changeBorderColor() {
+  if (exampleElement) {
+    if (exampleElement.style.border === '2px solid var(--color-text)') {
+      exampleElement.style.border = '2px solid #00d9ff';
+    } else {
+      exampleElement.style.border = '2px solid var(--color-text)';
+    }
+  }
+}
+
+const mediaQueryListObject = window.matchMedia('(max-width: 960px)');
+
+// attach listener
+// https://stackoverflow.com/questions/56466261/matchmedia-addlistener-marked-as-deprecated-addeventlistener-equivalent
+// https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/addListener
+try {
+  mediaQueryListObject.addEventListener('change', changeBorderColor);
+} catch (e1) {
+    try {
+      mediaQueryListObject.addListener(changeBorderColor);
+    } catch (e2) {
+      alert(e2);
+    }
+}
+
+// first page load
+if (
+  exampleElement && 
+  window.matchMedia('(max-width: 560px)').matches
+) {
+  exampleElement.style.border = '2px solid orange';
+}
+```
+
+Pretty simple and straightforward implementation right?
+
+#### Conclusions
+
+In the second code block it can be argued that it would be more optimal to use the traditional `window.addEventListener('resize', someFunction)` and use `window.innerWidth` to 
+obtain the current viewport width, but the presented approach using `matchMedia()` is intended to show how this method lets us detect media query changes in JavaScript, 
+not to provide the best approach to that specific problem.
+
+However, listening to `resize` events will call the callback function on every viewport resize, 
+which would be less performant than using the `matchMedia()` method to listen to a change in the specific media query.
+
+In addition to this, using the presented method gives us a much broader spectrum of possibilities since it can not only perform traditional 
+operations like listening to changes of the viewport width, but also detect changes on the well-known media queries.
+
+---
+
+#### References
+[1] https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia<br />
+[2] https://www.w3.org/TR/cssom-view/#dom-window-matchmedia<br />
+[3] https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
