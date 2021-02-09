@@ -6,7 +6,10 @@ excerpt: How to fix styled-components ssr issues in Gatsby production build.
 date: 2021-01-08
 tags: [gatsby, styled-components, ssr]
 ---
-#### My Problem ⚠️
+import { SH4 } from '../../elements/Typography.tsx';
+
+<SH4 margin="0 0 1rem" className="readable-title">My Problem ⚠️</SH4>
+
 In the development environment everything was working fine, but after building the Gatsby site, an annoying flickering effect appeared where styles from styled-components where being applied with delay, like shown in the gif above.
 
 Although that's the problem I personally encountered, it could also happen that your app is ignoring some or all styles from styled-components. 
