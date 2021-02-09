@@ -2,7 +2,7 @@
 title: Media queries in JavaScript
 slug: media-queries-in-javascript
 featureImg: img.png
-excerpt: Learn how to conditionally run javascript code depending on a media query.
+excerpt: Learn how to conditionally run JavaScript code depending on a media query.
 date: 2021-02-08
 tags: [javascript]
 ---
@@ -77,7 +77,7 @@ try {
 // first page load
 if (
   exampleElement && 
-  window.matchMedia('(max-width: 560px)').matches
+  window.matchMedia('(max-width: 960px)').matches
 ) {
   exampleElement.style.border = '2px solid orange';
 }
@@ -87,12 +87,12 @@ Pretty simple and straightforward implementation right?
 
 #### Conclusions
 
-In the second code block it can be argued that it would be more optimal to use the traditional `window.addEventListener('resize', someFunction)` and use `window.innerWidth` to 
+In the second code block it can be argued that it would be more optimal to use the traditional `window.addEventListener('resize', callbackFunction)` and use `window.innerWidth` to 
 obtain the current viewport width, but the presented approach using `matchMedia()` is intended to show how this method lets us detect media query changes in JavaScript, 
 not to provide the best approach to that specific problem.
 
 However, listening to `resize` events will call the callback function on every viewport resize, 
-which would be less performant than using the `matchMedia()` method to listen to a change in the specific media query.
+which would be less performant than using the `matchMedia()` method that only calls the callback when the specified media query is matched.
 
 In addition to this, using the presented method gives us a much broader spectrum of possibilities since it can not only perform traditional 
 operations like listening to changes of the viewport width, but also detect changes on the well-known media queries.
