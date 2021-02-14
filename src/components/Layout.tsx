@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useHasMounted } from '../hooks';
 import { media } from '../utils';
 
 const SLayout = styled.div`
@@ -15,13 +14,10 @@ const SLayout = styled.div`
 `
 
 export function Layout(props: { children: React.ReactNode }) {
-  const hasMounted = useHasMounted();
   const { children } = props;
   return (
     <SLayout>
-      {/* {hasMounted ? ( */}
       {children}
-      {/* ) : null} */}
     </SLayout>
   )
 }

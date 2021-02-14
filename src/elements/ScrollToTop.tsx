@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useHasMounted } from '../hooks';
 import Chevron from '../assets/chevron.svg';
 import { media } from '../utils/MediaQueries';
 
@@ -36,8 +35,7 @@ const ToTopButton = styled.button<{show: boolean}>`
 `
 export function ScrollToTop() {
   const [show, setShow] = useState<boolean>(false);
-  const hasMounted = useHasMounted()
-
+  
   function handleScroll() {
     const viewportWidth = window.innerWidth
     const content = document.getElementById('___gatsby'); 
@@ -61,14 +59,12 @@ export function ScrollToTop() {
   
   return (
     <>
-      {hasMounted ? (
-        <ToTopButton
-          onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-          show={show}
-        >
-          <Chevron />
-        </ToTopButton>
-      ) : null}
+      <ToTopButton
+        onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+        show={show}
+      >
+        <Chevron />
+      </ToTopButton>
     </>
   )
 }

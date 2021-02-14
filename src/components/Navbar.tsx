@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { NameLogo, ThemeToggler } from '../elements';
-import { useHasMounted } from '../hooks';
 import { media } from '../utils';
 
 const SNavWrapper = styled.nav<{ showNav: boolean }>`
@@ -104,7 +103,6 @@ const NavLink = ( props: { to: string, text: string, activeClassName: string } )
 
 export function Navbar() {
   const [showNav, setShowNav] = useState<boolean>(true);
-  const hasMounted = useHasMounted();
 
   let prevDistance = 0;
   function handleScroll() {
@@ -124,7 +122,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* {hasMounted ? ( */}
       <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
         <SNav>
           <NameLogo />
@@ -139,7 +136,6 @@ export function Navbar() {
           </div>
         </SNav>
       </SNavWrapper>
-      {/* ) : null} */}
     </>
   )
 }
