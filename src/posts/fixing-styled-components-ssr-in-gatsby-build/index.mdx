@@ -53,9 +53,9 @@ In my case, checking solutions 2 and 3 helped me to fix the issue. As an example
 ```javascript
 export const wrapRootElement = ({element}) => (
   // Context API provider
-  <ThemeProvider>
+  <AppProvider>
     {element}
-  </ThemeProvider>
+  </AppProvider>
 )
 
 export const wrapPageElement = ({ element }) => (

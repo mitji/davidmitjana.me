@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { InnerLink, SH4 } from '../elements';
 import { Intro, Layout, PostCard, ProjectCard, SEO } from '../components';
-import { media } from '../utils';
+import { media, AppContext } from '../utils';
 
 const SectionHeader = styled.div`
   display: flex;
@@ -41,14 +41,13 @@ const SiteSettingsBanner = styled.div`
   align-items: center;
   margin-top: 3rem;
   padding: 2rem;
-  background: linear-gradient(to right top, #64a1f6, #90ffe1);
   font-weight: 700;
   border-radius: 3px;
   p {
     font-size: 1.5rem;
     color: var(--color-title);
   }
-  a {
+  button {
     font-size: 1.125rem;
     padding: 0.5rem 2rem 0.5rem 0.75rem;
     color: #64a1f6;
@@ -56,14 +55,18 @@ const SiteSettingsBanner = styled.div`
     border-radius: 5px;
     transition: 0.3s;
     position: relative;
+    outline: none;
+    cursor: pointer;
     box-shadow: 4px 4px 0px 1px #e1e1e1;
+    border: 2px solid var(--color-text) !important;
+    font-weight: bold;
     &:after {
       content: '>';
       position: absolute;
       right: 0;
       top: 50%;
       opacity: 1;
-      transform: translate3d(-0.85rem,-51%,0);
+      transform: translate3d(-0.85rem,-50%,0);
       transition: 0.5s;
     }
     &:hover {
@@ -135,6 +138,8 @@ export default function Home() {
     }
   `);
 
+  const { setIsSettingsOpen } = useContext(AppContext);
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -191,9 +196,9 @@ export default function Home() {
 
       <SiteSettingsBanner>
         <p>This site has customizable settings.</p>
-        <Link to="settings" onClick={() => typeof window !== 'undefined' && window.gtag('event', 'inbound_settings_banner', { from: 'banner' })}>
+        <button type="button" onClick={() => setIsSettingsOpen(true)}>
           Check it out
-        </Link>
+        </button>
       </SiteSettingsBanner>
     </Layout>
   )

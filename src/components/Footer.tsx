@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { InnerLink } from '../elements';
+import { InnerCTA } from '../elements';
 import Github from '../assets/github.svg';
 import Linkedin from '../assets/linkedin.svg';
 import Email from '../assets/email.svg';
 import { useHasMounted } from '../hooks';
-import { media } from '../utils';
+import { media, AppContext } from '../utils';
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -59,7 +59,9 @@ const SFooter = styled.div`
 
 export function Footer() {
   const [year, setYear] = useState<number | null>(null);
-  const hasMounted = useHasMounted()
+  const hasMounted = useHasMounted();
+  const { setIsSettingsOpen } = useContext(AppContext);
+
   useEffect(() => {
     const date = new Date();
     setYear(date.getFullYear());
@@ -71,15 +73,20 @@ export function Footer() {
         <FooterWrapper>
           <SFooter>
             <div className="footer__links">
-              <InnerLink
-                to="/settings"
+              <InnerCTA
+                type="button"
+                style={{color: '#afafaf', paddingRight: '6px'}}
+                onClick={() => {
+                  setIsSettingsOpen(true);
+                  if (typeof window !== 'undefined') {
+                    window.gtag('event', 'inbound_settings_footer', { from: 'footer' });
+                  }
+                }}
                 inline
-                style={{color: '#afafaf'}}
-                onClick={() => typeof window !== 'undefined' && window.gtag('event', 'inbound_settings_footer', { from: 'footer' })}
               >
                 Site settings
                 <span role="img" aria-label="Gear" style={{marginLeft: '0.25rem'}}>⚙️</span>
-              </InnerLink>
+              </InnerCTA>
               <div className="contact">
                 <a
                   href="https://github.com/mitji"

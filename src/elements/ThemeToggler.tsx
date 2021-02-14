@@ -1,6 +1,6 @@
 import React, { useContext, SyntheticEvent } from 'react';
 import styled from 'styled-components';
-import { ThemeContext } from '../utils';
+import { AppContext } from '../utils';
 
 const Label = styled.label<{url: string}>`
   position: relative;
@@ -63,7 +63,7 @@ const Label = styled.label<{url: string}>`
 `
 
 export function ThemeToggler() {
-  const { theme, updateTheme } = useContext(ThemeContext);
+  const { theme, updateTheme } = useContext(AppContext);
 
   const lightSrc = 'https://res.cloudinary.com/cyranoapp/image/upload/v1609246091/davidmitjana.me/light_u1t95n.png';
   const darkSrc = 'https://res.cloudinary.com/cyranoapp/image/upload/v1609246090/davidmitjana.me/dark_itk2rx.png';

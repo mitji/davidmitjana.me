@@ -1,6 +1,6 @@
 import React from 'react';
-import { GlobalStyles, MDXStyles, ThemeProvider } from './src/utils';
-import { Footer, Navbar } from './src/components';
+import { GlobalStyles, MDXStyles, AppProvider } from './src/utils';
+import { Footer, Navbar, OpaqueLayer, Settings } from './src/components';
 import { ScrollToTop } from './src/elements';
 import { COLORS } from './src/constants';
 
@@ -111,9 +111,9 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
 
 // eslint-disable-next-line react/prop-types
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider>
+  <AppProvider>
     {element}
-  </ThemeProvider>
+  </AppProvider>
 )
 
 export const wrapPageElement = ({ element }) => (
@@ -124,6 +124,7 @@ export const wrapPageElement = ({ element }) => (
       {element}
     </MDXStyles>
     <ScrollToTop />
+    <OpaqueLayer component={<Settings />} />
     <Footer />
   </>
 );

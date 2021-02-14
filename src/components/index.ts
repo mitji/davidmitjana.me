@@ -2,6 +2,8 @@ export * from './Footer';
 export * from './Intro';
 export * from './Layout';
 export * from './Navbar';
+export * from './OpaqueLayer';
 export * from './PostCard';
 export * from './ProjectCard';
 export * from './Seo';
+export * from './Settings';

@@ -3,7 +3,7 @@
 import React, { createContext, useEffect, useMemo, useState, } from 'react';
 import { COLORS } from '../constants';
 
-type ThemeContextProps = {
+type AppContextProps = {
   theme: string | undefined,
   updateTheme: (val: string) => void,
   fontSize: string | undefined,
@@ -12,16 +12,27 @@ type ThemeContextProps = {
   updateTextFont: (val: string) => void,
   titleFont: string | undefined,
   updateTitleFont: (val: string) => void
+  isSettingsOpen: boolean | null,
+  setIsSettingsOpen: React.Dispatch<React.SetStateAction<boolean | null>>;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>(null);
+export const AppContext = createContext<AppContextProps>(null);
 
-export const ThemeProvider = (props: {children: React.ReactNode}) => {
+export const AppProvider = (props: {children: React.ReactNode}) => {
   const { children } = props;
+
   const [theme, setTheme] = useState<string | undefined>(undefined);
+
   const [fontSize, setFontSize] = useState<string | undefined>(undefined);
   const [textFont, setTextFont] = useState<string | undefined>(undefined);
   const [titleFont, setTitleFont] = useState<string | undefined>(undefined);
+
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    isSettingsOpen ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto';
+  }, [isSettingsOpen]);
 
   // initialize values
   useEffect(() => {
@@ -103,9 +114,17 @@ export const ThemeProvider = (props: {children: React.ReactNode}) => {
   }, [titleFont, setTitleFont]);
 
   return (
-    <ThemeContext.Provider value={{...contextValue, ...contextFontSize, ...contextTextFont, ...contextTitleFont}}>
+    <AppContext.Provider value={{
+      ...contextValue,
+      ...contextFontSize,
+      ...contextTextFont,
+      ...contextTitleFont,
+      isSettingsOpen,
+      setIsSettingsOpen
+    }}
+    >
       {children}
-    </ThemeContext.Provider>
+    </AppContext.Provider>
   )
 
 }

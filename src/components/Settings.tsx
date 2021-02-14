@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Layout, SEO } from '../components';
 import { OuterLink, SH1, SH4, SText, ThemeToggler } from '../elements';
-import { ThemeContext } from '../utils';
+import { AppContext } from '../utils';
 
 const SlectorsWrapper = styled.div`
   display: flex;
@@ -33,13 +32,12 @@ const SettingSelector = styled.button<{isSelected: boolean}>`
   }
 `
 
-export default function Settings() {
+export function Settings() {
   const sansSerif = '-apple-system,"BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue", "Helvetica", "Arial"';
   const serif = '"Lora", Times New Roman, serif';
-  const { fontSize, updateFontSize, textFont, updateTextFont, titleFont, updateTitleFont } = useContext(ThemeContext);
+  const { fontSize, updateFontSize, textFont, updateTextFont, titleFont, updateTitleFont } = useContext(AppContext);
   return (
-    <Layout>
-      <SEO title="Site Settings" />
+    <>
       <SH1>Customize your experience in this site</SH1>
       <SText className="readable-text">
         Below you'll find all the settings you can customize in this site.
@@ -71,6 +69,6 @@ export default function Settings() {
         <SettingSelector onClick={() => updateTextFont(serif)} isSelected={textFont === serif}>Serif</SettingSelector>
         <SettingSelector onClick={() => updateTextFont(sansSerif)} isSelected={textFont === sansSerif}>Sans-serif</SettingSelector>
       </SlectorsWrapper>
-    </Layout>
+    </>
   )
 }

@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { media } from '../utils/MediaQueries';
 
 // link to another page inside the site
@@ -10,6 +10,53 @@ export const InnerLink = styled(Link)<{inline?: boolean}>`
   ${props => props.inline ? css`
     transition: 0.3s;
     height: max-content;
+    &:hover {
+      background: var(--color-innerLinkBg);
+    }
+  ` : css`
+    transition: 0.5s;
+    padding: 0.3rem 0;
+    &:after {
+      content: '>';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      opacity: 0;
+      transform: translate3d(1rem,-50%,0);
+      transition: 0.5s;
+      ${media.lessThan(560)} {
+        opacity: 1;
+      }
+    }
+    &:hover {
+      padding-left: 8px;
+      padding-right: 30px;
+      background: var(--color-innerLinkBg);
+      color: #009BF9;
+      &:after {
+        opacity: 1;
+        transform: translate3d(-0.85rem,-50%,0);
+      }
+    }
+    &:active {
+      transform: scale(0.97);
+      background: var(--color-innerLinkBg);
+    }
+  `}
+`
+
+// link to another page inside the site
+export const InnerCTA = styled.button<{inline?: boolean}>`
+  position: relative;
+  cursor: pointer;
+  color: #009BF9;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  ${props => props.inline ? css`
+    transition: 0.3s;
+    height: max-content;
+    background: none;
     &:hover {
       background: var(--color-innerLinkBg);
     }
