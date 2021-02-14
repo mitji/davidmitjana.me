@@ -27,10 +27,10 @@ const SectionHeader = styled.div`
 
 const arrowKeyframe = keyframes`
   from {
-    transform: translate3d(-0.85rem,-51%,0);
+    transform: translate3d(-0.85rem,-50%,0);
   }
   to {
-    transform: translate3d(-0.5rem,-51%,0);
+    transform: translate3d(-0.5rem,-50%,0);
   }
 `
 
