@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { AppContext } from '../utils';
+import { AppContext, media } from '../utils';
 
 export const ModalWrapper = styled.div`
   width: 100vw;
@@ -28,28 +28,29 @@ const Modal = styled.div`
   max-width: 50rem;
   height: 100%;
   background: var(--color-backgroundBody);
-  padding: 3rem;
+  padding: 2rem;
   overflow: auto;
   transform: translate3d(100%,0,0);
   transition: transform 0.3s 0.1s;
-  /* width */
-  &::-webkit-scrollbar {
-      display: none;
+  ${media.moreThan(560)} {
+    padding: 3rem;
+    /* width */
+    &::-webkit-scrollbar {
+      width: 12px;
     }
     /* Track */
     &::-webkit-scrollbar-track {
-      border: 1px solid #64a1f6;
+      border: none;
     }
-    
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: #7f91b936;
+      background: var(--color-gray1);
     }
-    
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-      background: #86f664;
+      background: var(--color-textGray);
     }
+  }
   &.modal-open {
     transform: translate3d(0%,0,0);
   }
@@ -57,13 +58,16 @@ const Modal = styled.div`
     transform: translate3d(100%,0,0);
   }
   .close-btn {
-    transform: translate3d(-80%, -80%, 0);
+    transform: translate3d(-60%, -60%, 0);
     background: none;
     border: none;
     color: var(--color-text);
     font-size: 2rem;
     cursor: pointer;
     outline: none;
+    ${media.moreThan(560)} {
+      transform: translate3d(-80%, -80%, 0);
+    }
   }
 `
 
