@@ -15,7 +15,7 @@ export function StaticExample () {
 
   return (
     <SText id="example-static" style={{ border: '2px solid var(--color-text)', padding: '0.5rem'}}>
-      The code below will change this paragraph border color depending on the width of your browser viewport. The default border is the same as the text (black/white), but if you're reading this on a device with a viewport 
+      The code below will change this paragraph border color depending on the width of your browser viewport. The default border color is the same as the text (black/white), but if you're reading this on a device with a viewport 
       smaller than 960px, then you'll see it in 
       {' '}
       <span style={{color: 'orange'}}>orange</span>
