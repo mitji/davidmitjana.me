@@ -10,9 +10,8 @@ import { StaticExample, DynamicExample } from './example.tsx';
 
 We all know CSS media queries, which allow us to apply different styles depending on a `@media` rule.
 
-But did you know media queries aren't only restricted to css? Sometimes it can be useful to run JavaScript code depending on a media query. 
-I recently faced a situation where I had to run a piece of code only if a spcecific media query was matched, and I found a useful and simple JavaScript method that does the job. 
-Which one? The `window` API method `matchMedia()`.
+But did you know media queries aren't only restricted to CSS? Sometimes it can be useful to run JavaScript code depending on a media query. 
+How? With the `window` API method `matchMedia()`.
 
 #### The matchMedia() method
 
@@ -26,9 +25,6 @@ Properties:
 Methods:
 - `addlistener()` or `addEventListener()`: adds a callback which is called when the media query changes its state.
 - `removeListener()` or `removeEventListener()`: removes the specified callback previously defined in the `addListener()`.
-
-You can dig more on the `matchMedia()` method in [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) and [[2]](https://www.w3.org/TR/cssom-view/#dom-window-matchmedia), 
-and on the `MediaQueryList` object in [[3]](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList).
 
 #### Example
 
@@ -66,7 +62,7 @@ const mediaQueryListObject = window.matchMedia('(max-width: 960px)');
 // https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/addListener
 try {
   mediaQueryListObject.addEventListener('change', changeBorderColor);
-} catch (e1) {
+} catch {
     try {
       mediaQueryListObject.addListener(changeBorderColor);
     } catch (e2) {
@@ -100,6 +96,7 @@ operations like listening to changes of the viewport width, but also detect chan
 ---
 
 #### References
-[1] https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia<br />
-[2] https://www.w3.org/TR/cssom-view/#dom-window-matchmedia<br />
-[3] https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
+https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia<br />
+https://www.w3.org/TR/cssom-view/#dom-window-matchmedia<br />
+https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList<br />
+https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Testing_media_queries
