@@ -52,7 +52,7 @@ export const InnerCTA = styled.button<{inline?: boolean}>`
   color: #009BF9;
   border: none;
   outline: none;
-  font-size: 1rem;
+  font-size: 1.125rem;
   ${props => props.inline ? css`
     transition: 0.3s;
     height: max-content;
