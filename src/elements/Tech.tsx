@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { media } from '../utils/MediaQueries';
 
 export const TechWrapper = styled.div`
   span {

@@ -121,21 +121,19 @@ export function Navbar() {
   }, []);
 
   return (
-    <>
-      <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
-        <SNav>
-          <NameLogo />
-          <div className="nav-utils">
-            <SNavLinksWrapper>
-              <NavLink to="/blog" text="Blog" activeClassName="active" />
-              <NavLink to="/portfolio" text="Portfolio" activeClassName="active" />
-              <NavLink to="/about" text="About" activeClassName="active" />
-              <NavLink to="/contact" text="Contact" activeClassName="active" />
-            </SNavLinksWrapper>
-            <ThemeToggler />
-          </div>
-        </SNav>
-      </SNavWrapper>
-    </>
+    <SNavWrapper className={showNav ? 'show' : 'hide'} showNav={showNav}>
+      <SNav>
+        <NameLogo />
+        <div className="nav-utils">
+          <SNavLinksWrapper>
+            <NavLink to="/blog" text="Blog" activeClassName="active" />
+            <NavLink to="/portfolio" text="Portfolio" activeClassName="active" />
+            <NavLink to="/about" text="About" activeClassName="active" />
+            <NavLink to="/contact" text="Contact" activeClassName="active" />
+          </SNavLinksWrapper>
+          <ThemeToggler />
+        </div>
+      </SNav>
+    </SNavWrapper>
   )
 }
