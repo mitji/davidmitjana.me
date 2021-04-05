@@ -113,8 +113,8 @@ export function Intro() {
     if (
       circlePos &&
       circleDim &&
-      x > circlePos.x && x < circlePos.x + circleDim &&
-      y > circlePos.y && y < circlePos.y + circleDim
+      x && x > circlePos.x && x < circlePos.x + circleDim &&
+      y && y > circlePos.y && y < circlePos.y + circleDim
     ) {
       setPerc1((x-circlePos.x)/(circleDim)*100);
       setPerc2((y-circlePos.y)/(circleDim)*100);

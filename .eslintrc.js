@@ -27,13 +27,7 @@ module.exports = {
     '@typescript-eslint/quotes': ['error', 'single'],
     indent: ['error', 2, { SwitchCase: 1 }],
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.tsx'] }],
-    'react/require-default-props': 'off'
-    // '@typescript-eslint/naming-convention': [
-    //   'error',
-    //   {
-    //     'selector': 'variable',
-    //     'format': ['camelCase']
-    //   }
-    // ]
+    'react/require-default-props': 0,
+    'react/no-unescaped-entities': 0
   },
 }
