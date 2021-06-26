@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Link} from 'gatsby';
 import styled from 'styled-components';
 import { Tech, TechWrapper } from '../elements';
-import { media } from '../utils';
+import { media, AppContext } from '../utils';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{theme: string}>`
   padding: 1rem;
   margin-bottom: 1.5rem;
-  box-shadow: 2px 2px 8px -2px var(--color-boxShadow);
+  box-shadow: ${props => props.theme === 'dark' ? undefined : '2px 2px 8px -2px var(--color-boxShadow)'};
   transition: 0.3s;
   border-radius: 3px;
+  /* background: ${props => props.theme === 'dark' ? 'var(--color-backgroundFooter)' : undefined}; */
   h2 {
     color: var(--color-title);
   }
@@ -32,7 +33,8 @@ const Wrapper = styled.div`
     }
   }
   &:hover {
-    box-shadow: 2px 5px 12px 3px var(--color-boxShadow);
+    box-shadow: ${props => props.theme === 'dark' ? undefined : '2px 5px 12px 3px var(--color-boxShadow)'};
+    transform: ${props => props.theme === 'dark' ? 'translate3d(0, -0.25rem, 0)' : undefined};
   }
 `
 
@@ -48,9 +50,10 @@ type PostCardProps = {
 
 export function PostCard(props: PostCardProps) {
   const { date, excerpt, rawDate, tags, timeToRead, title, to} = props;
+  const { theme } = useContext(AppContext);
   return (
     <Link to={to}>
-      <Wrapper>
+      <Wrapper theme={theme}>
         <p className="post__info">
           <time dateTime={rawDate}>{date}</time>
           {' '}

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { Tech, TechWrapper } from '../elements';
-import { media } from '../utils';
+import { media, AppContext } from '../utils';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{theme: string}>`
   position: relative;
   margin-bottom: 1.5rem;
-  box-shadow: 2px 2px 8px -2px var(--color-boxShadow);
+  box-shadow: ${props => props.theme === 'dark' ? undefined : '2px 2px 8px -2px var(--color-boxShadow)'};
   transition: 0.3s;
   border-radius: 3px;
+  /* background: ${props => props.theme === 'dark' ? 'var(--color-backgroundFooter)' : undefined}; */
   #gatsby_link {
     display: flex;
     padding: 1rem;
@@ -70,7 +71,8 @@ const Wrapper = styled.div`
     }
   }
   &:hover {
-    box-shadow: 2px 5px 12px 3px var(--color-boxShadow);
+    box-shadow: ${props => props.theme === 'dark' ? undefined : '2px 5px 12px 3px var(--color-boxShadow)'};
+    transform: ${props => props.theme === 'dark' ? 'translate3d(0, -0.25rem, 0)' : undefined};
   }
 `
 
@@ -101,9 +103,9 @@ type PostCardProps = {
 
 export function ProjectCard(props: PostCardProps) {
   const { date, description, title, tech, to, projectUrl, logoUrl } = props;
-
+  const { theme } = useContext(AppContext);
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <Link to={to} id="gatsby_link">
         <div className="project__img">
           <StaticQuery
