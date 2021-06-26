@@ -58,12 +58,13 @@ const SNavLinksWrapper = styled.ul`
       margin-right: 0;
     }
     a {
+      font-weight: 600;
       padding: 0.5rem 0.75rem;
       cursor: pointer;
       border-radius: 3px;
       transition: 0.3s;
       font-size: 1rem;
-      color: var(--color-text);
+      color: var(--color-textGray);
       display: flex;
       align-items: center;
       ${media.lessThan(560)} {
@@ -72,6 +73,7 @@ const SNavLinksWrapper = styled.ul`
       }
       &:hover {
         background: var(--color-gray1);
+        color: var(--color-title);
       }
       &.active {
         background: var(--color-gray2);

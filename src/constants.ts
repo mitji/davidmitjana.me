@@ -18,7 +18,7 @@ export const COLORS = {
     dark: '#fafafa',
   },
   text: {
-    light: '#2c2c2c',
+    light: '#595959',
     dark: '#D1D5D8',
   },
   textGray: {

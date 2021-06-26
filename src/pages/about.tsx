@@ -55,19 +55,26 @@ export default function About() {
       </Header>
       <SH4 margin="0 0 1rem">Who am I</SH4>
       <SText className="readable-text">
-        I'm an Audiovisual Systems Engineer with a passion for web technologies.
+        I'm an Audiovisual Systems Engineer with a passion for multimedia technologies and web development.
       </SText>
       <SH4 margin="2rem 0 1rem">What do I do</SH4>
       <SText className="readable-text">
-        I have experience as a frontend developer intern in a Spanish fintech called
+        I started my journey into development as a frontend developer intern at
         {' '}
         <OuterLink href="https://www.verse.me/en" target="_blank" rel="noreferrer" inline>Verse</OuterLink>
+        .
         {' '}
-        and I currently work as a full-stack developer at
+        Later I joined
         {' '}
         <OuterLink href="https://www.ddb.es" target="_blank" rel="noreferrer" inline>DDB Spain</OuterLink>
-        , which is part of one of the most important advertising companies in the world.
         {' '}
+        as a full-stack developer, and at the moment I'm working as a frontend developer at
+        {' '}
+        <OuterLink href="https://fxdigital.uk" target="_blank" rel="noreferrer" inline>FX Digital</OuterLink>
+        {' '}
+        working on OTT streaming and Connected TV applications.
+      </SText>
+      <SText>
         I also build stuff in my free time, you can check all my side projects 
         {' '}
         <InnerLink to="/portfolio" inline>here</InnerLink>
