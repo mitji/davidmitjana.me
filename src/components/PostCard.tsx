@@ -33,7 +33,7 @@ const Wrapper = styled.div<{theme: string}>`
     }
   }
   &:hover {
-    box-shadow: ${props => props.theme === 'dark' ? '-1px 0px 0px 0px #ffffff' : '2px 5px 12px 3px var(--color-boxShadow)'};
+    box-shadow: ${props => props.theme === 'dark' ? '-2px 0px 0px 0px #ffffff' : '2px 5px 12px 3px var(--color-boxShadow)'};
     transform: ${props => props.theme === 'dark' ? 'translate3d(0, -0.25rem, 0)' : undefined};
   }
 `
